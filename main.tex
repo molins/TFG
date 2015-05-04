@@ -1,0 +1,132 @@
+% Definiciones y constantes de estilo
+\include{definiciones}
+
+% Definiciones de comandos
+\newcommand{\nombreautor}{TODO: Nombre Apellido1 Apellido2}
+\newcommand{\nombretutor}{TODO: NombreTutor Apellido1 Apellido2}
+\newcommand{\nombretrabajo}{TODO: Título del Trabajo de Fin de Grado}
+\newcommand{\fecha}{TODO: Fecha de entrega}
+\newcommand{\grado}{TODO: Grado}
+\newcommand{\grupoInvestigacion}{TODO: Grupo de investigación}
+\newcommand{\departamento}{TODO: Departamento}
+\newcommand{\facultad}{Escuela Politécnica Superior}
+\newcommand{\universidad}{Universidad Autónoma de Madrid}
+\newcommand{\pieparizq}{TODO: Pie de página par}
+\newcommand{\pieparcen}{Trabajo de Fin de Grado}
+\newcommand{\logoizq}{Logo_EPS}
+\newcommand{\logoder}{Logo_UAM}
+\newcommand{\correo}{TODO: Correo de contacto}
+
+% Glosario y acrónimos
+\makeglossaries
+\input{src/glosario}
+
+% Inicio del documento
+\begin{document}
+
+% Elección del idioma (español)
+\selectlanguage{spanish}
+
+%
+% Portada
+%
+\pagenumbering{gobble}
+\include{portada}
+\hypersetup{pageanchor=true}
+
+%
+% Agradecimientos
+%
+\pagenumbering{Roman}
+\setcounter{page}{0}
+\include{src/agradecimientos}  
+
+%
+% Resumen
+%
+\include{src/resumen}
+
+%
+% Tabla de contenidos
+%
+\tableofcontents
+\listoftables
+\listoffigures
+
+
+%
+% Glosario
+%
+\printglossary[title=Glosario,toctitle=Glosario]
+\cleardoublepage
+
+
+% Estilo de párrafo de los capítulos
+\setlength{\parskip}{0.75em}
+\renewcommand{\baselinestretch}{1.25}
+% Interlineado
+\spacing{1.3}
+% Numeración contenido
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%
+% Introducción
+%
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\include{src/introduccion}
+%
+% Estado del arte
+%
+\include{src/estadoDelArte}
+
+%
+% Diseño
+%
+\include{src/disenho}
+
+%
+% Desarrollo
+%
+\include{src/desarrollo}
+
+%
+% Resultados
+%
+\include{src/resultados}
+
+%
+% Conclusiones
+%
+\include{src/conclusiones} 
+
+%
+% Página en blanco
+%
+\cleardoublepage
+
+%
+% Bibliografía
+%
+\bibliography{src/bibliografia}
+\addcontentsline{toc}{chapter}{Bibliografía}
+
+% No expandir elementos para llenar toda la página
+\raggedbottom
+
+%
+% Apéndices
+%
+\appendix
+\cleardoublepage
+\addappheadtotoc
+\appendixpage
+
+%
+% TODO: Apéndices del TFG
+%
+%\include{src/apendiceEjemplos}
+
+% Fin del documento
+\end{document}
