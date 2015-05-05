@@ -22,7 +22,7 @@
 % Cabecera y pie de página
 \usepackage{fancyhdr}
 % Estilo título capítulos
-\usepackage{quotchap}
+%\usepackage{quotchap}
 % Algoritmos (expresarlos mejor)
 \usepackage{algorithmic}
 % Citas mejoradas
@@ -59,6 +59,22 @@
 \usepackage{setspace}
 % Glosario/Acrónimos
 \usepackage{glossaries}
+
+% Títulos de capítulo 
+% http://osl.ugr.es/CTAN/macros/latex/contrib/titlesec/titlesec.pdf
+\titleformat{\chapter}
+{\normalfont\LARGE\bfseries}{\thechapter}{1em}{}
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+% http://tex.stackexchange.com/questions/53338/reducing-spacing-after-headings
+\titlespacing{\chapter}{0pt}{8pt plus 2pt minus 2pt}{4pt plus 2pt minus 2pt}
+\titlespacing{\section}{0pt}{6pt plus 2pt minus 2pt}{2pt plus 2pt minus 2pt}
+\titlespacing{\subsection}{0pt}{4pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
 
 % Enlaces
 \hypersetup{hidelinks,pageanchor=false,colorlinks,citecolor=Fuchsia,urlcolor=black,linkcolor=Cerulean}
@@ -118,13 +134,13 @@
 % Estilo páginas impares
 \fancyfoot[CO]{\footnotesize\emph{\nombretrabajo}}
 \fancyfoot[RO]{\thepage}
-\rhead[]{\leftmark}
+\rhead[]{}
 
 % Estilo páginas pares
 \fancyfoot[CE]{\emph{\pieparcen}}
 \fancyfoot[LE]{\thepage}
 \fancyfoot[RE]{\pieparizq}
-\lhead[\leftmark]{}
+\lhead[]{}
 
 % Guía del pie de página
 \renewcommand{\footrulewidth}{.6pt}
