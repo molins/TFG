@@ -11,15 +11,13 @@
 \newcommand{\nombretrabajo}{Desarrollo de un sistema de cuestionarios adaptativos para el apoyo al aprendizaje}
 \newcommand{\fecha}{Junio 2015}
 \newcommand{\grado}{Grado en Ingeniería Informática}
-\newcommand{\grupoInvestigacion}{TODO: Grupo de investigación}
-\newcommand{\departamento}{TODO: Departamento}
 \newcommand{\facultad}{Escuela Politécnica Superior}
 \newcommand{\universidad}{Universidad Autónoma de Madrid}
-\newcommand{\pieparizq}{TODO: Pie de página par}
+\newcommand{\pieparizq}{\nombretrabajo}
 \newcommand{\pieparcen}{Trabajo de Fin de Grado}
 \newcommand{\logoizq}{Logo_EPS}
 \newcommand{\logoder}{Logo_UAM}
-\newcommand{\correo}{TODO: Correo de contacto}
+\newcommand{\correo}{pablo.molins@estudiante.uam.es}
 
 % Glosario y acrónimos
 \makeglossaries
@@ -39,16 +37,16 @@
 \hypersetup{pageanchor=true}
 
 %
-% Agradecimientos
+% Resumen
 %
 \pagenumbering{Roman}
 \setcounter{page}{0}
-\include{src/agradecimientos}  
+\include{src/resumen}
 
 %
-% Resumen
+% Agradecimientos
 %
-\include{src/resumen}
+\include{src/agradecimientos}  
 
 %
 % Tabla de contenidos
@@ -86,19 +84,15 @@
 \include{src/estadoDelArte}
 
 %
-% Diseño
+% Diseño y desarrollo
 %
-\include{src/disenho}
+\include{src/disenhoYDesarrollo}
+
 
 %
-% Desarrollo
+% Pruebas y resultados
 %
-\include{src/desarrollo}
-
-%
-% Resultados
-%
-\include{src/resultados}
+\include{src/pruebasYResultados}
 
 %
 % Conclusiones
@@ -130,7 +124,7 @@
 %
 % TODO: Apéndices del TFG
 %
-%\include{src/apendiceEjemplos}
+\include{src/apendiceEjemplos}
 
 % Fin del documento
 \end{document}
