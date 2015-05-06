@@ -7,3 +7,8 @@
 *.lot
 *.gz
 *.toc
+main-blx.bib
+main.glg
+main.gls
+main.run.xml
+main.xdy
