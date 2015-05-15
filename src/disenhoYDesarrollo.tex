@@ -4,9 +4,11 @@
 
 %TODO: Demostrar todo el dominio que pueda sobre cuestiones de la carrera.
 
-%\section{Análisis de requisitos}
+\section{Análisis de requisitos}
 
 \subsection{Análisis funcional}
+
+\subsection{Análisis no funcional}
 
 %\textbf{¿Detallar un análisis funcional? Sí}
 
@@ -35,11 +37,13 @@ En el diseño seguido para este trabajo se decidió utilizar las tecnologías we
 
 %\textbf{Profesor y estudiante}
 
-El sistema tiene dos roles de usuarios claramente diferenciados: rol docente y rol estudiante. El modelo de los usuario está construido en torno a estos dos roles. Mientras que a los docentes se les debe mostrar herramientas para la creación y gestión de preguntas, motorización de resultados y recuperación de exámenes, los estudiantes deben acceder a la ejecución de los cuestionarios
+El sistema tiene dos roles de usuarios claramente diferenciados: rol docente y rol estudiante. Las necesidades que tienen ambos roles respecto de la aplicación, son radicalmente distintas. Mientras que a los docentes se les debe mostrar herramientas para la creación y gestión de cuestionarios, motorización de resultados y recuperación de exámenes, los estudiantes deben acceder a la ejecución de los cuestionarios, a cierta retroalimentación y a sus resultados.
+
+En ninguno de los dos roles podemos presuponer conocimientos informáticos avanzados, como se recoje en \textbf{Influir cita a RNF}. Además, desde las fases iniciales del proyecto se planteó que el sistema debería ser fácil de usar para docentes y estudiantes de todas las etapas educativas, desde la primera infancia hasta la edad adulta. Al ser una aplicación potencialmente disponible a niños y niñas muy jóvenes, tampoco podemos presuponer que el estudiante sepa leer, debiendo dotar en consecuencia al rol del docente la habilidad de incluir ficheros multimedia con los que suplir dicha carencia.
 
 \subsection{Modelo del dominio}
 
-La aplicación pretende ser una ayuda al aprendizaje y por lo tanto, su dominio es la actividad educativa. Más concretamente, aquellas actividades relacionadas con comprobar, por parte del propio estudiante o de un docente, si el estudiante ha adquirido correctamente ciertos conocimientos. Para ello, a grandes rasgos, el equipo docente de una asignatura creará una serie de preguntas y respuestas, agrupadas por contenidos en materias, que utilizará para crear cuestionarios a los que los estudiantes tendrán acceso. Del resultado de dichos cuestionarios, tanto el estudiante como los docentes podrán conocer cómo están realizando su actividad y realizar cambios si fuera necesario.
+La aplicación pretende ser una ayuda al aprendizaje y por lo tanto, su dominio es la actividad educativa. Más concretamente, aquellas actividades relacionadas con comprobar, por parte del propio estudiante o de un docente, si el estudiante ha adquirido correctamente ciertos conocimientos. Para ello, a grandes rasgos, el equipo docente de una asignatura creará una serie de preguntas y respuestas, agrupadas por contenidos en materias, que utilizará para crear cuestionarios a los que los estudiantes tendrán acceso. Del resultado de dichos cuestionarios, tanto el estudiante como los docentes podrán conocer cómo están realizando su actividad y realizar los cambios que fueran necesarios.
 
 La asignatura es la primera división que se utiliza normalmente en los entornos educativos. Un docente se encarga de unas asignaturas en concreto y los estudiantes van explorando por asignaturas. Así, cada asignatura tiene asociados un listado de usuarios, algunos comos docentes y otros como estudiantes. Es importante notar que un usuario podría ser docente en una asignatura pero estudiante en otra, por lo que el rol es un atributo de la unión usuario y asignatura, y no solo del usuario.
 
@@ -47,7 +51,7 @@ Dentro de cada asignatura, existen una serie de materias, que son las entidades 
 
 La división de las preguntas en niveles de relevancia es una de las características novedosas del modelo propuesto. Con ello se busca facilitar que el estudiante adquiera los conocimientos en el orden más adecuado, asegurando que no se enfrenta a conceptos que dependen de otros hasta que domina los conceptos base. Esta divisón también ayuda a evitar que un estudiante obtenga una buena calificación en un examen porque haya aprendido a realizar los ejercicios, pero aún así carezca de entendimiento sobre los conceptos básicos. Una discusión más detallada sobre el sistema de clasificación de las preguntas en niveles puede encontrarse en el apéndice \ref{apend:preguntas en niveles}.
 
-Cada pregunta lleva asociada una serie de respuestas y solo una es la válida. Tanto las preguntas como las respuestas llevan asociadas mucha información, como el enunciado, imágenes opcionales\ldots En la figura \ref{fig:modelo del dominio} se encuentran detallada toda la información asociada a cada entidad. 
+Cada pregunta lleva asociada una serie de respuestas y solo una es la válida. Tanto las preguntas como las respuestas llevan asociadas mucha información, como el enunciado, imágenes opcionales\ldots En la figura \ref{fig:modelo del dominio} se encuentran detallada toda la información asociada a cada entidad que compone el modelo.
 
 \begin{figure}[htp!]
 	\centering
@@ -56,14 +60,32 @@ Cada pregunta lleva asociada una serie de respuestas y solo una es la válida. T
 	\label{fig:modelo del dominio}
 \end{figure}
 
-Una vez escrito un número suficiente de preguntas, el equipo docente puede crear cuestionarios. Las cuestionarios pueden ser de autoevaluación para los alumnos o de evaluación clásica, aunque para el sistema son casos prácticamente idénticos.
+Una vez escrito un número suficiente de preguntas, el equipo docente puede crear cuestionarios. Las cuestionarios pueden ser de autoevaluación para los alumnos o de evaluación clásica, aunque para el sistema son casos idénticos.
 
 %\textbf{Estructura de la BD}
 
 \subsection{Modelo de adaptación}
 
+El sistema contempla dos tipos de adaptación. Primero, tenemos la adaptación de navegación, que es aquella que busca guiar al usuario por el sistema, facilitando su uso. En nuestro caso, la navegación del estudiante es sencilla, por lo que no aplica. Donde sí que es necesario este tipo de adaptación es en el área del docente. A la hora de crear las materias, las preguntas y los cuestionarios existe un orden de trabajo más sencillo que otros y el sistema deberá guiar al usuario por ese recorrido utilizando elementos variables de la interfaz.
+
+El otro tipo de adaptación, la adaptación del contenido, es la más relevante para el sistema. Al igual que la de navegación afecta principalmente al docente, la de contenido afecta sobre todo al estudiante. Las preguntas a las que un estudiante se enfrenta en un cuestionario depende de las respuestas que haya dado a las anteriores.
+
+En concreto, cuando un docente crea un cuestionario establece dos parámetros, $N_l$, que es el número de niveles en los que una pregunta se puede clasificar y $N_v$, que es el número de preguntas que debe responder cada alumno en cada intento del cuestionario. Todos los estudiantes empiezan respondiendo a preguntas del primer nivel y solo se enfrentarán a preguntas de niveles más avanzados cuando hayan respondido correctamente a suficientes preguntas. En concreto, a $\frac{N_v}{N_l}$ preguntas.
+
+\begin{figure}[htp!]
+	\centering
+	\includegraphics[width=0.75\textwidth,clip=true]{modelo_adaptacion}
+	\caption[Modelo de adpatación]{Diagrama que representa todos los posibles recorridos para un cuestionario con $N_l = 3$ y $N_v = 6$. Todos los alumnos entran por la pregunta de la esquina superior izquierda. El número dentro de las circunferencias representa la dificultad de la pregunta. Cuando un alumno responde, toma el camindo de la flecha oscura cuando acierta y de la flecha clara cuando falla. La última fila del diagrama representa las posibles notas que un estudiante puede sacar, ordenadas de menor a mayor de izquieda a derecha.}
+	\label{fig:modelo de adaptacion}
+\end{figure}
+
+
+Por último, el docente puede decidir que los estudiantes reciban feedback al responder una pregunta o no. Si lo hacen, cuando el alumno responda se indicará si la respuesta es correcta o no, además de un mensajes de feedback escrito por el profesor para cada pregunta.
+
+
 %\textbf{Exámenes con distintos niveles y cómo se pasa de uno a otro. Hablar también del feedback o del no lo sé}
 
+El modelo de adaptación depende  
 
 
 \subsection{Motor de adaptación}
