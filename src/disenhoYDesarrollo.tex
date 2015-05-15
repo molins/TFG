@@ -1,38 +1,79 @@
 \chapter{Diseño y desarrollo\label{sec:disenhoYDesarrollo}}
 
-\textbf{Rápida intro.}
+%\textbf{Rápida intro.}
 
-TODO: Demostrar todo el dominio que pueda sobre cuestiones de la carrera.
+%TODO: Demostrar todo el dominio que pueda sobre cuestiones de la carrera.
+
+%\section{Análisis de requisitos}
+
+\subsection{Análisis funcional}
+
+%\textbf{¿Detallar un análisis funcional? Sí}
 
 \section{Diseño}
 
-A la hora de crear un sistema adaptativo como el propuesto, es habitual enfocar el diseño siguiendo el patrón de la figura \ref{fig:diagrama_disenno}
+Los sistemas adaptativos pueden abstrarse como una serie de módulos como los cinco descritos en la figura \ref{fig:diagrama_disenno}. 
 
 \begin{figure}[htp!]
 	\centering
 	\includegraphics[width=0.75\textwidth,clip=true]{diagrama_disenno}
-	\caption{}
+	\caption{División en módulos de un sistema adaptativo}
 	\label{fig:diagrama_disenno}
-\end{figure} 
+\end{figure}
 
-\subsection{Análisis funcional}
+El usuario (representado arriba a la izquierda en la imagen) interacciona con el sistema a través de una interfaz de navegación que representa el estado del motor de adaptación, componente que articula a todos los módulos. El modelo del dominio, de adaptación y el modelo de los usuarios son las herramientas de las que el motor de adaptación obtiene la información que le permite dar una respuesta adecuada a cada situación. Mientras que el modelo del dominio es fijo, en el sentido de que solo ha de fijarse durante la creación del sistema, el modelo de adaptación y el modelo de los usuarios van sufriendo variaciones, en función de la entrada que produzcan los usuarios.
 
-\textbf{¿Detallar un análisis funcional? Sí}
+Durante las siguientes secciones se dará una descripción más detallada de los módulos.
+
+\subsection{Interfaz de navegación}
+
+La interfaz de navegación es la parte del sistema encargada de permitir la interacción entre el sistema y el usuario. Debe representar ante el usuario la información del sistema que este deba conocer, además de recibir la entrada que el usuario genere para que el motor de adaptación pueda incorporarla.
+
+En el diseño seguido para este trabajo se decidió utilizar las tecnologías web como base sobre la que construir, por lo que las funciones de la interfaz de navegación recaén principalmente en el navegador web del usuario. Aún así, el sistema debe crear y, sobre todo, adaptar los ficheros html que envía al navegador del cliente. Para ello se han utilizado también tecnologías web estándar: HTML, Javascript, CSS y PHP. Más información sobre las tecnologías utilizadas en \ref{sec:desarrollo}.
+
+\subsection{Modelo de los usuarios}
+
+%\textbf{Profesor y estudiante}
+
+El sistema tiene dos roles de usuarios claramente diferenciados: rol docente y rol estudiante. El modelo de los usuario está construido en torno a estos dos roles. Mientras que a los docentes se les debe mostrar herramientas para la creación y gestión de preguntas, motorización de resultados y recuperación de exámenes, los estudiantes deben acceder a la ejecución de los cuestionarios
 
 \subsection{Modelo del dominio}
 
-\textbf{Estructura de la BD}
+La aplicación pretende ser una ayuda al aprendizaje y por lo tanto, su dominio es la actividad educativa. Más concretamente, aquellas actividades relacionadas con comprobar, por parte del propio estudiante o de un docente, si el estudiante ha adquirido correctamente ciertos conocimientos. Para ello, a grandes rasgos, el equipo docente de una asignatura creará una serie de preguntas y respuestas, agrupadas por contenidos en materias, que utilizará para crear cuestionarios a los que los estudiantes tendrán acceso. Del resultado de dichos cuestionarios, tanto el estudiante como los docentes podrán conocer cómo están realizando su actividad y realizar cambios si fuera necesario.
+
+La asignatura es la primera división que se utiliza normalmente en los entornos educativos. Un docente se encarga de unas asignaturas en concreto y los estudiantes van explorando por asignaturas. Así, cada asignatura tiene asociados un listado de usuarios, algunos comos docentes y otros como estudiantes. Es importante notar que un usuario podría ser docente en una asignatura pero estudiante en otra, por lo que el rol es un atributo de la unión usuario y asignatura, y no solo del usuario.
+
+Dentro de cada asignatura, existen una serie de materias, que son las entidades que clasifican los conocimientos por similitud dentro de una asignatura. El concepto de materia en este modelo se utiliza para representar los conceptos del lenguaje común de \emph{temas} o \emph{partes} en los que se divide una asignatura. Dentro de cada materia existe un cojunto de preguntas, ordenadas por un nivel de relevancia.
+
+La división de las preguntas en niveles de relevancia es una de las características novedosas del modelo propuesto. Con ello se busca facilitar que el estudiante adquiera los conocimientos en el orden más adecuado, asegurando que no se enfrenta a conceptos que dependen de otros hasta que domina los conceptos base. Esta divisón también ayuda a evitar que un estudiante obtenga una buena calificación en un examen porque haya aprendido a realizar los ejercicios, pero aún así carezca de entendimiento sobre los conceptos básicos. Una discusión más detallada sobre el sistema de clasificación de las preguntas en niveles puede encontrarse en el apéndice \ref{apend:preguntas en niveles}.
+
+Cada pregunta lleva asociada una serie de respuestas y solo una es la válida. Tanto las preguntas como las respuestas llevan asociadas mucha información, como el enunciado, imágenes opcionales\ldots En la figura \ref{fig:modelo del dominio} se encuentran detallada toda la información asociada a cada entidad. 
+
+\begin{figure}[htp!]
+	\centering
+	\includegraphics[width=0.75\textwidth,clip=true]{modelo_dominio}
+	\caption{Modelo del dominio}
+	\label{fig:modelo del dominio}
+\end{figure}
+
+Una vez escrito un número suficiente de preguntas, el equipo docente puede crear cuestionarios. Las cuestionarios pueden ser de autoevaluación para los alumnos o de evaluación clásica, aunque para el sistema son casos prácticamente idénticos.
+
+%\textbf{Estructura de la BD}
 
 \subsection{Modelo de adaptación}
 
-\textbf{Exámenes con distintos niveles}
+%\textbf{Exámenes con distintos niveles y cómo se pasa de uno a otro. Hablar también del feedback o del no lo sé}
 
-\subsection{Modelo de usuario}
 
-\textbf{Profesor y alumno}
 
 \subsection{Motor de adaptación}
 
-\textbf{Rápidas notas sobre la aplicación en sí. O no.}
+%\textbf{Rápidas notas sobre la aplicación en sí. O no.}
 
-\section{e-valUAM}
+
+
+
+
+\section{Desarrollo: e-valUAM\label{sec:desarrollo}}
+
+%\textbf{En la introducción dejar muy claro qué se ha desarrollado y qué no se ha desarrollado.}
