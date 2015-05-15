@@ -14,7 +14,7 @@
 
 \section{Diseño}
 
-Los sistemas adaptativos pueden abstrarse como una serie de módulos como los cinco descritos en la figura \ref{fig:diagrama_disenno}. 
+Los sistemas adaptativos pueden abstrarse como una serie de módulos como los descritos en la figura \ref{fig:diagrama_disenno}. 
 
 \begin{figure}[htp!]
 	\centering
@@ -23,7 +23,7 @@ Los sistemas adaptativos pueden abstrarse como una serie de módulos como los ci
 	\label{fig:diagrama_disenno}
 \end{figure}
 
-El usuario (representado arriba a la izquierda en la imagen) interacciona con el sistema a través de una interfaz de navegación que representa el estado del motor de adaptación, componente que articula a todos los módulos. El modelo del dominio, de adaptación y el modelo de los usuarios son las herramientas de las que el motor de adaptación obtiene la información que le permite dar una respuesta adecuada a cada situación. Mientras que el modelo del dominio es fijo, en el sentido de que solo ha de fijarse durante la creación del sistema, el modelo de adaptación y el modelo de los usuarios van sufriendo variaciones, en función de la entrada que produzcan los usuarios.
+El usuario (representado arriba a la izquierda) interacciona con el sistema a través de una interfaz de navegación que representa el estado del motor de adaptación, componente que articula al resto de módulos. El modelo del dominio, de adaptación y el modelo de los usuarios son las herramientas de las que el motor de adaptación obtiene la información que le permite dar una respuesta adecuada a cada situación. Mientras que el modelo del dominio es fijo, en el sentido de que solo ha de definirse durante la creación del sistema y permanece estable durante la vida del mismo, el modelo de adaptación y el modelo de los usuarios van sufriendo variaciones, en función de la entrada que produzcan los usuarios.
 
 Durante las siguientes secciones se dará una descripción más detallada de los módulos.
 
@@ -31,7 +31,7 @@ Durante las siguientes secciones se dará una descripción más detallada de los
 
 La interfaz de navegación es la parte del sistema encargada de permitir la interacción entre el sistema y el usuario. Debe representar ante el usuario la información del sistema que este deba conocer, además de recibir la entrada que el usuario genere para que el motor de adaptación pueda incorporarla.
 
-En el diseño seguido para este trabajo se decidió utilizar las tecnologías web como base sobre la que construir, por lo que las funciones de la interfaz de navegación recaén principalmente en el navegador web del usuario. Aún así, el sistema debe crear y, sobre todo, adaptar los ficheros html que envía al navegador del cliente. Para ello se han utilizado también tecnologías web estándar: HTML, Javascript, CSS y PHP. Más información sobre las tecnologías utilizadas en \ref{sec:desarrollo}.
+En el diseño seguido para este trabajo se decidió utilizar las tecnologías web como base sobre la que construir, por lo que las funciones de la interfaz de navegación recaen principalmente en el navegador web del usuario. Aún así, el sistema debe crear y, sobre todo, adaptar los ficheros html que envía al navegador del cliente. Para ello se han utilizado también tecnologías web estándar: HTML, Javascript, CSS y PHP. Más información sobre las tecnologías utilizadas en \ref{sec:tecnologias}.
 
 \subsection{Modelo de los usuarios}
 
@@ -79,16 +79,19 @@ En concreto, cuando un docente crea un cuestionario establece dos parámetros, $
 	\label{fig:modelo de adaptacion}
 \end{figure}
 
+La elección de la siguiente pregunta dentro de un mismo nivel se hace de forma aleatoria, asegurando en todo momento que no haya preguntas repetidas dentro del mismo cuestionario. Cuando el alumno sube de nivel, ya solo responde a preguntas de ese nuevo nivel. Como el número de preguntas está limitado, es posible que un estudiante no llegue a responder preguntas de todos los niveles o incluso puede que solo responda preguntas del primer nivel. Una vez que se ha subido de nivel, no se puede bajar, aunque cada vez que se repita el cuestionario se volverá al primer nivel.
+
+Que la respuesta de una pregunta condicione la siguiente pregunta obliga a que el estudiante responda a cada pregunta, a diferencia de los cuestionarios clásicos, donde una pregunta puede dejarse sin respuesta y continuar con la siguiente. Para solucionar esta diferencia el equipo docente puede establecer que exista una opción adicional de respuesta que indique que el alumno no conoce la respuesta que el sistema tratará como respuesta incorrecta a la hora de seleccionar la siguiente pregunta. Así mismo, la aplicación da al docente la opción de mostrar una casilla que especifique que el alumno ha respondido sin estar seguro de que sea la respuesta correcta. Más información sobre el modelo del examen, en concreto sobre el sistema de calificación, puede encontrarse en el apéndice \ref{apen:como se ponen las notas}
 
 Por último, el docente puede decidir que los estudiantes reciban feedback al responder una pregunta o no. Si lo hacen, cuando el alumno responda se indicará si la respuesta es correcta o no, además de un mensajes de feedback escrito por el profesor para cada pregunta.
 
 
 %\textbf{Exámenes con distintos niveles y cómo se pasa de uno a otro. Hablar también del feedback o del no lo sé}
 
-El modelo de adaptación depende  
 
 
-\subsection{Motor de adaptación}
+% Susection a ignorara
+%\subsection{Motor de adaptación}
 
 %\textbf{Rápidas notas sobre la aplicación en sí. O no.}
 
@@ -97,5 +100,15 @@ El modelo de adaptación depende
 
 
 \section{Desarrollo: e-valUAM\label{sec:desarrollo}}
+
+En esta sección se detalla cómo se ha implementado el proyecto, tomando como referencia lo expuesto en las secciones anteriores.
+
+\subsection{Visión general}
+
+\subsection{Tecnologías y lenguajes empleados\ref{sec:tecnologias}}
+
+\subsection{Módulos asociados al docente}
+
+\subsection{Módulos asociados al estudiante}
 
 %\textbf{En la introducción dejar muy claro qué se ha desarrollado y qué no se ha desarrollado.}
