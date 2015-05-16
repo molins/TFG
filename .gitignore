@@ -12,3 +12,9 @@ main.glg
 main.gls
 main.run.xml
 main.xdy
+main.fdb_latexmk
+main.fls
+main.log
+src/disenhoYDesarrollo.fdb_latexmk
+src/disenhoYDesarrollo.fls
+src/disenhoYDesarrollo.log
