@@ -33,6 +33,7 @@
 \usepackage[cmex10]{amsmath}
 % Enumeraciones
 \usepackage{enumerate}
+\usepackage{enumitem}
 % Páginas en blanco
 \usepackage{emptypage}
 % Separación entre cajas
@@ -60,6 +61,8 @@
 % Glosario/Acrónimos
 \usepackage[toc,xindy]{glossaries}
 
+%%%% Contribuciones propias
+
 % Títulos de capítulo 
 % http://osl.ugr.es/CTAN/macros/latex/contrib/titlesec/titlesec.pdf
 \titleformat{\chapter}
@@ -75,6 +78,30 @@
 \titlespacing{\chapter}{0pt}{8pt plus 2pt minus 2pt}{4pt plus 2pt minus 2pt}
 \titlespacing{\section}{0pt}{6pt plus 2pt minus 2pt}{2pt plus 2pt minus 2pt}
 \titlespacing{\subsection}{0pt}{4pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+
+% Listas de requisitos
+% Funcionales
+\newenvironment{rf0} % Comando primer nivel
+{ \begin{enumerate}[label=\bfseries RF \arabic*.] }
+{ \end{enumerate} }
+
+\newenvironment{rf0*} % Comando cualquier nivel > 0
+{ \begin{enumerate}[label*=\bfseries\arabic*.] }
+{ \end{enumerate} }
+
+
+% No funcionales
+\newenvironment{rnf0} % Comando primer nivel
+{ \begin{enumerate}[label=\bfseries RNF \arabic*.] }
+{ \end{enumerate} }
+
+\newenvironment{rnf0*} % Comando cualquier nivel > 0
+{ \begin{enumerate}[label*=\bfseries\arabic*.] }
+{ \end{enumerate} }
+
+
+%%%% Sacado de la plantilla
 
 % Enlaces
 \hypersetup{hidelinks,pageanchor=false,colorlinks,citecolor=Fuchsia,urlcolor=black,linkcolor=Cerulean}
