@@ -6,19 +6,43 @@
 
 \section{Análisis de requisitos}
 
+Siguiendo las recomendaciones de \cite{ISO12207}, para comenzar el trabajo se realizó un análisis de requisitos. En esta sección se detallan los puntos más relevantes del análisis de requisitos, mientras que el análisis completo se puede consultar en \ref{apend:requisitos}.
+
 \subsection{Análisis funcional}
 
 \begin{rf0}
+
+	\item Subida y gestión de ficheros multimedia.
+	\item Realización de cuestionarios.
+	\item Gestión de usuarios.
+	\item Creación y gestión de preguntas y respuestas.
+	\item Creación y gestión de materias.
 	\item Creación y gestión de cuestionarios.
-	\begin{rf0*}
-		\item Creación de preguntas.
-		\begin{rf0*}
-			\item El profesor debe ser capaz de introducir preguntas al sistema.
-		\end{rf0*}
-	\end{rf0*}
+	\item Monitorización de resultados.
+
 \end{rf0}
 
+
 \subsection{Análisis no funcional}
+
+\begin{rnf0}
+	\item Interfaz y usabilidad
+		\begin{rnf0*}
+			\item La interfaz que el sistema mostrará al estudiante debe ser intuitiva y fácil de usar para todas las edades. Estudiantes alfabetizados deben ser capaces de elegir un cuestionario y completarlo sin asistencia externa. Una clase de niños que aún no sepan leer debe ser capaz de completar un cuestionario sin asistencia del profesor, después de que este les haya configurado el ordenador para que el cuestionario elegido empiece.
+			\item La interfaz para el equipo docente deberá ser fácil de aprender para profesores con o sin conocimientos informáticos avanzados. 
+			\item Atendiendo a la diversidad de dispositivos con los que los usuarios trabajan, el sistema debe ser capaz de utilizarse en todos los tamaños de pantalla y para ser utilizado con teclado y ratón o pantalla táctil.
+		\end{rnf0*}
+	\item Seguridad
+		\begin{rnf0*}
+			\item Debido al carácter secreto de gran parte del contenido creado por los profesores, el sistema deberá garantizar la no accesibilidad de ese contenido a usuarios no autorizados.
+			\item Todo usuario que acceda al sistema debe autentificarse previamente a través de un usuario/contraseña, para asegurar la autoría de las respuestas de los cuestionarios.
+			\item La autentificación de los usuarios debe ser segura. En concreto, el sistema no almacenará las contraseñas en la base de datos en texto plano. Deberá utilizar un método que garantize que la contraseña no sea conocida aunque se acceda a la base de datos.
+		\end{rnf0*}
+	\item Accesibilidad
+		\begin{rnf0*}
+			\item El sistema debe cumplir con el estándar \acrshort{WCAG} 2.0 en un nivel A.
+		\end{rnf0*}
+\end{rnf0}
 
 
 %\textbf{¿Detallar un análisis funcional? Sí}
@@ -116,7 +140,7 @@ En esta sección se detalla cómo se ha implementado el proyecto, tomando como r
 
 \subsection{Visión general}
 
-\subsection{Tecnologías y lenguajes empleados\ref{sec:tecnologias}}
+\subsection{Tecnologías y lenguajes empleados\label{sec:tecnologias}}
 
 \subsection{Módulos asociados al docente}
 
