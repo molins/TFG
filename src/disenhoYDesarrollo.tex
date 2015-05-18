@@ -1,6 +1,8 @@
-\chapter{Diseño y desarrollo\label{sec:disenhoYDesarrollo}}
+\chapter{Análisis, diseño y desarrollo\label{sec:disenhoYDesarrollo}}
 
 %\textbf{Rápida intro.}
+
+Para llevar a cabo el proyecto, se siguió una metodología de desarrollo en espiral
 
 %TODO: Demostrar todo el dominio que pueda sobre cuestiones de la carrera.
 
@@ -21,19 +23,28 @@ Siguiendo las recomendaciones de \cite{ISO12207}, para comenzar el trabajo se re
 
 	\item \textbf{Rol docente:} Creación y gestión de materias.
 			\begin{rf0*}
-				\item Dentro de su asignatura el docente podrá crear tantas materias como necesite. Cuando cree una materia, deberá establecer un título, número de niveles en los que se clasificarán las preguntas y el número de respuestas que tendrá cada una.
+				\item Dentro de su asignatura, el docente podrá crear tantas materias como necesite. Cuando cree una materia, deberá establecer un título, el número de niveles en los que se clasificarán las preguntas y el número de respuestas que tendrá cada una.
 				\item Una vez creada una materia, el docente podrá modificar su configuración. Podrá cambiar el título en cualquier caso, pero solo podrá cambiar el número de niveles y el número de respuestas cuando no haya preguntas asociadas a la materia o cuando el número aumente. Para disminuir alguno de los dos valores, deberá borrar antes todas las preguntas asociadas a la materia.
 			\end{rf0*}
 
 	\item \textbf{Rol docente:} Creación y gestión de preguntas y respuestas.
 		\begin{rf0*}
 			\item Existiendo al menos una materia, los docentes podrán crear preguntas y respuestas asociadas a dicha materia.
+			\item Cuando se cree una pregunta nueva, deberá indicarse la materia a la que pertenece (que deberá haber sido creada previamente), el nivel, el enunciado, el enunciado de la pregunta correcta y el resto de respuestas. El número de respuestas que deberá escribir vendrá condicionado por el valor establecido en la materia relativa.
+			\item Opcionalmente, se podrá asociar ficheros multimedia a las preguntas. Se pueden asociar imágenes o audio tanto al enunciado como a cada una de las respuestas. Si se desea asociar un fichero multimedia, deberá especificarse el nombre del fichero.
+			\item Una vez creada una pregunta, el docente podrá modificar cualquier atributo o borrar dicha pregunta. En ambos casos, se mantendrá una copia en la base de datos de la antigua pregunta para que los alumnos no vean alterados sus cuestionarios una vez realizados.
 		\end{rf0*}
 	
+	\item  \textbf{Rol docente:} Subida y gestión de ficheros multimedia.
+		\begin{rf0*}
+			\item Existiendo al menos una materia, los docentes podrán subir un fichero de audio (en formato mp3) o imagen (con extensión gif, png, jpeg o jpg) y asociarlo a dicha materia para utilizarlos después en alguna pregunta de la materia.
+			\item Se podrá consultar un listado de todos los ficheros multimedia ya subidos a una materia, que mostrará el nombre de cada fichero además de mostrar la imagen o permitir reproducir el audio.
+			\item Se podrá actualizar un fichero subiendo otro al servidor con el mismo nombre.
+		\end{rf0*}
 
 	\item \textbf{Rol docente:} Creación y gestión de cuestionarios.
 	\item Monitorización de resultados.
-	\item Subida y gestión de ficheros multimedia.
+
 	
 	\item Realización de cuestionarios.
 	
