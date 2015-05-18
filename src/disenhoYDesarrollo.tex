@@ -12,13 +12,32 @@ Siguiendo las recomendaciones de \cite{ISO12207}, para comenzar el trabajo se re
 
 \begin{rf0}
 
-	\item Subida y gestión de ficheros multimedia.
-	\item Realización de cuestionarios.
 	\item Gestión de usuarios.
-	\item Creación y gestión de preguntas y respuestas.
-	\item Creación y gestión de materias.
-	\item Creación y gestión de cuestionarios.
+			\begin{rf0*}
+				\item El sistema deberá permitir crear cuentas de usuario. Las cuentas tendrán un nombre de usuario y contraseña que identifiquen a cada usuario.
+				\item Cada cuenta de usuario tendrá un rol en cada asignatura en la que participe. Podrás ser un rol docente o rol estudiante. Dependiendo del rol que tenga, la cuenta podrá acceder a más o menos funcionalidad en cada sección del sistema, como se detalla más adelante.
+				\item El equipo docente de cada asignatura determinará qué alumnos pertenecen a sus grupos.
+			\end{rf0*} 
+
+	\item \textbf{Rol docente:} Creación y gestión de materias.
+			\begin{rf0*}
+				\item Dentro de su asignatura el docente podrá crear tantas materias como necesite. Cuando cree una materia, deberá establecer un título, número de niveles en los que se clasificarán las preguntas y el número de respuestas que tendrá cada una.
+				\item Una vez creada una materia, el docente podrá modificar su configuración. Podrá cambiar el título en cualquier caso, pero solo podrá cambiar el número de niveles y el número de respuestas cuando no haya preguntas asociadas a la materia o cuando el número aumente. Para disminuir alguno de los dos valores, deberá borrar antes todas las preguntas asociadas a la materia.
+			\end{rf0*}
+
+	\item \textbf{Rol docente:} Creación y gestión de preguntas y respuestas.
+		\begin{rf0*}
+			\item Existiendo al menos una materia, los docentes podrán crear preguntas y respuestas asociadas a dicha materia.
+		\end{rf0*}
+	
+
+	\item \textbf{Rol docente:} Creación y gestión de cuestionarios.
 	\item Monitorización de resultados.
+	\item Subida y gestión de ficheros multimedia.
+	
+	\item Realización de cuestionarios.
+	
+
 
 \end{rf0}
 
@@ -90,7 +109,7 @@ Cada pregunta lleva asociada una serie de respuestas y solo una es la válida. T
 
 \begin{figure}[htp!]
 	\centering
-	\includegraphics[width=0.75\textwidth,clip=true]{modelo_dominio}
+%	\includegraphics[width=0.75\textwidth,clip=true]{modelo_dominio}
 	\caption{Modelo del dominio}
 	\label{fig:modelo del dominio}
 \end{figure}
