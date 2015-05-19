@@ -181,19 +181,41 @@ Por último, el docente puede decidir que los estudiantes reciban feedback al re
 %\textbf{Rápidas notas sobre la aplicación en sí. O no.}
 
 
-
-
-
 \section{Desarrollo: e-valUAM\label{sec:desarrollo}}
 
-En esta sección se detalla cómo se ha implementado el proyecto, tomando como referencia lo expuesto en las secciones anteriores.
+En esta sección se detalla cómo se han plasmado los requisitos y el diseño del proyecto en la plataforma online creada, e-valUAM, tomando como referencia lo expuesto en las secciones anteriores del presente capítulo.
 
 \subsection{Visión general}
 
+e-valUAM es el sistema web de creación y respuesta de cuestionarios para ayuda al aprendizaje en el que se ha plasmado el proyecto. Es un sistema que ha sido desarrollado para servir como herramienta de una investigación asociada que viene existiendo desde los últimos tres años, tomando su forma definitiva especialmente en el último año. Para cada año académico se construyó un prototipo diferente que siempre fue una ampliación del prototipo anterior, siguiendo un modelo de desarrollo en espiral.
+
+Al tratarse de parte de una investigación en desarrollo existen algunos requisitos y cuestiones del diseño que se han detectado y recogido, pero que aún no se han implementado. En concreto, todos los requisitos funcionales han sido satisfechos, aunque algunos no con la solución óptima. Por ejemplo, [TODO: RELLENAR LISTADO DE CUESTIONES TERMINADAS Y NO TERMINADAS]
+
+Por último, y puesto que el sistema requiere de autentificación para poder ser explorado, se ha creado una cuenta a tal propósito cuyo nombre de usuario y contraseña son \textit{TFG}. Está disponible en \url{http://sacha.ii.uam/e-valUAM}
+
 \subsection{Tecnologías y lenguajes empleados\label{sec:tecnologias}}
+
+Al ser un sistema web, los lenguajes principales son aquellos relacionados con las tecnologías web. En concreto, se ha utilizado HTML5, CSS3 y Javascript para la parte del cliente, mientras que en el servidor se ha utilizado PHP. Para el desarrollo de la interfaz de usuario se han utilizado las librerias de Bootstrap y jQuery.
+
+En el lado del servidor se ha utilizado una máquina alojada en la UAM, con sistema operativo Windows, servidor Apache y como gestor de base de datos PostgreSQL.
+
+Como editor de código se ha utilizado Sublime Text. Para el control de versiones git y como repositorio central, Github. Como editor de texto se ha utilizado \LaTeX.
 
 \subsection{Módulos asociados al docente}
 
+Las cuentas que tengas permisos de profesor pueden gestionar sus cuestionarios a través de la zona de profesor, accesible a través de \url{http://sacha.ii.uam.es/e-valUAM/profesor/}. Esta sección se divide en 6 módulos principales:
+
+\begin{enum}
+	\item Materias
+	\item Preguntas
+	\item Exámenes
+	\item Ficheros multimedia
+	\item Recuperación de exámenes
+	\item Análisis de resultados
+\end{enum}
+
 \subsection{Módulos asociados al estudiante}
+
+Las secciones de la página destinas al estudiante son más sencillas y menos abundantes limitándose sencillamente a tres módulos que intereaccionan siempre en un orden determinado. Cuando el alumno accede al sistema a través de la página principal, es redirigído a la página de elección de cuestionario, dónde se  
 
 %\textbf{En la introducción dejar muy claro qué se ha desarrollado y qué no se ha desarrollado.}
