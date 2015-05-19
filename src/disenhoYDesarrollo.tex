@@ -1,14 +1,20 @@
-\chapter{Análisis, diseño y desarrollo\label{sec:disenhoYDesarrollo}}
+\chapter{Diseño y desarrollo\label{sec:disenhoYDesarrollo}}
 
 %\textbf{Rápida intro.}
 
-Para llevar a cabo el proyecto, se siguió una metodología de desarrollo en espiral
+%En esta sección se presentan los resultados de las fases de análisis de requisitos, diseño y desarrollo realizadas para el proyecto.
+%
+%Al ser un proyecto asociado a una investigación que se ha desarrollado en varias fases, se consideró que una mejor metodología que se podía utilizar era una basada en el modelo en espiral descrito en \cite{Boehm86} . A pesar de que la metodología presenta varias iteraciones en cada fase, aquí se presentan los resultados agrupados.
+
+En esta sección se presentan los resultados del análisis, diseño y desarrollo del proyecto. Primero, se detallarán todos los requisitos, funcionales y no funcionales, que se han identificado. A continuación, algunas notas sobre el diseño ideado para el proyecto. Para terminar la sección, se detallan aquello más relevantes de la fase de desarrollo.
+
+Como este proyecto nació asociado a una investigación, no se ha utilizado una metodología en cascada clásica, sino un modelo en espiral, partiendo del descrito en \cite{Boehm86}. A pesar de que el modelo describe varias iteraciones, en esta sección se presentan agrupados los resultados a los que se han llegado entre todas las iteraciones.
 
 %TODO: Demostrar todo el dominio que pueda sobre cuestiones de la carrera.
 
 \section{Análisis de requisitos}
 
-Siguiendo las recomendaciones de \cite{ISO12207}, para comenzar el trabajo se realizó un análisis de requisitos. En esta sección se detallan los puntos más relevantes del análisis de requisitos, mientras que el análisis completo se puede consultar en \ref{apend:requisitos}.
+Los requisitos aquí detallados son el fruto de un análisis a priori sobre cómo debería necesidades debería cubrir el sistema y de las aportaciones realizadas por la experiencia que han tenido los usuarios después de ser utilizado en entornos reales.
 
 \subsection{Análisis funcional}
 
@@ -17,7 +23,7 @@ Siguiendo las recomendaciones de \cite{ISO12207}, para comenzar el trabajo se re
 	\item Gestión de usuarios.
 			\begin{rf0*}
 				\item El sistema deberá permitir crear cuentas de usuario. Las cuentas tendrán un nombre de usuario y contraseña que identifiquen a cada usuario.
-				\item Cada cuenta de usuario tendrá un rol en cada asignatura en la que participe. Podrás ser un rol docente o rol estudiante. Dependiendo del rol que tenga, la cuenta podrá acceder a más o menos funcionalidad en cada sección del sistema, como se detalla más adelante.
+				\item Cada cuenta de usuario tendrá un rol en cada asignatura en la que participe. Podrá ser un rol docente o rol estudiante. Dependiendo del rol que tenga, la cuenta podrá acceder a más o menos funcionalidad en cada sección del sistema, como se detalla más adelante.
 				\item El equipo docente de cada asignatura determinará qué alumnos pertenecen a sus grupos.
 			\end{rf0*} 
 
@@ -30,8 +36,9 @@ Siguiendo las recomendaciones de \cite{ISO12207}, para comenzar el trabajo se re
 	\item \textbf{Rol docente:} Creación y gestión de preguntas y respuestas.
 		\begin{rf0*}
 			\item Existiendo al menos una materia, los docentes podrán crear preguntas y respuestas asociadas a dicha materia.
-			\item Cuando se cree una pregunta nueva, deberá indicarse la materia a la que pertenece (que deberá haber sido creada previamente), el nivel, el enunciado, el enunciado de la pregunta correcta y el resto de respuestas. El número de respuestas que deberá escribir vendrá condicionado por el valor establecido en la materia relativa.
+			\item Cuando se cree una pregunta nueva, deberá indicarse la materia a la que pertenece (que deberá haber sido creada previamente), el nivel, el enunciado, el enunciado de la respuesta correcta y el resto de respuestas. El número de respuestas que deberá escribir vendrá condicionado por el valor establecido en la materia relativa.
 			\item Opcionalmente, se podrá asociar ficheros multimedia a las preguntas. Se pueden asociar imágenes o audio tanto al enunciado como a cada una de las respuestas. Si se desea asociar un fichero multimedia, deberá especificarse el nombre del fichero.
+			\item Opcionalmente, se podrá establecer un mensaje de feecback asociado a la pregunta.
 			\item Una vez creada una pregunta, el docente podrá modificar cualquier atributo o borrar dicha pregunta. En ambos casos, se mantendrá una copia en la base de datos de la antigua pregunta para que los alumnos no vean alterados sus cuestionarios una vez realizados.
 		\end{rf0*}
 	
@@ -43,13 +50,26 @@ Siguiendo las recomendaciones de \cite{ISO12207}, para comenzar el trabajo se re
 		\end{rf0*}
 
 	\item \textbf{Rol docente:} Creación y gestión de cuestionarios.
-	\item Monitorización de resultados.
-
-	
+		\begin{rf0*}
+			\item Existiendo al menos una materia y preguntas suficientes en cada nivel, el profesor podrá crear un cuestionario. Al hacerlo deberá definir un nombre, si el cuestionario será visible a los alumnos, la materia que se usará como banco de preguntas, el número de preguntas que deberán contestarse en cada intento, el tiempo máximo, si el examen acepta respuestas con duda y cómo deberán mostrarse el resultado a los alumnos.
+			\item Una vez creado un cuestionario, el docente podrá modificar alguno de sus valores, o eliminar el cuestionario. Esto no afectará, en ningún caso, a la información almacenada sobre los cuestionarios ya respondidos por alumnos.
+			\item Los docentes podrán acceder a un listado de todos los cuestionarios ya creados.
+		\end{rf0*}
+		
 	\item Realización de cuestionarios.
+		\begin{rf0*}
+			\item Una vez creado un cuestionario por un profesor, y si está marcado como visible, los alumnos podrán acceder a él.
+			\item Una vez que un estudiante acceda a un cuestionario, se le irán mostrando preguntas que deberá ir contestando. Las preguntas se mostrarán en función de las respuestas previas y los niveles establecidos por el profesor.
+			\item Si las preguntas van asociadas a ficheros multimedia, estos se mostrarán al estudiante mientras responde. Si aceptan la opción de responder con duda, el alumno tendrá a su disposición un método de establecer que ha respondido con duda.
+			\item Para cada pregunta que el alumno responda, quedará almacenado en el sistema a qué cuestionario pertenece, cuando se responde, qué pregunta se ha formulado y cuál ha sido la respuesta elegida. Si hay opción de duda, si se ha dudado o no al responder.
+		\end{rf0*}
 	
-
-
+	\item Visualización de resultados.
+		\begin{rf0*}
+			\item Si el profesor ha establecido que los resultados se muestren al terminar el examen, se mostrará la nota final, todas las preguntas, junto con cuál ha sido la respuesta del alumno para cada pregunta y si esta ha sido correcta. El profesor también puede elegir que solo se muestre la nota, o ninguna información.
+			\item Cuando una pregunta tenga una cadena de feedback asociada, se mostrará a los alumnos después de que respondan, junto con si la respuesta ha sido correcta o no.
+			\item \textbf{Rol docente:} Los docentes podrán acceder a un listado con todos los intentos que han realizado cada alumno a cada cuestionario que hayan creado. Para cada cuestionario, podrán ver el detalle de cada uno, es decir, qué preguntas se respondieron, cuál fue la respuestas, si era correcta y el instante en el que se respondió.
+		\end{rf0*}
 \end{rf0}
 
 
