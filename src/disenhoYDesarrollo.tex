@@ -67,7 +67,7 @@ Los requisitos aquí detallados son el fruto de un análisis a priori sobre cóm
 	\item Visualización de resultados.
 		\begin{rf0*}
 			\item Si el profesor ha establecido que los resultados se muestren al terminar el examen, se mostrará la nota final, todas las preguntas, junto con cuál ha sido la respuesta del alumno para cada pregunta y si esta ha sido correcta. El profesor también puede elegir que solo se muestre la nota, o ninguna información.
-			\item Cuando una pregunta tenga una cadena de feedback asociada, se mostrará a los alumnos después de que respondan, junto con si la respuesta ha sido correcta o no.
+			\item Cuando una pregunta tenga una cadena de feedback asociada, se mostrará a los alumnos después de que respondan, junto con si la respuesta ha sido correcta o no.\label{RF:feedback}
 			\item \textbf{Rol docente:} Los docentes podrán acceder a un listado con todos los intentos que han realizado cada alumno a cada cuestionario que hayan creado. Para cada cuestionario, podrán ver el detalle de cada uno, es decir, qué preguntas se respondieron, cuál fue la respuestas, si era correcta y el instante en el que se respondió.
 		\end{rf0*}
 \end{rf0}
@@ -78,7 +78,7 @@ Los requisitos aquí detallados son el fruto de un análisis a priori sobre cóm
 \begin{rnf0}
 	\item Interfaz y usabilidad
 		\begin{rnf0*}
-			\item La interfaz que el sistema mostrará al estudiante debe ser intuitiva y fácil de usar para todas las edades. Estudiantes alfabetizados deben ser capaces de elegir un cuestionario y completarlo sin asistencia externa. Una clase de niños que aún no sepan leer debe ser capaz de completar un cuestionario sin asistencia del profesor, después de que este les haya configurado el ordenador para que el cuestionario elegido empiece.
+			\item La interfaz que el sistema mostrará al estudiante debe ser intuitiva y fácil de usar para todas las edades. Estudiantes alfabetizados deben ser capaces de elegir un cuestionario y completarlo sin asistencia externa. Una clase de niños que aún no sepan leer debe ser capaz de completar un cuestionario sin asistencia del profesor, después de que este les haya configurado el ordenador para que el cuestionario elegido empiece.\label{RNFusabilidad}
 			\item La interfaz para el equipo docente deberá ser fácil de aprender para profesores con o sin conocimientos informáticos avanzados. 
 			\item Atendiendo a la diversidad de dispositivos con los que los usuarios trabajan, el sistema debe ser capaz de utilizarse en todos los tamaños de pantalla y para ser utilizado con teclado y ratón o pantalla táctil.
 		\end{rnf0*}
@@ -99,7 +99,7 @@ Los requisitos aquí detallados son el fruto de un análisis a priori sobre cóm
 
 \section{Diseño}
 
-Los sistemas adaptativos pueden abstrarse como una serie de módulos como los descritos en la figura \ref{fig:diagrama_disenno}. 
+Los sistemas adaptativos pueden abstraerse como una serie de módulos como los descritos en la figura \ref{fig:diagrama_disenno}. 
 
 \begin{figure}[htp!]
 	\centering
@@ -108,7 +108,7 @@ Los sistemas adaptativos pueden abstrarse como una serie de módulos como los de
 	\label{fig:diagrama_disenno}
 \end{figure}
 
-El usuario (representado arriba a la izquierda) interacciona con el sistema a través de una interfaz de navegación que representa el estado del motor de adaptación, componente que articula al resto de módulos. El modelo del dominio, de adaptación y el modelo de los usuarios son las herramientas de las que el motor de adaptación obtiene la información que le permite dar una respuesta adecuada a cada situación. Mientras que el modelo del dominio es fijo, en el sentido de que solo ha de definirse durante la creación del sistema y permanece estable durante la vida del mismo, el modelo de adaptación y el modelo de los usuarios van sufriendo variaciones, en función de la entrada que produzcan los usuarios.
+El usuario (representado arriba a la izquierda) interacciona con el sistema a través de una interfaz de navegación que representa el estado del motor de adaptación, componente que articula al resto de módulos. El modelo del dominio, de adaptación y el modelo de los usuarios son las herramientas de las que el motor de adaptación obtiene la información que le permite dar una respuesta adecuada a cada situación. Mientras que el modelo del dominio es fijo, en el sentido de que permanece estable durante la vida del mismo, el modelo de adaptación y el modelo de los usuarios van sufriendo variaciones, en función de la entrada que produzcan los usuarios.
 
 Durante las siguientes secciones se dará una descripción más detallada de los módulos.
 
@@ -116,7 +116,7 @@ Durante las siguientes secciones se dará una descripción más detallada de los
 
 La interfaz de navegación es la parte del sistema encargada de permitir la interacción entre el sistema y el usuario. Debe representar ante el usuario la información del sistema que este deba conocer, además de recibir la entrada que el usuario genere para que el motor de adaptación pueda incorporarla.
 
-En el diseño seguido para este trabajo se decidió utilizar las tecnologías web como base sobre la que construir, por lo que las funciones de la interfaz de navegación recaen principalmente en el navegador web del usuario. Aún así, el sistema debe crear y, sobre todo, adaptar los ficheros html que envía al navegador del cliente. Para ello se han utilizado también tecnologías web estándar: HTML, Javascript, CSS y PHP. Más información sobre las tecnologías utilizadas en \ref{sec:tecnologias}.
+En el diseño seguido para este trabajo se decidió utilizar las tecnologías web como base sobre la que construir, por lo que las funciones de la interfaz de navegación recaen principalmente en el navegador web del usuario. Aún así, el sistema debe crear y, sobre todo, adaptar los ficheros html que envía al navegador del cliente. Para ello se han utilizado las tecnologías web estándar: HTML, Javascript, CSS y PHP. Más información sobre las tecnologías utilizadas en \ref{sec:tecnologias}.
 
 \subsection{Modelo de los usuarios}
 
@@ -124,17 +124,17 @@ En el diseño seguido para este trabajo se decidió utilizar las tecnologías we
 
 El sistema tiene dos roles de usuarios claramente diferenciados: rol docente y rol estudiante. Las necesidades que tienen ambos roles respecto de la aplicación, son radicalmente distintas. Mientras que a los docentes se les debe mostrar herramientas para la creación y gestión de cuestionarios, motorización de resultados y recuperación de exámenes, los estudiantes deben acceder a la ejecución de los cuestionarios, a cierta retroalimentación y a sus resultados.
 
-En ninguno de los dos roles podemos presuponer conocimientos informáticos avanzados, como se recoje en \textbf{Influir cita a RNF}. Además, desde las fases iniciales del proyecto se planteó que el sistema debería ser fácil de usar para docentes y estudiantes de todas las etapas educativas, desde la primera infancia hasta la edad adulta. Al ser una aplicación potencialmente disponible a niños y niñas muy jóvenes, tampoco podemos presuponer que el estudiante sepa leer, debiendo dotar en consecuencia al rol del docente la habilidad de incluir ficheros multimedia con los que suplir dicha carencia.
+En ninguno de los dos roles podemos presuponer conocimientos informáticos avanzados, como se recoje en \ref{RNFusabilidad}. Además, desde las fases iniciales del proyecto se planteó que el sistema debería ser fácil de usar para docentes y estudiantes de todas las etapas educativas, desde la primera infancia hasta la edad adulta. Al ser una aplicación potencialmente disponible a niños y niñas muy jóvenes, tampoco podemos presuponer que el estudiante sepa leer, debiendo dotar en consecuencia al rol del docente la habilidad de incluir ficheros multimedia con los que suplir dicha carencia.
 
 \subsection{Modelo del dominio}
 
-La aplicación pretende ser una ayuda al aprendizaje y por lo tanto, su dominio es la actividad educativa. Más concretamente, aquellas actividades relacionadas con comprobar, por parte del propio estudiante o de un docente, si el estudiante ha adquirido correctamente ciertos conocimientos. Para ello, a grandes rasgos, el equipo docente de una asignatura creará una serie de preguntas y respuestas, agrupadas por contenidos en materias, que utilizará para crear cuestionarios a los que los estudiantes tendrán acceso. Del resultado de dichos cuestionarios, tanto el estudiante como los docentes podrán conocer cómo están realizando su actividad y realizar los cambios que fueran necesarios.
+La aplicación pretende ser una ayuda al aprendizaje y por lo tanto, su dominio es la actividad educativa. Más concretamente, aquellas actividades relacionadas con comprobar, por parte del propio estudiante o de un docente, si el alumno ha adquirido correctamente ciertos conocimientos. Para ello, a grandes rasgos, el equipo docente de una asignatura creará una serie de preguntas y respuestas, agrupadas por su contenido en materias, que utilizará para crear cuestionarios a los que los estudiantes tendrán acceso. Del resultado de dichos cuestionarios, tanto el estudiante como los docentes podrán conocer cómo están realizando su actividad y realizar los cambios que fueran necesarios.
 
 La asignatura es la primera división que se utiliza normalmente en los entornos educativos. Un docente se encarga de unas asignaturas en concreto y los estudiantes van explorando por asignaturas. Así, cada asignatura tiene asociados un listado de usuarios, algunos comos docentes y otros como estudiantes. Es importante notar que un usuario podría ser docente en una asignatura pero estudiante en otra, por lo que el rol es un atributo de la unión usuario y asignatura, y no solo del usuario.
 
-Dentro de cada asignatura, existen una serie de materias, que son las entidades que clasifican los conocimientos por similitud dentro de una asignatura. El concepto de materia en este modelo se utiliza para representar los conceptos del lenguaje común de \emph{temas} o \emph{partes} en los que se divide una asignatura. Dentro de cada materia existe un cojunto de preguntas, ordenadas por un nivel de relevancia.
+Dentro de cada asignatura, existen una serie de materias, que son las entidades que clasifican los conocimientos por similitud dentro de una asignatura. El concepto de materia en este modelo se utiliza para representar los conceptos del lenguaje común de \emph{temas} o \emph{partes} en los que se divide una asignatura. Dentro de cada materia existe un conjunto de preguntas, ordenadas por un nivel de relevancia.
 
-La división de las preguntas en niveles de relevancia es una de las características novedosas del modelo propuesto. Con ello se busca facilitar que el estudiante adquiera los conocimientos en el orden más adecuado, asegurando que no se enfrenta a conceptos que dependen de otros hasta que domina los conceptos base. Esta divisón también ayuda a evitar que un estudiante obtenga una buena calificación en un examen porque haya aprendido a realizar los ejercicios, pero aún así carezca de entendimiento sobre los conceptos básicos. Una discusión más detallada sobre el sistema de clasificación de las preguntas en niveles puede encontrarse en el apéndice \ref{apend:preguntas en niveles}.
+La división de las preguntas en niveles de relevancia es una de las características novedosas del modelo propuesto. Con ello se busca facilitar que el estudiante adquiera los conocimientos en el orden más adecuado, asegurando que no se enfrenta a conceptos que dependen de otros hasta que domina los conceptos base. Esta división también ayuda a evitar que un estudiante obtenga una buena calificación en un examen porque haya aprendido a realizar los ejercicios, pero aún así carezca de entendimiento sobre los conceptos básicos. Una discusión más detallada sobre el sistema de clasificación de las preguntas en niveles puede encontrarse en el apéndice \ref{apend:preguntas en niveles}.
 
 Cada pregunta lleva asociada una serie de respuestas y solo una es la válida. Tanto las preguntas como las respuestas llevan asociadas mucha información, como el enunciado, imágenes opcionales\ldots En la figura \ref{fig:modelo del dominio} se encuentran detallada toda la información asociada a cada entidad que compone el modelo.
 
@@ -159,16 +159,16 @@ En concreto, cuando un docente crea un cuestionario establece dos parámetros, $
 
 \begin{figure}[htp!]
 	\centering
-	\includegraphics[width=0.75\textwidth,clip=true]{modelo_adaptacion}
+	\includegraphics[width=0.5\textwidth,clip=true]{modelo_adaptacion}
 	\caption[Modelo de adpatación]{Diagrama que representa todos los posibles recorridos para un cuestionario con $N_l = 3$ y $N_v = 6$. Todos los alumnos entran por la pregunta de la esquina superior izquierda. El número dentro de las circunferencias representa la dificultad de la pregunta. Cuando un alumno responde, toma el camindo de la flecha oscura cuando acierta y de la flecha clara cuando falla. La última fila del diagrama representa las posibles notas que un estudiante puede sacar, ordenadas de menor a mayor de izquieda a derecha.}
 	\label{fig:modelo de adaptacion}
 \end{figure}
 
 La elección de la siguiente pregunta dentro de un mismo nivel se hace de forma aleatoria, asegurando en todo momento que no haya preguntas repetidas dentro del mismo cuestionario. Cuando el alumno sube de nivel, ya solo responde a preguntas de ese nuevo nivel. Como el número de preguntas está limitado, es posible que un estudiante no llegue a responder preguntas de todos los niveles o incluso puede que solo responda preguntas del primer nivel. Una vez que se ha subido de nivel, no se puede bajar, aunque cada vez que se repita el cuestionario se volverá al primer nivel.
 
-Que la respuesta de una pregunta condicione la siguiente pregunta obliga a que el estudiante responda a cada pregunta, a diferencia de los cuestionarios clásicos, donde una pregunta puede dejarse sin respuesta y continuar con la siguiente. Para solucionar esta diferencia el equipo docente puede establecer que exista una opción adicional de respuesta que indique que el alumno no conoce la respuesta que el sistema tratará como respuesta incorrecta a la hora de seleccionar la siguiente pregunta. Así mismo, la aplicación da al docente la opción de mostrar una casilla que especifique que el alumno ha respondido sin estar seguro de que sea la respuesta correcta. Más información sobre el modelo del examen, en concreto sobre el sistema de calificación, puede encontrarse en el apéndice \ref{apen:como se ponen las notas}
+Que la respuesta de una pregunta condicione la siguiente pregunta obliga a que el estudiante responda a cada pregunta, a diferencia de los cuestionarios clásicos, donde una pregunta puede dejarse sin respuesta y continuar con la siguiente. Para solucionar esta diferencia el equipo docente puede establecer que exista una opción adicional de respuesta que indique que el alumno no conoce la respuesta. Si marca está opción, el sistema la tratará como respuesta incorrecta a la hora de seleccionar la siguiente pregunta. Así mismo, la aplicación da al docente la opción de mostrar una casilla que especifique que el alumno ha respondido sin estar seguro de que sea la respuesta correcta. Más información sobre el modelo del examen, en concreto sobre el sistema de calificación, puede encontrarse en el apéndice \ref{apen:como se ponen las notas}
 
-Por último, el docente puede decidir que los estudiantes reciban feedback al responder una pregunta o no. Si lo hacen, cuando el alumno responda se indicará si la respuesta es correcta o no, además de un mensajes de feedback escrito por el profesor para cada pregunta.
+Por último, el docente puede decidir que los estudiantes reciban feedback al responder una pregunta o no, como se describe en \ref{RF:feedback}.
 
 
 %\textbf{Exámenes con distintos niveles y cómo se pasa de uno a otro. Hablar también del feedback o del no lo sé}
