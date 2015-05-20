@@ -14,7 +14,7 @@ Como este proyecto nació asociado a una investigación, no se ha utilizado una 
 
 \section{Análisis de requisitos}
 
-Los requisitos aquí detallados son el fruto de un análisis a priori sobre cómo debería necesidades debería cubrir el sistema y de las aportaciones realizadas por la experiencia que han tenido los usuarios después de ser utilizado en entornos reales.
+Los requisitos aquí detallados son el fruto de un análisis a priori sobre qué necesidades tenía que cubrir el sistema más carencias que se han detectado al ser utilizado en entorno reales y que se han ido añadiendo. Algunas de las mejoras posibles se han detectado en la última iteración realizada y por lo tanto aún no están implementadas. Aún así, están recogidas en el apéndice \ref{apen:analisis de requisitos}. 
 
 \subsection{Análisis funcional}
 
@@ -36,7 +36,7 @@ Los requisitos aquí detallados son el fruto de un análisis a priori sobre cóm
 	\item \textbf{Rol docente:} Creación y gestión de preguntas y respuestas.
 		\begin{rf0*}
 			\item Existiendo al menos una materia, los docentes podrán crear preguntas y respuestas asociadas a dicha materia.
-			\item Cuando se cree una pregunta nueva, deberá indicarse la materia a la que pertenece (que deberá haber sido creada previamente), el nivel, el enunciado, el enunciado de la respuesta correcta y el resto de respuestas. El número de respuestas que deberá escribir vendrá condicionado por el valor establecido en la materia relativa.
+			\item Cuando se cree una pregunta nueva, deberá indicarse la materia a la que pertenece (que deberá haber sido creada previamente), el nivel, el enunciado, la respuesta correcta y el resto de respuestas. El número de respuestas que deberá escribir vendrá condicionado por el valor establecido en la materia relativa.
 			\item Opcionalmente, se podrá asociar ficheros multimedia a las preguntas. Se pueden asociar imágenes o audio tanto al enunciado como a cada una de las respuestas. Si se desea asociar un fichero multimedia, deberá especificarse el nombre del fichero.
 			\item Opcionalmente, se podrá establecer un mensaje de feecback asociado a la pregunta.
 			\item Una vez creada una pregunta, el docente podrá modificar cualquier atributo o borrar dicha pregunta. En ambos casos, se mantendrá una copia en la base de datos de la antigua pregunta para que los alumnos no vean alterados sus cuestionarios una vez realizados.
@@ -52,7 +52,7 @@ Los requisitos aquí detallados son el fruto de un análisis a priori sobre cóm
 	\item \textbf{Rol docente:} Creación y gestión de cuestionarios.
 		\begin{rf0*}
 			\item Existiendo al menos una materia y preguntas suficientes en cada nivel, el profesor podrá crear un cuestionario. Al hacerlo deberá definir un nombre, si el cuestionario será visible a los alumnos, la materia que se usará como banco de preguntas, el número de preguntas que deberán contestarse en cada intento, el tiempo máximo, si el examen acepta respuestas con duda y cómo deberán mostrarse el resultado a los alumnos.
-			\item Una vez creado un cuestionario, el docente podrá modificar alguno de sus valores, o eliminar el cuestionario. Esto no afectará, en ningún caso, a la información almacenada sobre los cuestionarios ya respondidos por alumnos.
+			\item Una vez creado un cuestionario, el docente podrá eliminar el cuestionario. Esto no afectará, en ningún caso, a la información almacenada sobre los cuestionarios ya respondidos por alumnos.
 			\item Los docentes podrán acceder a un listado de todos los cuestionarios ya creados.
 		\end{rf0*}
 		
@@ -61,7 +61,7 @@ Los requisitos aquí detallados son el fruto de un análisis a priori sobre cóm
 			\item Una vez creado un cuestionario por un profesor, y si está marcado como visible, los alumnos podrán acceder a él.
 			\item Una vez que un estudiante acceda a un cuestionario, se le irán mostrando preguntas que deberá ir contestando. Las preguntas se mostrarán en función de las respuestas previas y los niveles establecidos por el profesor.
 			\item Si las preguntas van asociadas a ficheros multimedia, estos se mostrarán al estudiante mientras responde. Si aceptan la opción de responder con duda, el alumno tendrá a su disposición un método de establecer que ha respondido con duda.
-			\item Para cada pregunta que el alumno responda, quedará almacenado en el sistema a qué cuestionario pertenece, cuando se responde, qué pregunta se ha formulado y cuál ha sido la respuesta elegida. Si hay opción de duda, si se ha dudado o no al responder.
+			\item Para cada pregunta que el alumno responda, quedará almacenado en el sistema a qué cuestionario pertenece, cuando se responde, qué pregunta se ha formulado y cuál ha sido la respuesta elegida. Si hubiera opción de duda, también se mostrará si se ha dudado o no al responder.
 		\end{rf0*}
 	
 	\item Visualización de resultados.
@@ -87,10 +87,6 @@ Los requisitos aquí detallados son el fruto de un análisis a priori sobre cóm
 			\item Debido al carácter secreto de gran parte del contenido creado por los profesores, el sistema deberá garantizar la no accesibilidad de ese contenido a usuarios no autorizados.
 			\item Todo usuario que acceda al sistema debe autentificarse previamente a través de un usuario/contraseña, para asegurar la autoría de las respuestas de los cuestionarios.
 			\item La autentificación de los usuarios debe ser segura. En concreto, el sistema no almacenará las contraseñas en la base de datos en texto plano. Deberá utilizar un método que garantize que la contraseña no sea conocida aunque se acceda a la base de datos.
-		\end{rnf0*}
-	\item Accesibilidad
-		\begin{rnf0*}
-			\item El sistema debe cumplir con el estándar \acrshort{WCAG} 2.0 en un nivel A.
 		\end{rnf0*}
 \end{rnf0}
 
@@ -149,7 +145,7 @@ Una vez escrito un número suficiente de preguntas, el equipo docente puede crea
 
 %\textbf{Estructura de la BD}
 
-\subsection{Modelo de adaptación}
+\subsection{Modelo de adaptación\label{sec:modelo adapatacion}}
 
 El sistema contempla dos tipos de adaptación. Primero, tenemos la adaptación de navegación, que es aquella que busca guiar al usuario por el sistema, facilitando su uso. En nuestro caso, la navegación del estudiante es sencilla, por lo que no aplica. Donde sí que es necesario este tipo de adaptación es en el área del docente. A la hora de crear las materias, las preguntas y los cuestionarios existe un orden de trabajo más sencillo que otros y el sistema deberá guiar al usuario por ese recorrido utilizando elementos variables de la interfaz.
 
@@ -187,35 +183,120 @@ En esta sección se detalla cómo se han plasmado los requisitos y el diseño de
 
 \subsection{Visión general}
 
-e-valUAM es el sistema web de creación y respuesta de cuestionarios para ayuda al aprendizaje en el que se ha plasmado el proyecto. Es un sistema que ha sido desarrollado para servir como herramienta de una investigación asociada que viene existiendo desde los últimos tres años, tomando su forma definitiva especialmente en el último año. Para cada año académico se construyó un prototipo diferente que siempre fue una ampliación del prototipo anterior, siguiendo un modelo de desarrollo en espiral.
+e-valUAM es el sistema web de creación y respuesta de cuestionarios para ayuda al aprendizaje en el que se ha plasmado este proyecto. Es un sistema que ha sido desarrollado para servir como herramienta de una investigación que viene existiendo desde los últimos tres años, tomando su forma definitiva especialmente en el último año. Para cada año académico se construyó un prototipo diferente que siempre fue una ampliación del prototipo anterior, siguiendo un modelo de desarrollo en espiral.
 
-Al tratarse de parte de una investigación en desarrollo existen algunos requisitos y cuestiones del diseño que se han detectado y recogido, pero que aún no se han implementado. En concreto, todos los requisitos funcionales han sido satisfechos, aunque algunos no con la solución óptima. Por ejemplo, [TODO: RELLENAR LISTADO DE CUESTIONES TERMINADAS Y NO TERMINADAS]
+Al tratarse de parte de una investigación en desarrollo existen algunos requisitos y cuestiones del diseño que se han detectado y recogido, pero que aún no se han implementado. Aún así, todo lo descrito en las secciones anteriores ha sido ya recogido como funcionalidad del sistema.
 
-Por último, y puesto que el sistema requiere de autentificación para poder ser explorado, se ha creado una cuenta a tal propósito cuyo nombre de usuario y contraseña son \textit{TFG}. Está disponible en \url{http://sacha.ii.uam/e-valUAM}
+Además, esta sección está complementada por la información disponible en los apéndices \ref{apen:estructura proyecto} y \ref{apen:codigo}, que hacen referencia a cómo está estructurado el código del proyecto y las partes del código más relevantes, respectivamente.
+
+Por último, y puesto que el sistema requiere de autentificación para poder ser explorado, se ha creado una cuenta a tal propósito cuyo nombre de usuario y contraseña son \textit{TFG}. El sistema está disponible en \url{http://sacha.ii.uam/e-valUAM} y la cuenta aquí especificada tiene permisos tanto de alumno como de profesor, por lo que se pueden explorar libremente todo el sistema.
 
 \subsection{Tecnologías y lenguajes empleados\label{sec:tecnologias}}
 
-Al ser un sistema web, los lenguajes principales son aquellos relacionados con las tecnologías web. En concreto, se ha utilizado HTML5, CSS3 y Javascript para la parte del cliente, mientras que en el servidor se ha utilizado PHP. Para el desarrollo de la interfaz de usuario se han utilizado las librerias de Bootstrap y jQuery.
+Al ser un sistema web, los lenguajes principales son aquellos relacionados con las tecnologías web. En concreto, se ha utilizado HTML5, CSS3 y Javascript para la parte del cliente, mientras que en el servidor se ha utilizado PHP 5. Para el desarrollo de la interfaz de usuario se han utilizado las librerías de Bootstrap 3 y jQuery.
 
-En el lado del servidor se ha utilizado una máquina alojada en la UAM, con sistema operativo Windows, servidor Apache y como gestor de base de datos PostgreSQL.
+En el lado del servidor se ha utilizado una máquina alojada en la UAM, con sistema operativo Windows 7, servidor Apache 2.2 y como gestor de base de datos PostgreSQL 9.3.
 
-Como editor de código se ha utilizado Sublime Text. Para el control de versiones git y como repositorio central, Github. Como editor de texto se ha utilizado \LaTeX.
+Como editor de código se ha utilizado Sublime Text 3. Para el control de versiones git y como repositorio central, Github.
 
 \subsection{Módulos asociados al docente}
 
-Las cuentas que tengas permisos de profesor pueden gestionar sus cuestionarios a través de la zona de profesor, accesible a través de \url{http://sacha.ii.uam.es/e-valUAM/profesor/}. Esta sección se divide en 6 módulos principales:
+Las cuentas que dispongan de permisos de profesor pueden gestionar sus cuestionarios a través de la zona de profesor, accesible desde \url{http://sacha.ii.uam.es/e-valUAM/profesor/}. Esta sección se divide en 5 módulos principales:
 
-\begin{enum}
+\begin{itemize}
 	\item Materias
 	\item Preguntas
 	\item Exámenes
 	\item Ficheros multimedia
 	\item Recuperación de exámenes
-	\item Análisis de resultados
-\end{enum}
+	%\item Análisis de resultados
+\end{itemize}
+
+A continuación se repasarán las características y el funcionamiento de cada uno de ellos.
+
+\subsubsection{Materias, Preguntas y Exámenes}
+
+Los módulos de materias, preguntas y exámenes son los encargados de permitir al usuario crear y gestionar las materias, preguntas y cuestionarios, respectivamente. Los tres tienen un funcionamiento muy parecido, similar al mostrado en la figura \ref{fig:e-valUAM interfaz profesor}.
+
+\begin{figure}[htp!]
+	\centering
+	\includegraphics[width=1\textwidth,clip=true]{e-valUAM_preguntas}
+	\caption{Interfaz de e-valUAM para el profesor}
+	\label{fig:e-valUAM interfaz profesor}
+\end{figure}
+
+A través del menú superior, al docente puede acceder a todas las secciones de la página. Al entrar en ``Materias'', ``Preguntas'' o ``Exámenes'' verá una interfaz dividida en dos zonas. 
+
+La zona primera (a la izquierda en la imagen, arriba si se accediera desde un dispositivo con una pantalla pequeña) es la que sirve para crear una nueva entidad en el sistema. Un formulario solicita al usuario toda la información relevante. Al pulsar en el botón de ``Guardar'', si con Javascript se comprueba que todos los campos necesarios han sido rellenados, se envía al servidor. En el servidor un fichero PHP recibe la información, la valida y si todo es correcto, la almacena en la base de datos.
+
+La segunda zona (a la derecha en la imagen, al final de la página se se accede con una pantalla pequeña) es donde se lista la información ya almacenada en la base de datos. En formato tabular se muestran todas las entradas. A la izquierda del todo se muestran dos botones para editar la información y borrarla.
+
+Cuando se edita un elemento, aparece un formulario en primer plano con la información almacenada hasta el momento y la posibilidad de establecer un nuevo valor para cada campo. Al final del formulario se ofrecen dos botones, para guardar los cambios o descartarlos sin alterar la base de datos.
+
+\begin{figure}[htp!]
+	\centering
+	\includegraphics[width=0.75\textwidth,clip=true]{e-valUAM_edicion}
+	\caption{Menú de edición para un elemento}
+	\label{fig:e-valUAM edicion profesor}
+\end{figure}
+
+Si el usuario guarda los cambios, el navegador del usuario envía una petición AJAX con la información del cambio, que es comprobado y procesado por un fichero PHP en el servidor. El servidor responde si se ha podido realizar el cambio o no, para avisar al usuario en caso de que se produjera un error. Si se intenta borrar el elemento, el sistema pedirá confirmación y lanzará una petición AJAX al servidor siguiendo el mismo proceso.
+
+\subsubsection{Ficheros multimedia}
+
+Pensando en hacer la aplicación más accesible a usuarios de corta edad, se incluyó la posibilidad de que la aplicación pudiera incluir imágenes o audio para complementar la información mostrada como texto en las preguntas y las respuestas.
+
+Para poder trabajar con dichos ficheros, la sección de la web dedicada a la web permite a los docentes subir nuevos ficheros o listar los que ya estén. Los ficheros multimedia van asociados a una materia, por lo que lo primero que debe hacerse, tanto para ver como para listar, es elegir con qué materia se quiere trabajar.
+
+Para asegurar la compatibilidad con todos los navegadores modernos el sistema solo acepta imágenes en formatos GIF, PNG o JPEG y audio en formato MP3. Cuando el profesor sube un fichero se guarda en una carpeta en el servidor diferente para cada materia, por lo que cada profesor puede tener sus propios ficheros sin interferir con los demás. En la base de datos, mediante el gestor de preguntas, se asocian los ficheros con las preguntas y las respuestas. Cuando deben mostrarse al usuario, sencillamente el servidor busca el fichero en la carpeta correspondiente para que su navegador se lo muestre al usuario.
+
+\begin{figure}[htp!]
+	\centering
+	\includegraphics[width=1\textwidth,clip=true]{e-valUAM_multimedia}
+	\caption{Subida de ficheros multimedia}
+	\label{fig:e-valUAM ficheros multimedia profesor}
+\end{figure}
+
+Para que el profesor no tenga que recordar qué ficheros subió o el nombre de los mismos, se incluyó la sección de visión de ficheros. Sencillamente, cuando el docente elige una materia para mostrar, se solicta por AJAX al servidor un listado de todos los ficheros que hay asociados a ella. Cuando el navegador recibe respuesta empieza a mostrarlos si son imágenes o a mostrar un reproductor si se trata de audio.
+
+\begin{figure}[htp!]
+	\centering
+	\includegraphics[width=0.75\textwidth,clip=true]{e-valUAM_visor_multimedia}
+	\caption{Visor de elementos multimedia}
+	\label{fig:e-valUAM visor multimedia profesor}
+\end{figure}
+
+\subsubsection{Recuperación de exámenes}
+
+Aunque el sistema realiza una corrección automática de los cuestionarios respondidos por los alumnos, es posible que aún así los profesores deseen revisar los exámenes, ya sea para comprobar personalmente el desempeño de un alumno o para revisar con él sus respuestas o su calificación.
+
+Con ese fin se creó el módulo de recuperación de exámenes. Cuando el profesor lo selecciona en el menú, aparece un listado con todos los cuestionarios que ha creado en algún momento. Cuando selecciona alguno de ellos, gracias a una petición AJAX, se muestra un listado con todos los intentos que ha realizado cada alumno respondiendo a ese cuestionario.
+
+\begin{figure}[htp!]
+	\centering
+	\includegraphics[width=1\textwidth,clip=true]{e-valUAM_recuperacion_examenes}
+	\caption[Recuperación de exámenes]{Recuperación de exámenes. Se han difuminado el nombre de los alumnos por respeto a su intimidad.}
+	\label{fig:e-valUAM recuperacion examenes profesor}
+\end{figure}
+
+Cuando el profesor selecciona un intento en concreto, el sistema muestra ordenadamente todas las preguntas que se eligieron para ese intento, junto a la respuesta que el alumno seleccionó, además de si esta es correcta o no. Para poder realizar esta operación correctamente es por lo que si un profesor modifica una pregunta no se borra de la base de datos, sino que se almacenan ambas versiones, de tal forma que siempre se recupera el examen tal y cómo lo vio el alumno en su momento.
 
 \subsection{Módulos asociados al estudiante}
 
-Las secciones de la página destinas al estudiante son más sencillas y menos abundantes limitándose sencillamente a tres módulos que intereaccionan siempre en un orden determinado. Cuando el alumno accede al sistema a través de la página principal, es redirigído a la página de elección de cuestionario, dónde se  
+Las secciones de la página destinas al estudiante son más sencillas y menos abundantes limitándose sencillamente a tres módulos que interaccionan siempre en un orden determinado. Cuando el alumno accede al sistema a través de la página principal, es redirigido a la página de elección de cuestionario, dónde se le ofrecen todos los cuestionarios disponibles para él en ese momento. Una vez que selecciona el cuestionario que desea realizar, este empieza.
+
+\begin{figure}[!htp]
+	\subfloat[Respuestas con texto e imagen\label{fig:e-valUAM examen}]{%
+		\includegraphics[width=0.45\textwidth]{e-valUAM_examen}
+	}
+	\hfill
+	\subfloat[Respuestas con texto y audio\label{fig:e-valUAM examen audio}]{%
+		\includegraphics[width=0.45\textwidth]{e-valUAM_examen_audio}
+	}
+	\caption{Ejemplo de preguntas de un examen}
+	\label{fig:e-valUAM examenes}
+\end{figure}
+
+Desde ese momento el sistema va seleccionando las preguntas siguiendo el modelo descrito en \ref{sec:modelo adapatacion}. Mientras al alumno aún le queden preguntas por responder y esté dentro del tiempo establecido por el profesor para responder, el examen continuará. Cuando termine con las preguntas o el tiempo, el cuestionario terminará. Dependiendo de qué opción haya elegido el profesor al fijar los parámetros el cuestionario, se mostrará un mensaje indicando que ha terminado el cuestionario, la nota o cada pregunta con la respuesta elegida estableciendo si ha sido correcta o no. A continuación el alumno puede abandonar el sistema o volver a probar con el mismo u otro cuestionario.
 
 %\textbf{En la introducción dejar muy claro qué se ha desarrollado y qué no se ha desarrollado.}
