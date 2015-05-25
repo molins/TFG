@@ -6,15 +6,15 @@
 %
 %Al ser un proyecto asociado a una investigación que se ha desarrollado en varias fases, se consideró que una mejor metodología que se podía utilizar era una basada en el modelo en espiral descrito en \cite{Boehm86} . A pesar de que la metodología presenta varias iteraciones en cada fase, aquí se presentan los resultados agrupados.
 
-En esta sección se presentan los resultados del análisis, diseño y desarrollo del proyecto. Primero, se detallarán todos los requisitos, funcionales y no funcionales, que se han identificado. A continuación, algunas notas sobre el diseño ideado para el proyecto. Para terminar la sección, se detallan aquello más relevantes de la fase de desarrollo.
+En esta sección se presentan los resultados del análisis, diseño y desarrollo del proyecto. Primero, se detallarán todos los requisitos, funcionales y no funcionales, que se han identificado. A continuación, algunas notas sobre el diseño ideado para el proyecto. Para terminar la sección, se detalla aquello más relevantes de la fase de desarrollo.
 
-Como este proyecto nació asociado a una investigación, no se ha utilizado una metodología en cascada clásica, sino un modelo en espiral, partiendo del descrito en \cite{Boehm86}. A pesar de que el modelo describe varias iteraciones, en esta sección se presentan agrupados los resultados a los que se han llegado entre todas las iteraciones.
+Como este proyecto nació asociado a una investigación, no se ha utilizado una metodología en cascada clásica, sino un modelo en espiral, partiendo del descrito en \cite{Boehm86}. A pesar de que el modelo describe varias iteraciones, en esta sección se presentan agrupados los resultados finales a los que se han llegado entre todas las iteraciones.
 
 %TODO: Demostrar todo el dominio que pueda sobre cuestiones de la carrera.
 
 \section{Análisis de requisitos}
 
-Los requisitos aquí detallados son el fruto de un análisis a priori sobre qué necesidades tenía que cubrir el sistema más carencias que se han detectado al ser utilizado en entorno reales y que se han ido añadiendo. Algunas de las mejoras posibles se han detectado en la última iteración realizada y por lo tanto aún no están implementadas. Aún así, están recogidas en el apéndice \ref{apen:analisis de requisitos}. 
+Los requisitos aquí detallados son el fruto de un análisis a priori sobre qué necesidades tenía que cubrir el sistema más carencias que se han detectado al ser utilizado en entorno reales y que se han ido añadiendo. Algunas de las mejoras posibles se han detectado en la última iteración realizada, por lo tanto aún no están implementadas y aquí no se recogen. Aún así, están recogidas en el apéndice \ref{apen:analisis de requisitos}. 
 
 \subsection{Análisis funcional}
 
@@ -70,6 +70,11 @@ Los requisitos aquí detallados son el fruto de un análisis a priori sobre qué
 			\item Cuando una pregunta tenga una cadena de feedback asociada, se mostrará a los alumnos después de que respondan, junto con si la respuesta ha sido correcta o no.\label{RF:feedback}
 			\item \textbf{Rol docente:} Los docentes podrán acceder a un listado con todos los intentos que han realizado cada alumno a cada cuestionario que hayan creado. Para cada cuestionario, podrán ver el detalle de cada uno, es decir, qué preguntas se respondieron, cuál fue la respuestas, si era correcta y el instante en el que se respondió.
 		\end{rf0*}
+
+	\item Análisis de resultados
+		\begin{rf0*}
+			\item El sistema implementará sistemas automáticos que ayuden al equipo docente a detectar preguntas conflictivas, es decir, aquellas donde el número de fallos sea inusualmente elevado, para que los docentes puedan analizar y corregir los defectos asociados a dichas preguntas.
+		\end{rf0*}
 \end{rf0}
 
 
@@ -87,6 +92,14 @@ Los requisitos aquí detallados son el fruto de un análisis a priori sobre qué
 			\item Debido al carácter secreto de gran parte del contenido creado por los profesores, el sistema deberá garantizar la no accesibilidad de ese contenido a usuarios no autorizados.
 			\item Todo usuario que acceda al sistema debe autentificarse previamente a través de un usuario/contraseña, para asegurar la autoría de las respuestas de los cuestionarios.
 			\item La autentificación de los usuarios debe ser segura. En concreto, el sistema no almacenará las contraseñas en la base de datos en texto plano. Deberá utilizar un método que garantize que la contraseña no sea conocida aunque se acceda a la base de datos.
+		\end{rnf0*}
+	\item Modularidad
+		\begin{rnf0*}
+			\item El diseño realizado tiene que permitir que el modelo de evaluación sea facilmente modificable, es decir, que las modificaciones que se realizen en el modelo de evaluación involucren exclusivamente a una región claramente delimitdada del código repartida exclusivamente en un fichero. 
+		\end{rnf0*}
+	\item Robustez
+		\begin{rnf0*}
+			\item El sistema debe permitir que, al menos, 50 usuarios realizen a la vez un mismo cuestionario.
 		\end{rnf0*}
 \end{rnf0}
 
