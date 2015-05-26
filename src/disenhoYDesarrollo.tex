@@ -91,15 +91,15 @@ Los requisitos aquí detallados son el fruto de un análisis a priori sobre qué
 		\begin{rnf0*}
 			\item Debido al carácter secreto de gran parte del contenido creado por los profesores, el sistema deberá garantizar la no accesibilidad de ese contenido a usuarios no autorizados.
 			\item Todo usuario que acceda al sistema debe autentificarse previamente a través de un usuario/contraseña, para asegurar la autoría de las respuestas de los cuestionarios.
-			\item La autentificación de los usuarios debe ser segura. En concreto, el sistema no almacenará las contraseñas en la base de datos en texto plano. Deberá utilizar un método que garantize que la contraseña no sea conocida aunque se acceda a la base de datos.
+			\item La autentificación de los usuarios debe ser segura. En concreto, el sistema no almacenará las contraseñas en la base de datos en texto plano. Deberá utilizar un método que garantice que la contraseña no sea conocida aunque se acceda a la base de datos.
 		\end{rnf0*}
 	\item \textbf{Modularidad.}
 		\begin{rnf0*}
-			\item El diseño realizado tiene que permitir que el modelo de evaluación sea facilmente modificable, es decir, que las modificaciones que se realizen en el modelo de evaluación involucren exclusivamente a una región claramente delimitada del código repartida exclusivamente en un fichero. \label{RNF:mofularidad}
+			\item El diseño realizado tiene que permitir que el modelo de evaluación sea fácilmente modificable, es decir, que las modificaciones que se realicen en el modelo de evaluación involucren exclusivamente a una región claramente delimitada del código repartida exclusivamente en un fichero. \label{RNF:mofularidad}
 		\end{rnf0*}
 	\item \textbf{Rendimientos.}
 		\begin{rnf0*}
-			\item El sistema debe permitir que, al menos, 50 usuarios realizen a la vez un mismo cuestionario.
+			\item El sistema debe permitir que, al menos, 50 usuarios realicen a la vez un mismo cuestionario.
 		\end{rnf0*}
 \end{rnf0}
 
@@ -169,7 +169,7 @@ En concreto, cuando un docente crea un cuestionario establece dos parámetros, $
 \begin{figure}[htp!]
 	\centering
 	\includegraphics[width=0.5\textwidth,clip=true]{modelo_adaptacion}
-	\caption[Modelo de adpatación]{Diagrama que representa todos los posibles recorridos para un cuestionario con $N_l = 3$ y $N_v = 6$. Todos los alumnos entran por la pregunta de la esquina superior izquierda. El número dentro de las circunferencias representa la dificultad de la pregunta. Cuando un alumno responde, toma el camindo de la flecha oscura cuando acierta y de la flecha clara cuando falla. La última fila del diagrama representa las posibles notas que un estudiante puede sacar, ordenadas de menor a mayor de izquieda a derecha.}
+	\caption[Modelo de adpatación]{Diagrama que representa todos los posibles recorridos para un cuestionario con $N_l = 3$ y $N_v = 6$. Todos los alumnos entran por la pregunta de la esquina superior izquierda. El número dentro de las circunferencias representa la dificultad de la pregunta. Cuando un alumno responde, toma el camino de la flecha oscura cuando acierta y de la flecha clara cuando falla. La última fila del diagrama representa las posibles notas que un estudiante puede sacar, ordenadas de menor a mayor de izquierda a derecha.}
 	\label{fig:modelo de adaptacion}
 \end{figure}
 
@@ -307,7 +307,7 @@ Cuando el profesor selecciona un intento en concreto, el sistema muestra ordenad
 
 Una de las motivaciones de este trabajo es ayudar a los docentes en sus actividades automatizando aquellas que más tiempo les consuman. Desde esa perspectiva, un módulo de análisis de resultados es fundamental. En la versión actual, el módulo aún es muy primitivo ya que solo sirve para detectar preguntas con un ratio de fallo excesivo de forma automática. En un futuro se desean añadir más características a este módulo utilizando técnicas de machine learning.
 
-Cuando el docente accede, tras seleccionar una materia y el número mínimo de veces que deben haber sido respondidas las preguntas para tenerse en cuenta, verá ordenadas todas las preguntas por el ratio de fallo. Aunque es un análisis todavía muy simple, permite quitar al profesor un gran trabajo, ya que revisar todos los cuestionarios manualmente, agrupando por preguntas y calculando ratios de fallos podría llevar horas, especialmente para grupos de alumnos grandes.
+Cuando el docente accede, tras seleccionar una materia y el número mínimo de veces que deben haber sido respondidas las preguntas para tenerse en cuenta, verá ordenadas todas las preguntas por el ratio de fallo. Aunque es un análisis todavía muy simple, permite quitar al profesor un gran trabajo, ya que revisar todos los cuestionarios manualmente, agrupando por preguntas y calculando ratio de fallos podría llevar horas, especialmente para grupos de alumnos grandes.
 
 \subsection{Módulos asociados al estudiante}
 
