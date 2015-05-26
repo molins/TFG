@@ -211,14 +211,18 @@ Como editor de código se ha utilizado Sublime Text 3. Para el control de versio
 
 \subsection{Base de datos}
 
-En la figura \ref{fig:base de datos} se encuentran detallada toda la información asociada a cada entidad que compone el modelo.
+Para este proyecto se eligió una base de datos relacional al existir una clara estructura en los datos que convenía respetar. En la figura \ref{fig:base de datos} se puede ver el diagrama entidad-relación.
 
 \begin{figure}[htp!]
 	\centering
-%	\includegraphics[width=0.75\textwidth,clip=true]{modelo_dominio}
-	\caption{Modelo del dominio}
+	\includegraphics[width=1\textwidth]{diagrama_entidad_relacion}
+	\caption{Diagrama entidad relación de la base de datos}
 	\label{fig:base de datos}
 \end{figure}
+
+Buscando hacer la base de datos lo menos propensa a errores posible, se transformó el diagrama anterior a una 3NF. Para ello, se crearon tantas tablas como entidades aparecen en el diagrama, además de algunas tablas auxiliares. En concreto, se crearon dos tablas más, una para cada una de las relaciones N a N (usuario-materia, usuario-cuestionario) con las claves primarias (y los atributos de la relación, en el caso de usuario-cuestionario). 
+
+Además, se creó una tabla para la relación triple entre usuario-cuestionario-respuesta. Esta relación recoge la información de cada respuesta que da cada alumno a cada pregunta que le aparece en cada cuestionario que realiza, guardando además el momento en el que se responde y si el alumno dudó al hacerlo. Aunque en un primer vistazo pueda parecer que existiendo esta relación sobra la relación entre usuario-cuestionario, ambas relaciones modelan información distinta. La relación usuario-cuestionario almacena el momento en el que un alumno empieza un cuestionario, y si lo termina, la nota que ha sacado en dicho intento, información independiente de cada una de las respuestas que vaya dando a lo largo del cuestionario, que es lo que guarda la relación triple.
 
 
 \subsection{Módulos asociados al docente}
