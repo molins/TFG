@@ -6,34 +6,34 @@
 %
 %Al ser un proyecto asociado a una investigación que se ha desarrollado en varias fases, se consideró que una mejor metodología que se podía utilizar era una basada en el modelo en espiral descrito en \cite{Boehm86} . A pesar de que la metodología presenta varias iteraciones en cada fase, aquí se presentan los resultados agrupados.
 
-En esta sección se presentan los resultados del análisis, diseño y desarrollo del proyecto. Primero, se detallarán todos los requisitos, funcionales y no funcionales, que se han identificado. A continuación, algunas notas sobre el diseño ideado para el proyecto. Para terminar la sección, se detalla aquello más relevantes de la fase de desarrollo.
+En este capítulo se presentan las partes más relevantes de las fases de análisis, diseño y desarrollo del proyecto. Primero, se detallarán todos los requisitos, funcionales y no funcionales, que se han identificado. A continuación, las ideas principales detrás del diseño implementado y para terminar, se detalla aquello más relevantes de la fase de desarrollo.
 
-Como este proyecto nació asociado a una investigación, no se ha utilizado una metodología en cascada clásica, sino un modelo en espiral, partiendo del descrito en \cite{Boehm86}. A pesar de que el modelo describe varias iteraciones, en esta sección se presentan agrupados los resultados finales a los que se han llegado entre todas las iteraciones.
+Como este proyecto nació asociado a una investigación, no se ha utilizado una metodología en cascada clásica, sino un modelo en espiral, partiendo del descrito en \cite{Boehm86}. A pesar de que el modelo describe varias iteraciones, en esta sección se presentan agrupados los resultados finales a los que se han llegado entre todas las iteraciones, para facilitar su lectura.
 
 %TODO: Demostrar todo el dominio que pueda sobre cuestiones de la carrera.
 
 \section{Análisis de requisitos}
 
-Los requisitos aquí detallados son el fruto de un análisis a priori sobre qué necesidades tenía que cubrir el sistema más carencias que se han detectado al ser utilizado en entorno reales y que se han ido añadiendo. Algunas de las mejoras posibles se han detectado en la última iteración realizada, por lo tanto aún no están implementadas y aquí no se recogen. Aún así, están recogidas en el apéndice \ref{apen:analisis de requisitos}. 
+Los requisitos aquí detallados son el fruto de un análisis a priori sobre qué necesidades tenía que cubrir el sistema más carencias que se han detectado al ser utilizado en entorno reales y que se han ido añadiendo. Algunas de las mejoras posibles se han detectado en la última iteración realizada, aún no están implementadas y en consecuencia, aquí no se recogen. Aún así, están recogidas en el apéndice \ref{apen:analisis de requisitos}. 
 
 \subsection{Análisis funcional}
 
 \begin{rf0}
 
-	\item Gestión de usuarios.
+	\item \textbf{Gestión de usuarios.}
 			\begin{rf0*}
 				\item El sistema deberá permitir crear cuentas de usuario. Las cuentas tendrán un nombre de usuario y contraseña que identifiquen a cada usuario.
 				\item Cada cuenta de usuario tendrá un rol en cada asignatura en la que participe. Podrá ser un rol docente o rol estudiante. Dependiendo del rol que tenga, la cuenta podrá acceder a más o menos funcionalidad en cada sección del sistema, como se detalla más adelante.
 				\item El equipo docente de cada asignatura determinará qué alumnos pertenecen a sus grupos.
 			\end{rf0*} 
 
-	\item \textbf{Rol docente:} Creación y gestión de materias.
+	\item \textbf{Creación y gestión de materias.}  \textit{Rol docente.} 
 			\begin{rf0*}
 				\item Dentro de su asignatura, el docente podrá crear tantas materias como necesite. Cuando cree una materia, deberá establecer un título, el número de niveles en los que se clasificarán las preguntas y el número de respuestas que tendrá cada una.
 				\item Una vez creada una materia, el docente podrá modificar su configuración. Podrá cambiar el título en cualquier caso, pero solo podrá cambiar el número de niveles y el número de respuestas cuando no haya preguntas asociadas a la materia o cuando el número aumente. Para disminuir alguno de los dos valores, deberá borrar antes todas las preguntas asociadas a la materia.
 			\end{rf0*}
 
-	\item \textbf{Rol docente:} Creación y gestión de preguntas y respuestas.
+	\item \textbf{Creación y gestión de preguntas y respuestas.}  \textit{Rol docente.} 
 		\begin{rf0*}
 			\item Existiendo al menos una materia, los docentes podrán crear preguntas y respuestas asociadas a dicha materia.
 			\item Cuando se cree una pregunta nueva, deberá indicarse la materia a la que pertenece (que deberá haber sido creada previamente), el nivel, el enunciado, la respuesta correcta y el resto de respuestas. El número de respuestas que deberá escribir vendrá condicionado por el valor establecido en la materia relativa.
@@ -42,7 +42,7 @@ Los requisitos aquí detallados son el fruto de un análisis a priori sobre qué
 			\item Una vez creada una pregunta, el docente podrá modificar cualquier atributo o borrar dicha pregunta. En ambos casos, se mantendrá una copia en la base de datos de la antigua pregunta para que los alumnos no vean alterados sus cuestionarios una vez realizados.
 		\end{rf0*}
 	
-	\item  \textbf{Rol docente:} Subida y gestión de ficheros multimedia.
+	\item \textbf{Subida y gestión de ficheros multimedia.}  \textit{Rol docente.} 
 		\begin{rf0*}
 			\item Existiendo al menos una materia, los docentes podrán subir un fichero de audio (en formato mp3) o imagen (con extensión gif, png, jpeg o jpg) y asociarlo a dicha materia para utilizarlos después en alguna pregunta de la materia.
 			\item Se podrá consultar un listado de todos los ficheros multimedia ya subidos a una materia, que mostrará el nombre de cada fichero además de mostrar la imagen o permitir reproducir el audio.
@@ -56,7 +56,7 @@ Los requisitos aquí detallados son el fruto de un análisis a priori sobre qué
 			\item Los docentes podrán acceder a un listado de todos los cuestionarios ya creados.
 		\end{rf0*}
 		
-	\item Realización de cuestionarios.
+	\item \textbf{Realización de cuestionarios.} 
 		\begin{rf0*}
 			\item Una vez creado un cuestionario por un profesor, y si está marcado como visible, los alumnos podrán acceder a él.
 			\item Una vez que un estudiante acceda a un cuestionario, se le irán mostrando preguntas que deberá ir contestando. Las preguntas se mostrarán en función de las respuestas previas y los niveles establecidos por el profesor.
@@ -64,14 +64,14 @@ Los requisitos aquí detallados son el fruto de un análisis a priori sobre qué
 			\item Para cada pregunta que el alumno responda, quedará almacenado en el sistema a qué cuestionario pertenece, cuando se responde, qué pregunta se ha formulado y cuál ha sido la respuesta elegida. Si hubiera opción de duda, también se mostrará si se ha dudado o no al responder.
 		\end{rf0*}
 	
-	\item Visualización de resultados.
+	\item  \textbf{Visualización de resultados.}
 		\begin{rf0*}
 			\item Si el profesor ha establecido que los resultados se muestren al terminar el examen, se mostrará la nota final, todas las preguntas, junto con cuál ha sido la respuesta del alumno para cada pregunta y si esta ha sido correcta. El profesor también puede elegir que solo se muestre la nota, o ninguna información.
 			\item Cuando una pregunta tenga una cadena de feedback asociada, se mostrará a los alumnos después de que respondan, junto con si la respuesta ha sido correcta o no.\label{RF:feedback}
 			\item \textbf{Rol docente:} Los docentes podrán acceder a un listado con todos los intentos que han realizado cada alumno a cada cuestionario que hayan creado. Para cada cuestionario, podrán ver el detalle de cada uno, es decir, qué preguntas se respondieron, cuál fue la respuestas, si era correcta y el instante en el que se respondió.
 		\end{rf0*}
 
-	\item Análisis de resultados
+	\item  \textbf{Análisis de resultados.} \textit{Rol docente.}
 		\begin{rf0*}
 			\item El sistema implementará sistemas automáticos que ayuden al equipo docente a detectar preguntas conflictivas, es decir, aquellas donde el número de fallos sea inusualmente elevado, para que los docentes puedan analizar y corregir los defectos asociados a dichas preguntas.
 		\end{rf0*}
@@ -81,23 +81,23 @@ Los requisitos aquí detallados son el fruto de un análisis a priori sobre qué
 \subsection{Análisis no funcional}
 
 \begin{rnf0}
-	\item Interfaz y usabilidad
+	\item \textbf{Interfaz y usabilidad.}
 		\begin{rnf0*}
 			\item La interfaz que el sistema mostrará al estudiante debe ser intuitiva y fácil de usar para todas las edades. Estudiantes alfabetizados deben ser capaces de elegir un cuestionario y completarlo sin asistencia externa. Una clase de niños que aún no sepan leer debe ser capaz de completar un cuestionario sin asistencia del profesor, después de que este les haya configurado el ordenador para que el cuestionario elegido empiece.\label{RNFusabilidad}
 			\item La interfaz para el equipo docente deberá ser fácil de aprender para profesores con o sin conocimientos informáticos avanzados. 
 			\item Atendiendo a la diversidad de dispositivos con los que los usuarios trabajan, el sistema debe ser capaz de utilizarse en todos los tamaños de pantalla y para ser utilizado con teclado y ratón o pantalla táctil.
 		\end{rnf0*}
-	\item Seguridad
+	\item \textbf{Seguridad.}
 		\begin{rnf0*}
 			\item Debido al carácter secreto de gran parte del contenido creado por los profesores, el sistema deberá garantizar la no accesibilidad de ese contenido a usuarios no autorizados.
 			\item Todo usuario que acceda al sistema debe autentificarse previamente a través de un usuario/contraseña, para asegurar la autoría de las respuestas de los cuestionarios.
 			\item La autentificación de los usuarios debe ser segura. En concreto, el sistema no almacenará las contraseñas en la base de datos en texto plano. Deberá utilizar un método que garantize que la contraseña no sea conocida aunque se acceda a la base de datos.
 		\end{rnf0*}
-	\item Modularidad
+	\item \textbf{Modularidad.}
 		\begin{rnf0*}
-			\item El diseño realizado tiene que permitir que el modelo de evaluación sea facilmente modificable, es decir, que las modificaciones que se realizen en el modelo de evaluación involucren exclusivamente a una región claramente delimitdada del código repartida exclusivamente en un fichero. 
+			\item El diseño realizado tiene que permitir que el modelo de evaluación sea facilmente modificable, es decir, que las modificaciones que se realizen en el modelo de evaluación involucren exclusivamente a una región claramente delimitada del código repartida exclusivamente en un fichero. \label{RNF:mofularidad}
 		\end{rnf0*}
-	\item Robustez
+	\item \textbf{Rendimientos.}
 		\begin{rnf0*}
 			\item El sistema debe permitir que, al menos, 50 usuarios realizen a la vez un mismo cuestionario.
 		\end{rnf0*}
@@ -133,26 +133,19 @@ En el diseño seguido para este trabajo se decidió utilizar las tecnologías we
 
 El sistema tiene dos roles de usuarios claramente diferenciados: rol docente y rol estudiante. Las necesidades que tienen ambos roles respecto de la aplicación, son radicalmente distintas. Mientras que a los docentes se les debe mostrar herramientas para la creación y gestión de cuestionarios, motorización de resultados y recuperación de exámenes, los estudiantes deben acceder a la ejecución de los cuestionarios, a cierta retroalimentación y a sus resultados.
 
-En ninguno de los dos roles podemos presuponer conocimientos informáticos avanzados, como se recoje en \ref{RNFusabilidad}. Además, desde las fases iniciales del proyecto se planteó que el sistema debería ser fácil de usar para docentes y estudiantes de todas las etapas educativas, desde la primera infancia hasta la edad adulta. Al ser una aplicación potencialmente disponible a niños y niñas muy jóvenes, tampoco podemos presuponer que el estudiante sepa leer, debiendo dotar en consecuencia al rol del docente la habilidad de incluir ficheros multimedia con los que suplir dicha carencia.
+En ninguno de los dos roles podemos presuponer conocimientos informáticos avanzados, como se recoge en \ref{RNFusabilidad}. Además, el sistema debe ser fácil de usar para docentes y estudiantes de todas las etapas educativas, desde la primera infancia hasta la edad adulta. Al ser una aplicación potencialmente disponible a niños y niñas muy jóvenes, tampoco podemos presuponer que el estudiante sepa leer, debiendo dotar en consecuencia al rol del docente la habilidad de incluir ficheros multimedia con los que suplir dicha carencia.
 
 \subsection{Modelo del dominio}
 
 La aplicación pretende ser una ayuda al aprendizaje y por lo tanto, su dominio es la actividad educativa. Más concretamente, aquellas actividades relacionadas con comprobar, por parte del propio estudiante o de un docente, si el alumno ha adquirido correctamente ciertos conocimientos. Para ello, a grandes rasgos, el equipo docente de una asignatura creará una serie de preguntas y respuestas, agrupadas por su contenido en materias, que utilizará para crear cuestionarios a los que los estudiantes tendrán acceso. Del resultado de dichos cuestionarios, tanto el estudiante como los docentes podrán conocer cómo están realizando su actividad y realizar los cambios que fueran necesarios.
 
-La asignatura es la primera división que se utiliza normalmente en los entornos educativos. Un docente se encarga de unas asignaturas en concreto y los estudiantes van explorando por asignaturas. Así, cada asignatura tiene asociados un listado de usuarios, algunos comos docentes y otros como estudiantes. Es importante notar que un usuario podría ser docente en una asignatura pero estudiante en otra, por lo que el rol es un atributo de la unión usuario y asignatura, y no solo del usuario.
+La asignatura es la primera división que se utiliza normalmente en los entornos educativos. Un docente se encarga de unas asignaturas en concreto y los estudiantes van explorando el conocimiento por asignaturas. Así, cada asignatura tiene asociados un listado de usuarios, algunos comos docentes y otros como estudiantes. Es importante notar que un usuario podría ser docente en una asignatura pero estudiante en otra, por lo que el rol es un atributo de la unión usuario y asignatura, y no solo del usuario.
 
 Dentro de cada asignatura, existen una serie de materias, que son las entidades que clasifican los conocimientos por similitud dentro de una asignatura. El concepto de materia en este modelo se utiliza para representar los conceptos del lenguaje común de \emph{temas} o \emph{partes} en los que se divide una asignatura. Dentro de cada materia existe un conjunto de preguntas, ordenadas por un nivel de relevancia.
 
-La división de las preguntas en niveles de relevancia es una de las características novedosas del modelo propuesto. Con ello se busca facilitar que el estudiante adquiera los conocimientos en el orden más adecuado, asegurando que no se enfrenta a conceptos que dependen de otros hasta que domina los conceptos base. Esta división también ayuda a evitar que un estudiante obtenga una buena calificación en un examen porque haya aprendido a realizar los ejercicios, pero aún así carezca de entendimiento sobre los conceptos básicos. Una discusión más detallada sobre el sistema de clasificación de las preguntas en niveles puede encontrarse en el apéndice \ref{apend:preguntas en niveles}.
+La división de las preguntas en niveles de relevancia es una de las características del modelo propuesto. Con ello se busca facilitar que el estudiante adquiera los conocimientos en el orden más adecuado, asegurando que no se enfrenta a conceptos que dependen de otros hasta que domina los conceptos base. Esta división también ayuda a evitar que un estudiante obtenga una buena calificación en un examen porque haya aprendido a realizar los ejercicios, pero aún así carezca de entendimiento sobre los conceptos básicos. Una discusión más detallada sobre el sistema de clasificación de las preguntas en niveles puede encontrarse en el apéndice \ref{apend:preguntas en niveles}.
 
-Cada pregunta lleva asociada una serie de respuestas y solo una es la válida. Tanto las preguntas como las respuestas llevan asociadas mucha información, como el enunciado, imágenes opcionales\ldots En la figura \ref{fig:modelo del dominio} se encuentran detallada toda la información asociada a cada entidad que compone el modelo.
-
-\begin{figure}[htp!]
-	\centering
-%	\includegraphics[width=0.75\textwidth,clip=true]{modelo_dominio}
-	\caption{Modelo del dominio}
-	\label{fig:modelo del dominio}
-\end{figure}
+Cada pregunta lleva asociada una serie de respuestas y solo una es la válida. Tanto las preguntas como las respuestas llevan asociadas mucha información, como el enunciado, imágenes opcionales\ldots
 
 Una vez escrito un número suficiente de preguntas, el equipo docente puede crear cuestionarios. Las cuestionarios pueden ser de autoevaluación para los alumnos o de evaluación clásica, aunque para el sistema son casos idénticos.
 
@@ -161,6 +154,13 @@ Una vez escrito un número suficiente de preguntas, el equipo docente puede crea
 \subsection{Modelo de adaptación\label{sec:modelo adapatacion}}
 
 El sistema contempla dos tipos de adaptación. Primero, tenemos la adaptación de navegación, que es aquella que busca guiar al usuario por el sistema, facilitando su uso. En nuestro caso, la navegación del estudiante es sencilla, por lo que no aplica. Donde sí que es necesario este tipo de adaptación es en el área del docente. A la hora de crear las materias, las preguntas y los cuestionarios existe un orden de trabajo más sencillo que otros y el sistema deberá guiar al usuario por ese recorrido utilizando elementos variables de la interfaz.
+
+%\begin{figure}[htp!]
+%	\centering
+%	\includegraphics[width=0.5\textwidth,clip=true]{adaptacion_navegacion}
+%	\caption{}
+%	\label{fig:adaptacion de navegacion}
+%\end{figure}
 
 El otro tipo de adaptación, la adaptación del contenido, es la más relevante para el sistema. Al igual que la de navegación afecta principalmente al docente, la de contenido afecta sobre todo al estudiante. Las preguntas a las que un estudiante se enfrenta en un cuestionario depende de las respuestas que haya dado a las anteriores.
 
@@ -177,15 +177,13 @@ La elección de la siguiente pregunta dentro de un mismo nivel se hace de forma 
 
 Que la respuesta de una pregunta condicione la siguiente pregunta obliga a que el estudiante responda a cada pregunta, a diferencia de los cuestionarios clásicos, donde una pregunta puede dejarse sin respuesta y continuar con la siguiente. Para solucionar esta diferencia el equipo docente puede establecer que exista una opción adicional de respuesta que indique que el alumno no conoce la respuesta. Si marca está opción, el sistema la tratará como respuesta incorrecta a la hora de seleccionar la siguiente pregunta. Así mismo, la aplicación da al docente la opción de mostrar una casilla que especifique que el alumno ha respondido sin estar seguro de que sea la respuesta correcta. Más información sobre el modelo del examen, en concreto sobre el sistema de calificación, puede encontrarse en el apéndice \ref{apen:como se ponen las notas}
 
-Por último, el docente puede decidir que los estudiantes reciban feedback al responder una pregunta o no, como se describe en \ref{RF:feedback}.
-
+Así mismo, el docente puede decidir que los estudiantes reciban feedback al responder una pregunta o no, como se describe en \ref{RF:feedback}.
 
 %\textbf{Exámenes con distintos niveles y cómo se pasa de uno a otro. Hablar también del feedback o del no lo sé}
 
+\subsection{Motor de adaptación}
 
-
-% Susection a ignorara
-%\subsection{Motor de adaptación}
+El reto del motor de adaptación está en que tiene que ser bastante flexible, para poder permitir cambios en alguno de los modelos sin que eso requiera cambios en el resto. Este desarrollo se ha realizado asociado a una investigación que tenía entre sus objetivos el desarrollo de nuevos modelos de evaluación, que en nuestro caso de traduce en nuevos modelos de adaptación, por lo que al menos sabemos que ese módulo muy posiblemente cambiará. Siendo así, y como ya se recoge en \ref{RNF:modularidad}, en este diseño es de especial importancia que modificar el modelo de adaptación del examen sea sencillo. Para ello, los modelos de usuario y el modelo del dominio se pensaron de la forma más abstracta posible, además de dejar muy delimitado el código asociado al modelo de adaptación, además de hacerlo depende lo mínimo posible de todo lo demás.
 
 %\textbf{Rápidas notas sobre la aplicación en sí. O no.}
 
@@ -198,11 +196,9 @@ En esta sección se detalla cómo se han plasmado los requisitos y el diseño de
 
 e-valUAM es el sistema web de creación y respuesta de cuestionarios para ayuda al aprendizaje en el que se ha plasmado este proyecto. Es un sistema que ha sido desarrollado para servir como herramienta de una investigación que viene existiendo desde los últimos tres años, tomando su forma definitiva especialmente en el último año. Para cada año académico se construyó un prototipo diferente que siempre fue una ampliación del prototipo anterior, siguiendo un modelo de desarrollo en espiral.
 
-Al tratarse de parte de una investigación en desarrollo existen algunos requisitos y cuestiones del diseño que se han detectado y recogido, pero que aún no se han implementado. Aún así, todo lo descrito en las secciones anteriores ha sido ya recogido como funcionalidad del sistema.
-
 Además, esta sección está complementada por la información disponible en los apéndices \ref{apen:estructura proyecto} y \ref{apen:codigo}, que hacen referencia a cómo está estructurado el código del proyecto y las partes del código más relevantes, respectivamente.
 
-Por último, y puesto que el sistema requiere de autentificación para poder ser explorado, se ha creado una cuenta a tal propósito cuyo nombre de usuario y contraseña son \textit{TFG}. El sistema está disponible en \url{http://sacha.ii.uam/e-valUAM} y la cuenta aquí especificada tiene permisos tanto de alumno como de profesor, por lo que se pueden explorar libremente todo el sistema.
+Por último, y puesto que el sistema requiere de autentificación para poder ser explorado, se ha creado una cuenta a tal propósito cuyo nombre de usuario y contraseña son \textit{TFG}. El sistema está disponible en \url{http://sacha.ii.uam/e-valUAM} para acceder como alumno y en \url{http://sacha.ii.uam/e-valUAM/profesor} para acceder como profesor. La cuenta tiene permisos tanto de alumno como de profesor, por lo que se pueden explorar libremente todo el sistema.
 
 \subsection{Tecnologías y lenguajes empleados\label{sec:tecnologias}}
 
@@ -212,22 +208,33 @@ En el lado del servidor se ha utilizado una máquina alojada en la UAM, con sist
 
 Como editor de código se ha utilizado Sublime Text 3. Para el control de versiones git y como repositorio central, Github.
 
+
+\subsection{Base de datos}
+
+En la figura \ref{fig:base de datos} se encuentran detallada toda la información asociada a cada entidad que compone el modelo.
+
+\begin{figure}[htp!]
+	\centering
+%	\includegraphics[width=0.75\textwidth,clip=true]{modelo_dominio}
+	\caption{Modelo del dominio}
+	\label{fig:base de datos}
+\end{figure}
+
+
 \subsection{Módulos asociados al docente}
 
-Las cuentas que dispongan de permisos de profesor pueden gestionar sus cuestionarios a través de la zona de profesor, accesible desde \url{http://sacha.ii.uam.es/e-valUAM/profesor/}. Esta sección se divide en 5 módulos principales:
+Las cuentas que dispongan de permisos de profesor pueden gestionar sus cuestionarios a través de la zona de profesor. Esta sección se divide en 4 módulos principales:
 
 \begin{itemize}
-	\item Materias
-	\item Preguntas
-	\item Exámenes
-	\item Ficheros multimedia
-	\item Recuperación de exámenes
-	%\item Análisis de resultados
+	\item Gestión de Materias, Preguntas y Exámenes.
+	\item Ficheros multimedia.
+	\item Recuperación de exámenes.
+	\item Análisis de resultados.
 \end{itemize}
 
 A continuación se repasarán las características y el funcionamiento de cada uno de ellos.
 
-\subsubsection{Materias, Preguntas y Exámenes}
+\subsubsection{Gestión de Materias, Preguntas y Exámenes}
 
 Los módulos de materias, preguntas y exámenes son los encargados de permitir al usuario crear y gestionar las materias, preguntas y cuestionarios, respectivamente. Los tres tienen un funcionamiento muy parecido, similar al mostrado en la figura \ref{fig:e-valUAM interfaz profesor}.
 
@@ -240,11 +247,11 @@ Los módulos de materias, preguntas y exámenes son los encargados de permitir a
 
 A través del menú superior, al docente puede acceder a todas las secciones de la página. Al entrar en ``Materias'', ``Preguntas'' o ``Exámenes'' verá una interfaz dividida en dos zonas. 
 
-La zona primera (a la izquierda en la imagen, arriba si se accediera desde un dispositivo con una pantalla pequeña) es la que sirve para crear una nueva entidad en el sistema. Un formulario solicita al usuario toda la información relevante. Al pulsar en el botón de ``Guardar'', si con Javascript se comprueba que todos los campos necesarios han sido rellenados, se envía al servidor. En el servidor un fichero PHP recibe la información, la valida y si todo es correcto, la almacena en la base de datos.
+La zona primera (a la izquierda en la imagen, arriba si se accediera desde un dispositivo con una pantalla pequeña) es la que sirve para crear una nueva entidad en el sistema. Un formulario solicita al usuario toda la información relevante. Al pulsar en el botón de ``Guardar'', y tras comprobar con Javascript que todos los campos necesarios han sido rellenados, se envía al servidor. En el servidor un fichero PHP recibe la información, la valida y si todo es correcto, la almacena en la base de datos.
 
-La segunda zona (a la derecha en la imagen, al final de la página se se accede con una pantalla pequeña) es donde se lista la información ya almacenada en la base de datos. En formato tabular se muestran todas las entradas. A la izquierda del todo se muestran dos botones para editar la información y borrarla.
+La segunda zona (a la derecha en la imagen, al final de la página se se accede con una pantalla pequeña) es donde se lista la información ya almacenada en la base de datos. En formato tabular se muestran todas las entradas. A la derecha del todo se muestran dos botones para editar la información y borrarla.
 
-Cuando se edita un elemento, aparece un formulario en primer plano con la información almacenada hasta el momento y la posibilidad de establecer un nuevo valor para cada campo. Al final del formulario se ofrecen dos botones, para guardar los cambios o descartarlos sin alterar la base de datos.
+Cuando se edita un elemento, aparece un formulario en primer plano con la información almacenada hasta el momento y la posibilidad de establecer un nuevo valor para cada campo. Al final del formulario se ofrecen dos botones, para guardar los cambios o descartarlos sin alterar la base de datos. Un ejemplo es la figura \ref{fig:e-valUAM edicion profesor}.
 
 \begin{figure}[htp!]
 	\centering
@@ -257,20 +264,18 @@ Si el usuario guarda los cambios, el navegador del usuario envía una petición 
 
 \subsubsection{Ficheros multimedia}
 
-Pensando en hacer la aplicación más accesible a usuarios de corta edad, se incluyó la posibilidad de que la aplicación pudiera incluir imágenes o audio para complementar la información mostrada como texto en las preguntas y las respuestas.
-
-Para poder trabajar con dichos ficheros, la sección de la web dedicada a la web permite a los docentes subir nuevos ficheros o listar los que ya estén. Los ficheros multimedia van asociados a una materia, por lo que lo primero que debe hacerse, tanto para ver como para listar, es elegir con qué materia se quiere trabajar.
+Para poder trabajar con ficheros multimedia, la web permite a los docentes subir nuevos ficheros o listar los que ya estén. Los ficheros multimedia van asociados a una materia, así que lo primero que debe elegirse es con qué materia se quiere trabajar, tanto para ver como para listar, .
 
 Para asegurar la compatibilidad con todos los navegadores modernos el sistema solo acepta imágenes en formatos GIF, PNG o JPEG y audio en formato MP3. Cuando el profesor sube un fichero se guarda en una carpeta en el servidor diferente para cada materia, por lo que cada profesor puede tener sus propios ficheros sin interferir con los demás. En la base de datos, mediante el gestor de preguntas, se asocian los ficheros con las preguntas y las respuestas. Cuando deben mostrarse al usuario, sencillamente el servidor busca el fichero en la carpeta correspondiente para que su navegador se lo muestre al usuario.
 
 \begin{figure}[htp!]
 	\centering
-	\includegraphics[width=1\textwidth,clip=true]{e-valUAM_multimedia}
-	\caption{Subida de ficheros multimedia}
-	\label{fig:e-valUAM ficheros multimedia profesor}
+	\includegraphics[width=0.75\textwidth,clip=true]{e-valUAM_multimedia}
+	\caption{Subida de elementos multimedia}
+	\label{fig:e-valUAM multimedia profesor}
 \end{figure}
 
-Para que el profesor no tenga que recordar qué ficheros subió o el nombre de los mismos, se incluyó la sección de visión de ficheros. Sencillamente, cuando el docente elige una materia para mostrar, se solicta por AJAX al servidor un listado de todos los ficheros que hay asociados a ella. Cuando el navegador recibe respuesta empieza a mostrarlos si son imágenes o a mostrar un reproductor si se trata de audio.
+Para que el profesor no tenga que recordar qué ficheros subió o el nombre de los mismos, se incluyó la sección de visión de ficheros. Sencillamente, cuando el docente elige una materia para mostrar, se solicita por AJAX al servidor un listado de todos los ficheros que hay asociados a ella. Cuando el navegador recibe respuesta empieza a mostrarlos si son imágenes o a mostrar un reproductor si se trata de audio, como se muestra en la figura \ref{fig:e-valUAM visor multimedia profesor}.
 
 \begin{figure}[htp!]
 	\centering
@@ -293,6 +298,12 @@ Con ese fin se creó el módulo de recuperación de exámenes. Cuando el profeso
 \end{figure}
 
 Cuando el profesor selecciona un intento en concreto, el sistema muestra ordenadamente todas las preguntas que se eligieron para ese intento, junto a la respuesta que el alumno seleccionó, además de si esta es correcta o no. Para poder realizar esta operación correctamente es por lo que si un profesor modifica una pregunta no se borra de la base de datos, sino que se almacenan ambas versiones, de tal forma que siempre se recupera el examen tal y cómo lo vio el alumno en su momento.
+
+\subsubsection{Análisis de resultados}
+
+Una de las motivaciones de este trabajo es ayudar a los docentes en sus actividades automatizando aquellas que más tiempo les consuman. Desde esa perspectiva, un módulo de análisis de resultados es fundamental. En la versión actual, el módulo aún es muy primitivo ya que solo sirve para detectar preguntas con un ratio de fallo excesivo de forma automática. En un futuro se desean añadir más características a este módulo utilizando técnicas de machine learning.
+
+Cuando el docente accede, tras seleccionar una materia y el número mínimo de veces que deben haber sido respondidas las preguntas para tenerse en cuenta, verá ordenadas todas las preguntas por el ratio de fallo. Aunque es un análisis todavía muy simple, permite quitar al profesor un gran trabajo, ya que revisar todos los cuestionarios manualmente, agrupando por preguntas y calculando ratios de fallos podría llevar horas, especialmente para grupos de alumnos grandes.
 
 \subsection{Módulos asociados al estudiante}
 
