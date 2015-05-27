@@ -6,11 +6,15 @@
 %
 %Al ser un proyecto asociado a una investigación que se ha desarrollado en varias fases, se consideró que una mejor metodología que se podía utilizar era una basada en el modelo en espiral descrito en \cite{Boehm86} . A pesar de que la metodología presenta varias iteraciones en cada fase, aquí se presentan los resultados agrupados.
 
-En este capítulo se presentan las partes más relevantes de las fases de análisis, diseño y desarrollo del proyecto. Primero, se detallarán todos los requisitos, funcionales y no funcionales, que se han identificado. A continuación, las ideas principales detrás del diseño implementado y para terminar, se detalla aquello más relevantes de la fase de desarrollo.
+En este capítulo se presentan los resultados de las fases de análisis, diseño y desarrollo del proyecto. Primero, se detallarán todos los requisitos, funcionales y no funcionales, que se han identificado. A continuación, las ideas detrás del diseño implementado y para terminar, se detalla aquello más relevantes de la fase de desarrollo.
 
-Como este proyecto nació asociado a una investigación, no se ha utilizado una metodología en cascada clásica, sino un modelo en espiral, partiendo del descrito en \cite{Boehm86}. A pesar de que el modelo describe varias iteraciones, en esta sección se presentan agrupados los resultados finales a los que se han llegado entre todas las iteraciones, para facilitar su lectura.
+Como este proyecto nació asociado a una investigación y a lo largo de la vida de ella se han creado varios prototipos incrementales, no se ha utilizado una metodología en cascada clásica sino un modelo en espiral, partiendo del descrito en \cite{Boehm86}. A pesar de que el modelo describe varias iteraciones, en esta sección se presentan agrupados los resultados finales a los que se han llegado entre todas las iteraciones, para facilitar su lectura.
 
 %TODO: Demostrar todo el dominio que pueda sobre cuestiones de la carrera.
+
+\section{Introducción}
+
+% Explicar los roles. Explicar la clasificación asignatura > materia > preguntas > respuestas. Intentar utilizar un diagrama
 
 \section{Análisis de requisitos}
 
@@ -83,21 +87,21 @@ Los requisitos aquí detallados son el fruto de un análisis a priori sobre qué
 \begin{rnf0}
 	\item \textbf{Interfaz y usabilidad.}
 		\begin{rnf0*}
-			\item La interfaz que el sistema mostrará al estudiante debe ser intuitiva y fácil de usar para todas las edades. Estudiantes alfabetizados deben ser capaces de elegir un cuestionario y completarlo sin asistencia externa. Una clase de niños que aún no sepan leer debe ser capaz de completar un cuestionario sin asistencia del profesor, después de que este les haya configurado el ordenador para que el cuestionario elegido empiece.\label{RNFusabilidad}
+			\item La interfaz que el sistema mostrará al estudiante debe ser intuitiva. Estudiantes alfabetizados deben ser capaces de elegir un cuestionario y completarlo sin asistencia externa. %Una clase de niños que aún no sepan leer debe ser capaz de completar un cuestionario sin asistencia del profesor, después de que este les haya configurado el ordenador para que el cuestionario elegido empiece.\label{RNFusabilidad}
 			\item La interfaz para el equipo docente deberá ser fácil de aprender para profesores con o sin conocimientos informáticos avanzados. 
 			\item Atendiendo a la diversidad de dispositivos con los que los usuarios trabajan, el sistema debe ser capaz de utilizarse en todos los tamaños de pantalla y para ser utilizado con teclado y ratón o pantalla táctil.
 		\end{rnf0*}
 	\item \textbf{Seguridad.}
 		\begin{rnf0*}
-			\item Debido al carácter secreto de gran parte del contenido creado por los profesores, el sistema deberá garantizar la no accesibilidad de ese contenido a usuarios no autorizados.
+			\item Debido a la confidencialidad que requieren las preguntas creadas por los profesores, el sistema deberá garantizar la no accesibilidad de ese contenido a usuarios no autorizados.
 			\item Todo usuario que acceda al sistema debe autentificarse previamente a través de un usuario/contraseña, para asegurar la autoría de las respuestas de los cuestionarios.
-			\item La autentificación de los usuarios debe ser segura. En concreto, el sistema no almacenará las contraseñas en la base de datos en texto plano. Deberá utilizar un método que garantice que la contraseña no sea conocida aunque se acceda a la base de datos.
+			%\item La autentificación de los usuarios debe ser segura. En concreto, el sistema no almacenará las contraseñas en la base de datos en texto plano. Deberá utilizar un método que garantice que la contraseña no sea conocida aunque se acceda a la base de datos.
 		\end{rnf0*}
 	\item \textbf{Modularidad.}
 		\begin{rnf0*}
-			\item El diseño realizado tiene que permitir que el modelo de evaluación sea fácilmente modificable, es decir, que las modificaciones que se realicen en el modelo de evaluación involucren exclusivamente a una región claramente delimitada del código repartida exclusivamente en un fichero. \label{RNF:mofularidad}
+			\item El diseño realizado tiene que permitir que el modelo de evaluación sea modificable, es decir, que las modificaciones que se realicen en el modelo de evaluación involucren exclusivamente a una región claramente delimitada del código repartida exclusivamente en un fichero. \label{RNF:mofularidad}
 		\end{rnf0*}
-	\item \textbf{Rendimientos.}
+	\item \textbf{Rendimiento.}
 		\begin{rnf0*}
 			\item El sistema debe permitir que, al menos, 50 usuarios realicen a la vez un mismo cuestionario.
 		\end{rnf0*}
@@ -125,15 +129,15 @@ Durante las siguientes secciones se dará una descripción más detallada de los
 
 La interfaz de navegación es la parte del sistema encargada de permitir la interacción entre el sistema y el usuario. Debe representar ante el usuario la información del sistema que este deba conocer, además de recibir la entrada que el usuario genere para que el motor de adaptación pueda incorporarla.
 
-En el diseño seguido para este trabajo se decidió utilizar las tecnologías web como base sobre la que construir, por lo que las funciones de la interfaz de navegación recaen principalmente en el navegador web del usuario. Aún así, el sistema debe crear y, sobre todo, adaptar los ficheros html que envía al navegador del cliente. Para ello se han utilizado las tecnologías web estándar: HTML, Javascript, CSS y PHP. Más información sobre las tecnologías utilizadas en \ref{sec:tecnologias}.
+En el diseño seguido para este trabajo se decidió utilizar las tecnologías web como base sobre la que construir, por lo que las funciones de la interfaz de navegación recaen principalmente en el navegador web del usuario. Aún así, el sistema debe crear y, sobre todo, adaptar los ficheros html que envía al navegador del cliente.
 
 \subsection{Modelo de los usuarios}
 
 %\textbf{Profesor y estudiante}
 
-El sistema tiene dos roles de usuarios claramente diferenciados: rol docente y rol estudiante. Las necesidades que tienen ambos roles respecto de la aplicación, son radicalmente distintas. Mientras que a los docentes se les debe mostrar herramientas para la creación y gestión de cuestionarios, motorización de resultados y recuperación de exámenes, los estudiantes deben acceder a la ejecución de los cuestionarios, a cierta retroalimentación y a sus resultados.
+El sistema tiene dos roles de usuarios claramente diferenciados: rol docente y rol estudiante. Las necesidades que tienen ambos roles respecto de la aplicación son radicalmente distintas. Mientras que a los docentes se les debe mostrar herramientas para la creación y gestión de cuestionarios, motorización de resultados y recuperación de exámenes, los estudiantes deben acceder a la ejecución de los cuestionarios, a cierta retroalimentación y a sus resultados. En ninguno de los dos roles podemos presuponer conocimientos informáticos avanzados.%, como se recoge en \ref{RNFusabilidad}.
 
-En ninguno de los dos roles podemos presuponer conocimientos informáticos avanzados, como se recoge en \ref{RNFusabilidad}. Además, el sistema debe ser fácil de usar para docentes y estudiantes de todas las etapas educativas, desde la primera infancia hasta la edad adulta. Al ser una aplicación potencialmente disponible a niños y niñas muy jóvenes, tampoco podemos presuponer que el estudiante sepa leer, debiendo dotar en consecuencia al rol del docente la habilidad de incluir ficheros multimedia con los que suplir dicha carencia.
+El modelo del usuario va actualizándose a lo largo de la vida del sistema con información sobre la actividad de los usuarios. En concreto, el sistema va almacenando qué docentes están involucrados en qué materias, para que después solo se muestren a los docentes sus items, evitando que pueda modificar items creados por otros profesores. Para los alumnos, el sistema va actualizando la información sobre los cuestionarios que ha intentado, cuándo lo ha hecho, la nota que ha sacado, las preguntas que se le han mostrado y qué respuesta dio a cada pregunta.
 
 \subsection{Modelo del dominio}
 
