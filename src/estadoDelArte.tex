@@ -17,17 +17,32 @@ Entre las mejoras que prometían los \acrshort{CAT} destacaban las siguientes \c
 	\item Una enorme variedad de \textbf{nuevos formatos de preguntas pueden ser explorados}. El sistema de respuesta múltiple no es el único válido. Se pueden crear problemas aritméticas a las que deba introducirse una respuesta numérica. La memoria podría ser evaluada utilizando múltiples marcos. Utilizando sintetizadores de voz, se pueden hacer exámenes de ortografía. Se pueden utilizar vídeos para sustituir largas explicaciones en exámenes de juicio situacional.
 \end{enumerate}
 
-A pesar de todas las ventajas que ofrecen, los \acrshort{CAT} también ofrecen inconvenientes que deben ser tratados. Destacan los siguientes \cite{Wainer00}:
+Desde entonces, los \acrshort{CAT} se han utilizado con éxito para múltiples propósitos, como puntuación instantánea \cite{Wainer00}, la mejora de competencias lingüísticas \cite{Chapelle06} , identificación de estilos de aprendizaje \cite{Ortigosa10}, la habilidad matemática \cite{Klinkenberg11}, o la evaluación del estado de salud \cite{Revicki97}.
+
+A pesar de todas las ventajas que ofrecen, los \acrshort{CAT} han presentado algunos incovenientes que deben ser tratados, aunque múltiples investigaciones han hecho importantes avances. Destacan los siguientes \cite{Wainer00}:
 
 \begin{enumerate}
-	\item Nuevos modelos de exámen requieren crear nuevas teorías psicométricas.
-	\item Si los exámenes tradicionales requieren de habitaicones con mesas y sillas bien colocadas y una buena iluminación para leer las preguntas correctamente, un \acrshort{CAT} requiere de una sala con múltiples ordenadores, correctamente distribuidos y que cada uno de ellos esté en buenas condiciones. En las primeras fases esté podía ser un inconveniente ante la falta de o
-	\item Creación y calibrado de las preguntas.
-	\item 
+ 	\item Nuevos modelos de exámen requieren crear nuevas teorías psicométricas. Para el caso de los \acrshort{CAT} ha sido bastante utilizada la \textit{Item Response Theory}, o \acrshort{IRT}. La \acrshort{IRT} es un modelo matemático que caracteriza qué ocurre cuando un individuo se encuentra con un pregunta. Cada individuo es caracterizado por un valor de competencia y cada pregunta por una dificultad y se busca elegir la mejor pregunta en función de esos dos valores\cite{Wainer83}.
+	\item Los \acrshort{CAT} requieren de una extensa bateria de preguntas, lo que hace compliada \textbf{la correcta calibración de las preguntas}. La estrategia más común para asegurar un buen proceso de calibración implica que la bateria sea provada por una amplia población \cite{Klinkenberg11}. Sin embargo, dado que el pre-calibrado no siempre es posible, se utilizan modelos de estudiantes con el fin de perfeccionar la calidad de la estrategia de evaluación \cite{Antal11}\cite{Galvez09}\cite{Molins14Test}.
+	\item En los entornos \acrshort{CAT} hay tres preguntas clave:
+	\begin{enumerate}
+		\item ¿Cómo se determina con qué pregunta empieza el test?
+		\item ¿Cómo se determina la siguiente pregunta que debe plantearse una vez hemos visto la respuesta del examinado a la pregunta actual?
+		\item ¿Cómo se determina cuándo parar el test?
+	\end{enumerate}
+	La elección de la respuesta a estas tres preguntas no es trivial ni única. Existen muchos algoritmos de comienzo, continuación y parada y al ser tres partes claves del flujo que sigue todo \acrshort{CAT} (como se puede ver en la figura \ref{fig:diagrama_flujo_CAT}), la mínima variación en cualquiera de ellos genera sistemas muy distintos. Cada nuevo modelo que aporte un nueva versión de los tres algoritmos necesita ser probado para asegurar su confiabiliad, precisión y validez\cite{Wainer00}.
 \end{enumerate}
 
+\begin{figure}[htp!]
+	\centering
+	\includegraphics[width=1\textwidth,clip=true]{adaptative_test_logic}
+	\caption{Diagrama de flujo de un \acrshort{CAT}}
+	\label{fig:diagrama_flujo_CAT}
+\end{figure}
 
-Los \acrshort{CAT} se han utilizado con éxito para múltiples propósitos, como puntuación instantánea \cite{Wainer00}, la mejora de competencias lingüísticas \cite{Chapelle06} , identificación de estilos de aprendizaje \cite{Ortigosa10}, la habilidad matemática \cite{Klinkenberg11}, o la evaluación del estado de salud \cite{Revicki97}.
+
+
+
 
 
 In that framework, CAT allows seeing the
@@ -35,12 +50,7 @@ students as individuals, taking their own characteristics into
 account. Typically, CAT systems are able to adapt the items
 presented to the student depending on their former answers, often
 including some kind of personalized feedback [12].
-Though presenting evident advantages, CAT systems also face
-some clear difficulties, been one of them the need of precalibrating
-the items of the test before they can be used in real
-situations. This implies that the test should be performed by a
-large sample of the population in order to assume a good test
-calibration [5].
+
 
 
 Constructing quality test with e-valUAM
