@@ -1,6 +1,6 @@
 \chapter{Pruebas y resultados\label{sec:pruebasYResultados}}
 
-En esta sección se presentan las pruebas principales a las que se ha sometido al sistema a lo largo del desarrollo, además de los resultados principales de cada una de ellas. Se divide la sección en dos partes. La primera, se centra en el primer prototipo, correspondiente al año académico 2013/2104, que fue utilizado satisfactoriamente en una asignatura del Grado en Historia. La segunda parte se centra en el segundo (y actual) prototipo, correspondiente al año académico 2014/2015, probado en una asignatura del Grado en Educación Infantil.
+En esta sección se presentan las pruebas principales a las que se ha sometido al sistema a lo largo del desarrollo, además de los resultados principales en cada una de ellas. Se divide la sección en dos partes. La primera, se centra en el primer prototipo, correspondiente al año académico 2013/2104, que fue utilizado satisfactoriamente en una asignatura del Grado en Historia. La segunda parte se centra en el segundo (y actual) prototipo, correspondiente al año académico 2014/2015, probado en una asignatura del Grado en Educación Infantil.
 
 % IDEAS A VENDER:
 % Generalizable y escalable. Podemos cambiar el modelo subyacente sin sufrir
@@ -22,9 +22,23 @@ Durante el curso académico 2013/2014, 15 alumnos de la asignatura de ``Historia
 	\label{fig:e-valUAM primera version}
 \end{figure}
 
-Desde el mes de octubre hasta el final del curso, los alumnos tuvieron disponibles 3 cuestionarios de autoevaluación y realizaron 4 exámenes. Los cuestionarios de autoevaluación estaban disponibles a los alumnos para que los realizarán tantas veces como quisieran. De los 15 alumnos, 6 utilizaron la aplicación para autoevaluación menos de 3 veces, mientras que otros 6 la utilizaron más de 15 veces. Los exámenes fueron dos parciales, un examen final para la convocatoria ordinaria y otro para la extraordinaria, al que solo se tuvieron que presentar 3 alumnos. La calificación determinada por la aplicación se ponderó en la nota final de la asignatura. A lo largo del año, entre tres profesores de Historia crearon un total de 372 preguntas, respondiéndose cada una de ellas 12,386 veces de media. 
+\begin{table}[hc]
+	\centering
+	\begin{tabular}{l|l}
+		{\bf Cuestionarios}             & 3 de autoevaluación y 4 exámenes \\ 
+		{\bf Usuarios}                  & 15 alumnos del Grado en Historia \\
+		{\bf Preguntas totales}         & 372                              \\ 
+		{\bf Cuestionarios contestados} & 254                              \\ 
+		{\bf Preguntas contestadas}     & 12390                            \\ 
+		{\bf Ficheros multimedia}		& 178							   \\
+	\end{tabular}
+	\caption{Datos de uso del primer prototipo.}
+	%\label{tab:primer prototipo}
+\end{table}
 
-Los resultados de la experiencia fueron muy satisfactorios. A nivel técnico, el sistema respondió como se esperaba durante todo el proceso, sin sufrir ningún tipo de caída. La mayor prueba de estrés del sistema fue el día del examen final. Durante el examen, los 15 alumnos lo realizaron a la vez, lo que supuso aproximadamente 40 peticiones por minuto al servidor durante los 35 minutos que duró el examen. El sistema logró almacenar todas las respuestas correctamente, seleccionar todas las preguntas siguientes siguiendo el modelo y ningún alumno tuvo que esperar entre preguntas ni sufrió ningún corte del servicio. Tampoco se registró ningún problema en los 3 meses que los alumnos hicieron un uso más intensivo del mismo (de noviembre de 2013 a enero de 2014).
+Desde el mes de octubre hasta el final del curso, los alumnos tuvieron disponibles el sistema. Los cuestionarios de autoevaluación eran accesibles tantas veces como quisieran los alumnos, mientras que los de examen solo durante la hora del examen. De los 15 alumnos, 6 utilizaron la aplicación para autoevaluación menos de 3 veces, mientras que otros 6 la utilizaron más de 15 veces. La calificación determinada por la aplicación se ponderó en la nota final de la asignatura.
+
+Los resultados de la experiencia fueron muy satisfactorios. A nivel técnico, el sistema respondió correctamente. La mayor prueba de estrés del sistema fue el día del examen final. Los 15 alumnos lo realizaron a la vez, lo que supuso aproximadamente 40 peticiones por minuto al servidor durante los 35 minutos que duró el examen. El sistema logró almacenar todas las respuestas correctamente, seleccionar todas las preguntas siguientes siguiendo el modelo y ningún alumno tuvo que esperar entre preguntas ni sufrió ningún corte del servicio. Tampoco se registró ningún problema en los 3 meses que los alumnos hicieron un uso más intensivo del mismo (de noviembre de 2013 a enero de 2014).
 
 % Hablar de qué se decidió cambiar
 Algunos alumnos mostraron malestar con el modelo del examen. Las molestias venían provocadas porque no se pudieran dejar preguntas en blanco ni que se pudiera revisar una respuesta anterior. Aunque la segunda es una imposición del modelo (al depender las nuevas preguntas de las respuestas anteriores, estas no pueden cambiar), la primera sí se tuvo en consideración añadiendo la opción al modelo de la respuesta con duda.
@@ -33,7 +47,7 @@ De cara a la creación del segundo prototipo, además de añadir la respuesta co
 
 \section{2014/2015: Segundo prototipo}
 
-Durante el curso académico 2014/2015, \acrshort{e-valUAM} se utilizó en la asignatura de ``El Entorno como Instrumento Educativo'' del Grado en Educación Infantil, de dos formas. Por un lado se utilizó para un test sobre el conocimiento informático de los alumnos que sirvió para obtener información sobre los futuros usuarios y testear un nuevo modelo de adpatación. Por otro lado, se utilizó como parte de la asignatura.
+Durante el curso académico 2014/2015, \acrshort{e-valUAM} se utilizó en la asignatura de ``El Entorno como Instrumento Educativo'' del Grado en Educación Infantil, de dos formas. Por un lado se utilizó para un test sobre el conocimiento informático de los alumnos que sirvió para obtener información sobre los futuros usuarios y probar un nuevo modelo de adaptación. Por otro lado, se utilizó como parte de la asignatura.
 
 Las pruebas realizadas en este entorno fueron mucho más extensas que en el curso anterior, por varios motivos. Primero, los alumnos eran más y por lo tanto la aplicación se enfrentó a mayores picos de demanda. Segundo, se añadió más funcionalidad tanto para los profesores como para los alumnos.
 
@@ -42,11 +56,22 @@ En las siguientes secciones se detallan cómo fueron cada una de las experiencia
 
 \subsection{Test de conocimientos informáticos}
 
-El objetivo de este test era triple. Buscábamos conocer cuál era el nivel de informática de los alumnos que después utilizarían el sistema en su asignatura, probar exhaustivamente las opción de respuesta con duda y, por último, crear un nuevo modelo de evaluación utilizando la diferencia entre el conocimiento de expertos y un grupo de control.
+El objetivo de este test era triple. Buscábamos conocer cuál era el nivel de informática de los alumnos que después utilizarían el sistema en su asignatura, probar exhaustivamente las opción de respuesta con duda y, por último, crear un nuevo modelo de evaluación utilizando la diferencia entre el conocimiento de expertos (alumnos del Ingeniería Informática) y un grupo de control (alumnos del Educación Infantil).
 
-Se creó un examen de 60 preguntas divididas en dos niveles de relevancia, cada nivel con 30 preguntas. Cada pregunta tenía 4 opciones, siendo una de ellas siempre ``No lo sé''. Además, fue el primer examen donde se utilizó la opción de respuesta con duda. Por estas peculiaridades, el modelo descrito en \ref{sec:modelo adapatacion} se varió ligeramente. Todos los alumnos respondían primero a las 30 preguntas del primer nivel y después a las 30 del segundo nivel, sin importar las respuestas previas.
+\begin{table}[hc]
+	\centering
+	\begin{tabular}{l|p{10cm}}
+		{\bf Cuestionarios}             & 1 examen \\ 
+		{\bf Usuarios}                  & 83 alumnos: 49 del Grado en Educación Infantil. 34 alumnos del Grado en Ingeniería Informática o el Doble Grado con Matemáticas \\
+		{\bf Preguntas totales}         & 60, divididas en dos niveles    \\ 
+		{\bf Cuestionarios contestados} & 83                              \\ 
+		{\bf Preguntas contestadas}     & 4980                             \\ 
+		{\bf Ficheros multimedia}		& 0							   \\
+	\end{tabular}
+	\caption{Datos de uso del test de conocimientos inform\'aticos.}
+\end{table}
 
-El cuestionario lo respondieron 49 alumnos del Grado en Educación Infantil, que fueron el grupo de control, y alumnos del Grado en Ingeniería Informática y el Doble Grado con Matemáticas, que actuaron como grupo con conocimiento experto. En concreto 9 alumnos del último curso y 25 de segundo curso.
+Cada pregunta tenía 4 opciones, siendo una de ellas siempre ``No lo sé''. Además, fue el primer examen donde se utilizó la opción de respuesta con duda. Por estas peculiaridades, el modelo descrito en \ref{sec:modelo adapatacion} se varió ligeramente. Todos los alumnos respondían primero a las 30 preguntas del primer nivel y después a las 30 del segundo nivel, sin importar las respuestas previas.
 
 Este cuestionario permitió conocer mejor a los futuros usuario, además de probar el segundo prototipo del sistema antes de volver a utilizarlo en una asignatura real. Se hizo una prueba de estrés cuando los 25 alumnos de segundo curso realizaron a la vez el cuestionario. De nuevo, el sistema no mostró ningún problema. También sirvió para comprobar la robustez del diseño de la aplicación, ya que las modificaciones en el modelo de adaptación solo involucraron realizar cambios menores en uno de los ficheros, lo que parece indicar que la modularización se diseño correctamente.
 
@@ -56,17 +81,43 @@ Los 49 alumnos de ``El Entorno como Instrumento Educativo'' utilizaron \acrshort
 
 \begin{enumerate}
  	\item Tuvieron a su disposición un cuestionario para la autoevaluación. 
- 	\item Parte de su clasificación final surgió en función de un examen realizado mediante la plataforma. 
+ 	\item Parte de su clasificación final dependió de un examen realizado mediante la plataforma. 
  	\item Como parte de la asignatura tenían que presentar un proyecto pedagógico para niños de educación infantil, que tuvieron que plasmar en un cuestionario de \acrshort{e-valUAM}. 
 \end{enumerate}
 
-Desde diciembre de 2014, los alumnos tuvieron disponible durante un mes un cuestionario de autoevaluación con 91 preguntas distintas, divididas en 4 niveles. Los alumnos realizaron el cuestionario 838 veces en total, 5 de los 49 alumnos no lo intentaron ni una sola vez, mientras que hubo 42 que lo utilizaron 5 o más veces. La media de accesos fue de 17.1, mientas que 9, 15 y 23 fueron el primer, segundo y tercer cuartil de la serie del número de accesos por alumno.
 
-El 14 de enero de 2015, realizaron el examen final utilizando también \acrshort{e-valUAM}. Los 50 alumnos acudieron a los laboratorios de la EPS para realizar el examen de 40 preguntas durante 60 minutos. Se utilizaron parte de preguntas de autoevaluación, algunas sin alterar, otras modificando los datos. También se añadieron preguntas nuevas.
+\begin{table}[hc]
+	\centering
+	\begin{tabular}{l|l}
+		{\bf Cuestionarios}             & 1 autoevaluación y 1 examen \\ 
+		{\bf Usuarios}                  & 49 alumnos\\
+		{\bf Preguntas totales}         & 244, divididas en cuatro niveles    \\ 
+		{\bf Cuestionarios contestados} & 887                              \\ 
+		{\bf Preguntas contestadas}     & 6079                             \\ 
+		{\bf Ficheros multimedia}		& 21							   \\
+	\end{tabular}
+	\caption{Datos de uso del segundo prototipo utilizado para evaluaci\'on.}
+\end{table}
+
+Desde dicimebre de 2014, los alumnos tuvieron accesible el cuestionario de autoevaluación. El 14 de enero de 2015, realizaron el examen final utilizando también \acrshort{e-valUAM}. Los 50 alumnos acudieron a los laboratorios de la EPS para realizar el examen de 40 preguntas durante 60 minutos. Se utilizaron parte de preguntas de autoevaluación, algunas sin alterar, otras modificando los datos. También se añadieron preguntas nuevas.
 
 Este examen sirvió como nueva prueba de estrés del sistema. Durante 40 minutos, 49 alumnos accedieron en simultáneo, realizando de media unas 75 peticiones por minuto al servidor. Como en todas las ocasiones anteriores, no hubo ningún problema con la aplicación y toda la información quedó correctamente guardada.
 
-Después del examen, se dio una charla de 15 minutos a los alumnos para explicarles cómo debían utilizar la interfaz del profesor, la cual tuvieron que utilizar para entregar un trabajo que se les exigía en la asignatura. Durante las dos semanas siguientes, los alumnos crearon en total 19 cuestionarios nuevos, lo que supuso 848 preguntas nuevas y 1364 ficheros multimedia subidos al servidor. 
+Después del examen, se dio una charla de 15 minutos a los alumnos para explicarles cómo debían utilizar la interfaz del profesor, la cual tuvieron que utilizar para entregar un trabajo que se les exigía en la asignatura.
+
+\begin{table}[hc]
+	\centering
+	\begin{tabular}{l|l}
+		{\bf Cuestionarios}             & 19 \\ 
+		{\bf Usuarios}                  & 49 alumnos, actuando como docentes\\
+		{\bf Preguntas totales}         & 848  \\ 
+		{\bf Cuestionarios contestados} & 0                              \\ 
+		{\bf Preguntas contestadas}     & 0                             \\ 
+		{\bf Ficheros multimedia}		& 1364							   \\
+	\end{tabular}
+	\caption{Datos de uso del segundo prototipo utilizado para la entrega del trabajo.}
+	%\label{tab:test informatica}
+\end{table}
 
 Para resolver incidencias o dudas, se puso a disposición de los alumnos un correo electrónico de contacto. Escribieron en total 4 personas, con 2 incidencias y 1 petición de nueva funcionalidad. Finalmente, el profesor de la asignatura corrigió el trabajo accediendo a la sección de profesor y consultando directamente los cuestionarios que cada grupo de alumnos había confeccionado.
 
