@@ -1,7 +1,27 @@
 \chapter{Conclusiones\label{sec:conclusiones}}
 
-TODO: Conclusiones sobre el trabajo realizado
+A modo de conclusión, a continuación se presentan los logros más relevantes que ha alcanzado el proyecto expuesto a lo largo de todo el documento:
 
-Especificar que no se ha desarrollado nada de interfaz humano-ordenador. Dejar como trabajo futuro.
+\begin{itemize}
+	\item Se ha diseñado un sistema adaptativo inspirado en \textit{Computerized Adaptive Testing} y la \textit{Adaptive Educational Hypermedia} que, utilizando información de modelos de usuarios, de dominio y de adaptación, permite crear cuestionarios personalizados que profesores y alumnos pueden utilizar para medir su rendimiento académico recibiendo de forma instantánea retroalimentación.
+	\item Se han desarrollado las herramientas necesarias para que los profesores puedan crear las baterias de preguntas a través de una interfaz online que les abstrae de los modelos subyacentes logrando así que pueda ser utilizada por usuarios sin conocimientos informáticos avanzados.
+	\item Se ha diseñado un sistema capaz de trabajar con ficheros multimedia que ofrecen más posibilidades a los profesores a la hora de crear las preguntas. Así mismo, se ha diseñado una base de datos que ha logrado almacenar toda la información sobre el uso, permitiendo análisis posteriores que han llevado a la creación de nuevos modelos y publicaciones ciéntificas.
+	\item Se han implementado mecanismos de análisis de resultados que permiten detectar a los profesores preguntas defectuosas de forma instantánea para que puedan corregirlas o eliminarlas, simplificando una tarea muy costosa.
+	\item Se han construido dos prototipos incrementales y funcionales durante dos años académicos en los cuales han demostrado su flexibilidad, al haber sido probado en ellos varios modelos de adaptación sin que ello haya significado remodelaciones en el resto de módulos.
+	\item Ambos prototipos han sido utilizados con éxito en dos entornos reales, en dos disciplinas distintas y con más de 100 alumnos, habiendo situaciones donde 50 alumnos han utilizado en paralelo y de forma intensica el sistema sin que el rendimiento bajara.
+\end{itemize}
+
 
 \chapter{Trabajo futuro\label{sec:trabajo futuro}}
+
+A lo largo del desarrollo del proyecto han ido surgiendo ideas y propuestas de mejoras del sistema que desean explorarse en un futuro cercano:
+
+\begin{itemize}
+	\item Añadir más análisis de resultados, como remarcar preguntas que tienen un tiempo de respuesta más alto o crear informes con la evolución de cada alumno a lo largo del año o el conjunto agrado de toda la clase. Así mismo, también se desea añadir una biblioteca de gráficos en Javascript (como D3.js) para mejorar la visualización de todos los análisis.
+	\item Permitir que se puedan crear preguntas de respuesta abierta o preguntas generadas en función a un código especificado por el profesor.
+	\item Dar la opción a los profesores de elegir qué modelo de adaptación desean utilizar entre todos los desarrollados.
+	\item Ampliar las opciones que ofrecen las herramientas de creación y gestión de materias, preguntas y cuestionarios que tienen accesibles los profesores.
+	\item Dedicar esfuerzos en la interacción persona-ordenador. Para ello, se pretende recolectar información sistemática mediante cuestionarios sobre la experiencia de uso a los alumnos que ya lo han provado para solucionar las deficiencias que puedan existir y luego centrar los esfuerzos a hacer que el sistema sea accesible para usuarios con diversidad funcional.
+	\item Añadir al sistema la clasificación del contenido en asignatura, de tal manera que cada profesor solo tenga persimos de creación y edición sobre sus asigntauras y que cada alumno solo vea los cuestionarios de las asigntaturas en las que está matriculado.
+	\item Introducir una interfaz de administración que permita dar de alta o baja a usuarios y crear o destruir asignaturas.
+\end{itemize}
