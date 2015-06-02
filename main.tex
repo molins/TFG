@@ -113,15 +113,18 @@
 %
 % Página en blanco
 %
-\cleardoublepage
+
 
 \addtocontents{toc}{\protect\newpage}
 
 %
 % Bibliografía
 %
-\bibliography{src/bibliografia}
+
+\cleardoublepage
+\phantomsection
 \addcontentsline{toc}{chapter}{Bibliografía}
+\bibliography{src/bibliografia}
 
 % No expandir elementos para llenar toda la página
 \raggedbottom
