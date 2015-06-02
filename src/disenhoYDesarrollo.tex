@@ -8,13 +8,13 @@
 
 En este capítulo se presentan los resultados de las fases de \textbf{análisis, diseño y desarrollo del proyecto}. Primero se presenta una visión general del sistema, seguida de un apartado donde se detallarán los requisitos, tanto funcionales como no funcionales, que se han identificado. A continuación, se explica el diseño realizado y como ha sido implementado.
 
-Como se ha mencionado, este proyecto nació asociado a una investigación y sus orifenes se han creado varios prototipos incrementales, por ello, no se ha utilizado una metodología en cascada clásica sino que \textbf{se ha seguido un modelo de ciclo de vida en espiral}, partiendo del descrito en \cite{Boehm86}. A pesar de que el modelo describe varias iteraciones, en esta sección se presentan agrupados los resultados finales a los que se han llegado entre todas las iteraciones, para facilitar su lectura.
+Como se ha mencionado, este proyecto nació asociado a una investigación y desde sus orígenes se han creado varios prototipos incrementales, por ello, no se ha utilizado una metodología en cascada clásica sino que \textbf{se ha seguido un modelo de ciclo de vida en espiral}, partiendo del descrito en \cite{Boehm86}. A pesar de que el modelo describe varias iteraciones, en esta sección se presentan agrupados los resultados finales a los que se han llegado entre todas las iteraciones, para facilitar su lectura.
 
 %TODO: Demostrar todo el dominio que pueda sobre cuestiones de la carrera.
 
 \section{Visión general}
 
-El sistema que se detalla en los apartados siguientes es un sistema online adaptativo creado para que sirva de apoyo a la enseñanza. Para ello, los profesores crearan unos cuestionarios que serán accesibles para los estudiantes. Así, existen dos roles de usuario con capacidades distintas: el \textbf{rol docente} y el \textbf{rol estudiante}. El primero tiene disponible herramientas de creación y análisis de resultados, mientras que el segundo tiene a su disposición herramientas para realizar los cuestionarios.
+El sistema que se detalla en los apartados siguientes es un sistema online adaptativo creado para que sirva de apoyo a la enseñanza. Para ello, los profesores crearan unos cuestionarios que serán accesibles para los estudiantes. Así, existen dos roles de usuario con capacidades distintas: el \textbf{rol docente} y el \textbf{rol estudiante}. El primero tiene disponibles herramientas de creación y análisis de resultados, mientras que el segundo tiene a su disposición herramientas para realizar los cuestionarios.
 
 Para facilitar la labor del profesor, se ha creado una \textbf{jerarquía de entes} que le ayuden a clasificar las preguntas. Como se ve en la figura \ref{fig:mini dominio}, el ente más importante es la materia. \textbf{Cada materia es una agrupación de preguntas y cada pregunta lleva asociada una serie de respuestas}. El número de materias, de preguntas por materia o de respuestas por pregunta no está previamente definido en el sistema, sino que se deja a voluntad del profesor.
 
@@ -33,7 +33,7 @@ Una vez que se han creado todas las preguntas de una materia, \textbf{el profeso
 
 \section{Análisis de requisitos}
 
-Los requisitos aquí detallados son el resultado de un análisis a priori sobre qué necesidades debía cubrir el sistema más a las que se hna ido incorporando pualtinamente nuevas necesidades que se detectaron al ser utilizado en entorno reales. %Algunas de las mejoras posibles se han detectado en la última iteración realizada, aún no están implementadas y en consecuencia, aquí no se recogen. Aún así, están recogidas en el apéndice \ref{apen:analisis de requisitos}. 
+Los requisitos aquí detallados son el resultado de un análisis a priori sobre qué necesidades debía cubrir el sistema más, a las que se han ido incorporando paulatinamente nuevas necesidades que se detectaron al ser utilizado en entorno reales. %Algunas de las mejoras posibles se han detectado en la última iteración realizada, aún no están implementadas y en consecuencia, aquí no se recogen. Aún así, están recogidas en el apéndice \ref{apen:analisis de requisitos}. 
 
 \subsection{Análisis funcional}
 
@@ -57,7 +57,7 @@ Los requisitos aquí detallados son el resultado de un análisis a priori sobre 
 			\item Existiendo al menos una materia, los docentes podrán crear preguntas y respuestas asociadas a dicha materia.
 			\item Cuando se cree una pregunta nueva, deberá indicarse la materia a la que pertenece (que deberá haber sido creada previamente), el nivel, el enunciado, la respuesta correcta y el resto de respuestas. El número de respuestas que deberá escribir vendrá condicionado por el valor establecido en la materia relativa.
 			\item Opcionalmente, se podrá asociar ficheros multimedia a las preguntas. Se pueden asociar imágenes o audio tanto al enunciado como a cada una de las respuestas. Si se desea asociar un fichero multimedia, deberá especificarse el nombre del fichero.
-			\item Opcionalmente, se podrá establecer un mensaje de feecback asociado a la pregunta.
+			\item Opcionalmente, se podrá establecer un mensaje de retroalimentación asociado a la pregunta.
 			\item Una vez creada una pregunta, el docente podrá modificar cualquier atributo o borrar dicha pregunta. En ambos casos, se mantendrá una copia en la base de datos de la antigua pregunta para que los alumnos no vean alterados sus cuestionarios una vez realizados.
 		\end{rf0*}
 	
@@ -70,7 +70,7 @@ Los requisitos aquí detallados son el resultado de un análisis a priori sobre 
 
 	\item \textbf{Creación y gestión de cuestionarios.} \textit{Rol docente.}
 		\begin{rf0*}
-			\item Existiendo al menos una materia y preguntas suficientes en cada nivel, el profesor podrá crear un cuestionario. Al hacerlo deberá definir un nombre, si es un cuestionario de prueba (que no será visible a los alumnos), la materia que se usará como banco de preguntas, el número de preguntas que deberán contestarse en cada intento, el tiempo máximo, si el examen acepta respuestas con duda y cómo deberá mostrarse el resultado a los alumnos.
+			\item Existiendo al menos una materia y preguntas suficientes en cada nivel, el profesor podrá crear un cuestionario. Al hacerlo deberá definir un nombre, si es un cuestionario de prueba (el cuál no será visible para los alumnos), la materia que se usará como banco de preguntas, el número de preguntas que deberán contestarse en cada intento, el tiempo máximo, si el examen acepta respuestas con duda y cómo deberá mostrarse el resultado a los alumnos.
 			\item Una vez creado un cuestionario, el docente podrá eliminar el cuestionario. Esto no afectará, en ningún caso, a la información almacenada sobre los cuestionarios ya respondidos por alumnos.
 			\item Los docentes podrán acceder a un listado de todos los cuestionarios ya creados.
 		\end{rf0*}
@@ -79,7 +79,7 @@ Los requisitos aquí detallados son el resultado de un análisis a priori sobre 
 		\begin{rf0*}
 			\item Una vez creado un cuestionario por un profesor, y si está marcado como visible, los alumnos podrán acceder a él.
 			\item Una vez que un estudiante acceda a un cuestionario, se le irán mostrando preguntas que deberá ir contestando. Las preguntas se mostrarán en función de las respuestas previas y los niveles establecidos por el profesor.
-			\item Si las preguntas van asociadas a ficheros multimedia, estos se mostrarán al estudiante mientras responde. Si aceptan la opción de responder con duda, el alumno tendrá a su disposición un método de establecer que ha respondido con duda.
+			\item Si las preguntas van asociadas a ficheros multimedia, estos se mostrarán al estudiante mientras responde. Si aceptan la opción de responder con duda, el alumno tendrá a su disposición un método para establecer que ha respondido con duda.
 			\item Para cada pregunta que el alumno responda, quedará almacenado en el sistema a qué cuestionario pertenece, cuando se responde, qué pregunta se ha formulado y cuál ha sido la respuesta elegida. Si hubiera opción de duda, también se mostrará si se ha dudado o no al responder.
 		\end{rf0*}
 	
@@ -104,7 +104,7 @@ Los requisitos aquí detallados son el resultado de un análisis a priori sobre 
 		\begin{rnf0*}
 			\item La interfaz que el sistema mostrará al estudiante debe ser intuitiva. Los estudiantes deben ser capaces de elegir un cuestionario y completarlo sin asistencia externa. %Una clase de niños que aún no sepan leer debe ser capaz de completar un cuestionario sin asistencia del profesor, después de que este les haya configurado el ordenador para que el cuestionario elegido empiece.\label{RNFusabilidad}
 			\item La interfaz para el equipo docente deberá ser fácil de aprender para profesores con o sin conocimientos informáticos avanzados. 
-			\item Atendiendo a la diversidad de dispositivos con los que los usuarios trabajan, el sistema debe ser capaz de utilizarse en todos los tamaños de pantalla y podrer ser utilizado con teclado y ratón o pantalla táctil.
+			\item Atendiendo a la diversidad de dispositivos con los que los usuarios trabajan, el sistema debe ser capaz de utilizarse en todos los tamaños de pantalla y poder ser utilizado con teclado y ratón o pantalla táctil.
 		\end{rnf0*}
 	\item \textbf{Seguridad.}
 		\begin{rnf0*}
@@ -159,7 +159,7 @@ La aplicación pretende ser una ayuda al aprendizaje y, por lo tanto, su dominio
 
 Existen una serie de \textbf{materias}, que son las entidades que clasifican los conocimientos por similitud dentro de una asignatura. El concepto de materia en este modelo se utiliza para representar los conceptos del lenguaje común de \emph{temas} o \emph{partes} en los que se divide una asignatura. Dentro de cada materia existe un conjunto de preguntas, ordenadas por un nivel de relevancia.
 
-La división de las preguntas en \textbf{niveles de relevancia} es una de las características del modelo propuesto. Con ello se busca \textbf{facilitar que el estudiante adquiera los conocimientos en el orden más adecuado}, asegurando que no se enfrenta a conceptos que dependen de otros hasta que domina los conceptos base. Esta división también ayuda a evitar que un estudiante obtenga una buena calificación en un examen porque haya aprendido a realizar los ejercicios, pero aún comprenda correctamente los conceptos básicos. Así, el docente deberá establecer en cuántos niveles de relevancia se divide una materia, además de establecer qué representa cada nivel. Por ejemplo, podría establecer que el nivel de menor número es relativo a un conocimiento más básico que el de mayor número.
+La división de las preguntas en \textbf{niveles de relevancia} es una de las características del modelo propuesto. Con ello se busca \textbf{facilitar que el estudiante adquiera los conocimientos en el orden más adecuado}, asegurando que no se enfrenta a conceptos que dependen de otros hasta que domina los conceptos base. Esta división también ayuda a evitar que un estudiante obtenga una buena calificación en un examen porque haya aprendido a realizar los ejercicios, pero aún no comprenda correctamente los conceptos básicos. Así, el docente deberá establecer en cuántos niveles de relevancia se divide una materia, además de establecer qué representa cada nivel. Por ejemplo, podría establecer que el nivel de menor número es relativo a un conocimiento más básico que el de mayor número.
 
 Cada \textbf{pregunta} lleva asociada una serie de respuestas y solo una es la válida. Cada pregunta contiene la siguiente información:
 
@@ -180,24 +180,24 @@ Las \textbf{respuestas} se componen de:
 	\item Audio \textit{Opcional}.
 \end{itemize}
 
-Una vez escritas preguntas, \textbf{el equipo docente puede crear cuestionarios}. Las cuestionarios pueden ser de autoevaluación para los alumnos o de evaluación clásica, aunque para el sistema son casos idénticos. El profesor puede \textbf{determinar cómo se mostrán los resultados al alumno}. Puede establecer que al terminar de responder el cuestionario no se le muestre nada, solo su nota o su nota seguida de todas las preguntas, su respuesta y si ha sido correcta o no. Así mismo, el docente puede establecer si en ese cuestionario aparecerá la opción de marcar que se ha respondido con duda a la pregunta.
+Una vez enunciadas las preguntas, \textbf{el equipo docente puede crear cuestionarios}. Los cuestionarios pueden ser de autoevaluación para los alumnos o de evaluación clásica, aunque para el sistema son casos idénticos. El profesor puede \textbf{determinar cómo se mostrán los resultados al alumno}. Puede establecer que al terminar de responder el cuestionario no se le muestre nada al estudiante, solo su nota o su nota seguida de todas las preguntas, su respuesta y si ha sido correcta o no. Así mismo, el docente puede establecer si en ese cuestionario aparecerá la opción de marcar que se ha respondido con duda a la pregunta.
 
 %\textbf{Estructura de la BD}
 
 \subsection{Modelo de adaptación\label{sec:modelo adapatacion}}
 
-Como ya se ha explicado en la sección dedicada al estado del arte, de los dos tipos de técnicas de adaptación, la adaptación del contenido es la más relevante para el sistema y afecta sobre todo al estudiante. Las preguntas a las que un estudiante se enfrenta en un cuestionario depende de las respuestas que haya dado a las anteriores.
+Como ya se ha explicado en la sección dedicada al estado del arte, de los dos tipos de técnicas de adaptación, la \textbf{adaptación del contenido} es la más relevante para el sistema y afecta sobre todo al estudiante. Las preguntas a las que un estudiante se enfrenta en un cuestionario depende de las respuestas que haya dado a las anteriores.
 
 A la hora de crear un cuestionario en un sistema \acrshort{CAT} hay que responder a tres preguntas:
 \begin{enumerate*}[label=\alph*\upshape)]
-\item cómo elegir la primera pregunta,
-\item cómo elegir la siguiente pregunta, y
-\item cuándo parar el cuestionario. 
+\item \textit{cómo elegir la primera pregunta},
+\item \textit{cómo elegir la siguiente pregunta}, y
+\item \textit{cuándo parar el cuestionario}. 
 \end{enumerate*}
 
-Respecto a la elección de la primera pregunta, el modelo propuesto la elige de forma aleatoria de entre todas aquellas que pertenezcan al primer nivel. Con esto logramos que desde el principio cada intento sea distinto sin comprometer la justicia del cuestionario, ya que todos los alumnos empezarán respondiendo a preguntas de igual relevancia.
+Respecto a la elección de la \textbf{primera pregunta}, el modelo propuesto la elige de forma aleatoria de entre todas aquellas que pertenezcan al primer nivel. Con esto logramos que desde el principio cada intento sea distinto sin comprometer la justicia del cuestionario, ya que todos los alumnos empezarán respondiendo a preguntas de igual relevancia.
 
-La elección de la siguiente pregunta depende de dos parámetro establecidos por el profesor: el número de preguntas que debe responder cada alumno en cada intento, $N_v$ y el número de niveles en los que una pregunta se puede clasificar dentro de la materia asociada al cuestionario, $N_l$. El algoritmo de elección de la siguiente pregunta queda recogido en la figura \ref{fig:algoritmo de adaptacion}.
+La elección de la \textbf{siguiente pregunta} depende de dos parámetro establecidos por el profesor: el número de preguntas que debe responder cada alumno en cada intento, $N_v$ y el número de niveles en los que una pregunta se puede clasificar dentro de la materia asociada al cuestionario, $N_l$. El algoritmo de elección de la siguiente pregunta queda recogido en la figura \ref{fig:algoritmo de adaptacion}.
 
 \begin{figure}[htp!]
 	\centering
@@ -206,11 +206,11 @@ La elección de la siguiente pregunta depende de dos parámetro establecidos por
 	\label{fig:algoritmo de adaptacion}
 \end{figure}
 
-Se puede observar que cuando el alumno sube de nivel, ya solo responde a preguntas de ese nuevo nivel. Como el número de preguntas está limitado a $N_v$, es posible que un estudiante no llegue a responder preguntas de todos los niveles o incluso puede que solo responda preguntas del primer nivel. Una vez que se ha subido de nivel, no se puede bajar, aunque cada vez que se repita el cuestionario se volverá al primer nivel.
+Se puede observar que cuando el alumno sube de nivel, ya solo responde a preguntas de ese nuevo nivel. Como el número de preguntas está limitado a $N_v$, es posible que un estudiante no llegue a responder preguntas de todos los niveles o incluso puede que únicamente responda preguntas del primer nivel. Una vez que se ha subido de nivel, no se puede bajar, aunque cada vez que se repita el cuestionario se volverá al primer nivel.
 
-El cuestionario para, de nuevo, en función de parámetros establecidos por el profesor. Por un lado, cuando crea un cuestionario establece $N_v$ y el tiempo máximo disponible para terminar el cuestionario. El examen sencillamente para cuando el alumno agota el tiempo o ha respondido $N_v$ preguntas, sin importar en qué nivel se encuentre o cuántas preguntas haya acertado hasta el momento.
+El cuestionario establece \textbf{cuándo para}, de nuevo, en función de parámetros establecidos por el profesor. Por un lado, cuando crea un cuestionario, no solo establece $N_v$, sino que también determina el tiempo máximo disponible para terminar dicho cuestionario. El examen sencillamente para cuando el alumno agota el tiempo o ha respondido $N_v$ preguntas, sin importar en qué nivel se encuentre o cuántas preguntas haya acertado hasta el momento.
 
-Que la respuesta de una pregunta condicione la siguiente pregunta obliga a que el estudiante responda a cada pregunta, a diferencia de los cuestionarios clásicos, donde una pregunta puede dejarse sin respuesta y continuar con la siguiente. Para solucionar esta diferencia el equipo docente puede establecer que exista una opción adicional de respuesta que indique que el alumno no conoce la respuesta. Si está la opción, el sistema la tratará como respuesta incorrecta a la hora de seleccionar la siguiente pregunta.
+El hecho de que la respuesta de una pregunta condicione la siguiente obliga a que el estudiante responda a cada una de ellas, a diferencia de los cuestionarios clásicos, donde una pregunta puede dejarse sin respuesta y continuar con la siguiente. Para solucionar esta diferencia el equipo docente puede establecer que exista una opción adicional de respuesta que indique que el alumno no conoce la respuesta. Si existe dicha opción, el sistema la tratará como respuesta incorrecta a la hora de seleccionar la siguiente pregunta.
 
 %\textbf{Exámenes con distintos niveles y cómo se pasa de uno a otro. Hablar también del feedback o del no lo sé}
 
