@@ -13,7 +13,7 @@ En esta sección se presentan las pruebas principales a las que se ha sometido a
 
 % Añadir la parte de análsis de datos
 
-Durante el curso académico 2013/2014, 15 alumnos de la asignatura de ``Historia Antigua I'' del Grado en Historia de la Universidad Autónoma de Madrid utilizaron \acrshort{e-valUAM} como \textbf{herramienta de estudio y de evaluación}. Fue el entorno donde se probó el primer prototipo, el cual ya permitía responder cuestionarios, pero no permitía a los profesores crearlos de forma autónoma ni les ofrecía posibilidades multimedia avanzadas (solo se permitía una imagen opcional por pregunta). De esta forma, la experiencia se centró en \textbf{probar la experiencia de uso} de los alumnos, la \textbf{robustez del sistema} para responder a los picos de demanda, además de \textbf{probar los modelos subyacentes}.
+Durante el curso académico 2013/2014, 15 alumnos de la asignatura de ``Historia Antigua I'' del Grado en Historia de la Universidad Autónoma de Madrid utilizaron \acrshort{e-valUAM} como \textbf{herramienta de estudio y de evaluación}. Fue el entorno donde se probó el primer prototipo, el cual ya permitía responder cuestionarios, pero no permitía a los profesores crearlos de forma autónoma ni les ofrecía posibilidades multimedia avanzadas (únicamente se permitía una imagen opcional por pregunta). De esta forma, la experiencia se centró en \textbf{probar la experiencia de uso} de los alumnos, y la \textbf{robustez del sistema} para responder a los picos de demanda, además de \textbf{probar los modelos subyacentes}.
 
 \begin{figure}[htp!]
 	\centering
@@ -38,10 +38,10 @@ Durante el curso académico 2013/2014, 15 alumnos de la asignatura de ``Historia
 
 Desde el mes de \textbf{octubre hasta el final del curso}, los alumnos tuvieron disponibles el sistema. Los cuestionarios de autoevaluación eran accesibles tantas veces como quisieran los alumnos, mientras que los de examen solo durante la hora del examen. De los 15 alumnos, 6 utilizaron la aplicación para autoevaluación menos de 3 veces, mientras que otros 6 la utilizaron más de 15 veces. La calificación determinada por la aplicación \textbf{ponderó en la nota final de la asignatura}.
 
-Los resultados de la experiencia fueron muy satisfactorios. A nivel técnico, \textbf{el sistema respondió correctamente}. La mayor prueba de estrés del sistema fue el día del examen final. Los 15 alumnos lo realizaron a la vez, lo que supuso aproximadamente 40 peticiones por minuto al servidor durante los 35 minutos que duró el examen. El sistema logró almacenar todas las respuestas correctamente, seleccionar todas las preguntas siguientes siguiendo el modelo y ningún alumno tuvo que esperar entre preguntas ni sufrió ningún corte del servicio. Tampoco se registró ningún problema en los 3 meses que los alumnos hicieron un uso más intensivo del mismo (de noviembre de 2013 a enero de 2014).
+Los resultados de esta experiencia fueron muy satisfactorios. A nivel técnico, \textbf{el sistema respondió correctamente}. La mayor prueba de estrés del sistema fue el día del examen final. Los 15 alumnos lo realizaron a la vez, lo que supuso aproximadamente 40 peticiones por minuto al servidor durante los 35 minutos que duró el examen. El sistema logró almacenar todas las respuestas correctamente, seleccionar todas las preguntas siguientes siguiendo el modelo y ningún alumno tuvo que esperar entre preguntas ni sufrió ningún corte del servicio. Tampoco se registró ningún problema en los 3 meses que los alumnos hicieron un uso más intensivo del mismo (de noviembre de 2013 a enero de 2014).
 
 % Hablar de qué se decidió cambiar
-Algunos alumnos mostraron malestar con el modelo del examen. Las molestias venían provocadas porque no se pudieran dejar preguntas en blanco ni que se pudiera revisar una respuesta anterior. Aunque la segunda es una imposición del modelo (al depender las nuevas preguntas de las respuestas anteriores, no pueden cambiar), la primera sí se tuvo en consideración añadiendo al modelo la ``respuesta con duda''.
+Sin embargo, algunos alumnos mostraron malestar con el modelo del examen. Las molestias venían provocadas porque no se pudieran dejar preguntas en blanco ni que se pudiera revisar una respuesta anterior. Aunque la segunda es una imposición del modelo (al depender las nuevas preguntas de las respuestas ya realizadas, no se pueden cambiar), la primera sí se tuvo en consideración añadiendo al modelo la ``respuesta con duda''.
 
 La creación del \textbf{segundo prototipo}, además de añadir la ``respuesta con duda'', creó el \textbf{apartado de gestión del profesor}, aumentó las capacidades de la aplicación para trabajar con \textbf{ficheros multimedia}. e hizo una \textbf{actualización de la interfaz} para adaptarla a todas las nuevas posibilidades multimedia que iban a incorporarse.
 
@@ -56,7 +56,7 @@ En las siguientes secciones se detallan cómo fueron cada una de las experiencia
 
 \subsection{Test de conocimientos informáticos}
 
-El objetivo de este test era triple. Buscábamos conocer cuál era el\textbf{ nivel de informática de los alumnos} que después utilizarían el sistema en su asignatura, probar exhaustivamente las \textbf{opción de respuesta con duda} y, por último, crear un \textbf{nuevo modelo de evaluación} utilizando la diferencia entre el conocimiento de expertos (alumnos del Ingeniería Informática) y un grupo de control (alumnos del Educación Infantil).
+El objetivo de este test era triple. Buscábamos conocer cuál era el\textbf{ nivel de informática de los alumnos} que después utilizarían el sistema en su asignatura, probar exhaustivamente las \textbf{opción de respuesta con duda} y, por último, crear un \textbf{nuevo modelo de evaluación} utilizando la diferencia entre el conocimiento de expertos (alumnos de Ingeniería Informática) y un grupo de control (alumnos del Educación Infantil).
 
 \begin{table}[hc]
 	\centering
@@ -71,9 +71,9 @@ El objetivo de este test era triple. Buscábamos conocer cuál era el\textbf{ ni
 	\caption{Datos de uso del test de conocimientos inform\'aticos.}
 \end{table}
 
-Cada pregunta tenía 4 opciones, siendo una de ellas siempre ``No lo sé''. Además, fue el primer examen donde se utilizó la opción de respuesta con duda. Por estas peculiaridades, el modelo descrito en \ref{sec:modelo adapatacion} se varió ligeramente. Todos los alumnos respondían primero a las 30 preguntas del primer nivel y después a las 30 del segundo nivel, sin importar las respuestas previas.
+Cada pregunta tenía 4 opciones, siendo una de ellas siempre ``No lo sé''. Además, fue el primer examen en el que se utilizó la opción de respuesta con duda. Por estas peculiaridades, el modelo descrito en \ref{sec:modelo adapatacion} se varió ligeramente. Todos los alumnos respondían primero a las 30 preguntas del primer nivel y después a las 30 del segundo nivel, sin importar las respuestas previas.
 
-Este cuestionario permitió \textbf{conocer mejor a los futuros usuarios}, además de probar el segundo prototipo del sistema antes de volver a utilizarlo en una asignatura real. Se hizo una prueba de estrés cuando los 25 alumnos de segundo curso de Informática realizaron a la vez el cuestionario. De nuevo, el sistema no mostró ningún problema. También sirvió para comprobar la \textbf{robustez del diseño} de la aplicación, ya que las modificaciones en el modelo de adaptación solo involucraron realizar cambios menores en uno de los ficheros, lo que parece indicar que la modularización se diseño correctamente.
+Este cuestionario permitió \textbf{conocer mejor a los futuros usuarios}, además de probar el segundo prototipo del sistema antes de volver a utilizarlo en una asignatura real. Se hizo una prueba de estrés cuando los 25 alumnos de un grupo de Informática realizaron a la vez el cuestionario. De nuevo, el sistema no mostró ningún problema. También sirvió para comprobar la \textbf{robustez del diseño} de la aplicación, ya que las modificaciones en el modelo de adaptación solo involucraron realizar cambios menores en uno de los ficheros, lo que parece indicar que la modularización se diseño correctamente.
 
 \subsection{Alumnos del Grado en Educación Infantil}
 
@@ -99,11 +99,11 @@ Los 49 alumnos de ``El Entorno como Instrumento Educativo'' utilizaron \acrshort
 	\caption{Datos de uso del segundo prototipo utilizado para evaluaci\'on.}
 \end{table}
 
-Desde dicimebre de 2014, los alumnos tuvieron accesible el cuestionario de autoevaluación. El 14 de enero de 2015, realizaron el examen final utilizando también \acrshort{e-valUAM}. Los 50 alumnos acudieron a los laboratorios de la EPS para realizar el examen de 40 preguntas durante 60 minutos. Se utilizaron parte de preguntas de autoevaluación, algunas sin alterar, otras modificando los datos. También se añadieron preguntas nuevas.
+Desde dicimebre de 2014, los alumnos tuvieron accesible el cuestionario de autoevaluación. El 14 de enero de 2015, realizaron el examen final utilizando también \acrshort{e-valUAM}. Los 49 alumnos acudieron a los laboratorios de la EPS para realizar un examen de 40 preguntas durante 60 minutos. Se utilizaron parte de preguntas de autoevaluación que habían tenido disponibles previamente, algunas sin alterar, otras modificando los datos. También se añadieron preguntas nuevas.
 
 Este examen sirvió como nueva prueba de estrés del sistema. Durante 40 minutos, 49 alumnos accedieron en simultáneo, realizando de media unas 75 peticiones por minuto al servidor. Como en todas las ocasiones anteriores, no hubo ningún problema con la aplicación y toda la información quedó correctamente guardada.
 
-Después del examen, se dio una charla de 15 minutos a los alumnos para explicarles cómo debían utilizar la interfaz del profesor, la cual tuvieron que utilizar para entregar un trabajo que se les exigía en la asignatura.
+Después del examen, se dio una charla de 15 minutos a los alumnos para explicarles cómo debían utilizar la interfaz del profesor, la cuál tuvieron que utilizar para entregar un trabajo que se les exigía en la asignatura.
 
 \begin{table}[hc]
 	\centering
@@ -119,7 +119,7 @@ Después del examen, se dio una charla de 15 minutos a los alumnos para explicar
 	%\label{tab:test informatica}
 \end{table}
 
-Para resolver incidencias o dudas, se puso a disposición de los alumnos un correo electrónico de contacto. Escribieron en total 4 personas, con 2 incidencias y 1 petición de nueva funcionalidad. Finalmente, el profesor de la asignatura corrigió el trabajo accediendo a la sección de profesor y consultando directamente los cuestionarios que cada grupo de alumnos había confeccionado.
+Para resolver incidencias o dudas, se puso a disposición de los alumnos un correo electrónico de contacto. Finalmente, el profesor de la asignatura corrigió el trabajo accediendo a la sección de profesor y consultando directamente los cuestionarios que cada grupo de alumnos había confeccionado.
 
 \section{Comparativa con otras soluciones}
 
@@ -134,11 +134,11 @@ Aún así, SIETTE y e-valUAM presentan muchas \textbf{similitudes}. La abstracci
 \begin{figure}[htp!]
 	\centering
 	\includegraphics[width=1\textwidth,clip=true]{WorkflowSIETTE}
-	\caption{Flujo de trabajo propuesto por SIETTE\cite{SIETTEWiki}}
+	\caption[Flujo de trabajo propuesto por SIETTE]{Flujo de trabajo propuesto por SIETTE\cite{SIETTEWiki}}
 	\label{fig:SIETTE workflow}
 \end{figure}
 
-Lo que en SIETTE son editors, subjects, items y tests, en e-valUAM son profesores, materias, preguntas y cuestionarios y el flujo de trabajo es prácticamente idéntico. SIETTE permitía que una pregunta perteneciera a uno o varios temas, y que los exámenes estuvieran compuestos de uno o varios, pudiendo estar un tema en varios exámenes\cite{Conejo04}. Sin embargo, las últimas versiones de SIETTE siguen una estructura jerárquica en la que cada pregunta corresponde a un tema, \textbf{idéntico al modelo de e-valUAM}. Así mismo, tanto SIETTE como e-valUAM poseen módulos de análisis de resultados. 
+Lo que en SIETTE son editors, subjects, items y tests, en e-valUAM son profesores, materias, preguntas y cuestionarios y el flujo de trabajo es prácticamente idéntico. SIETTE permitía que una pregunta perteneciera a uno o varios temas, y que los exámenes estuvieran compuestos de uno o varios temas, pudiendo estar un tema en más de un examen\cite{Conejo04}. Sin embargo, las últimas versiones de SIETTE siguen una estructura jerárquica en la que cada pregunta corresponde a un tema, \textbf{idéntico al modelo de e-valUAM}. Así mismo, tanto SIETTE como e-valUAM poseen módulos de análisis de resultados. 
 
 SIETTE, sin embargo, también plantea importantes \textbf{diferencias} con e-valUAM. En general, podemos decir que SIETTE es un sistema \textbf{más maduro y completo} que e-valUAM. Mientras que en e-valUAM solo se permiten crear preguntas de opción múltiple y respuesta simple, en SIETTE se implementan \textbf{varios tipos de preguntas} adicionales:
 
