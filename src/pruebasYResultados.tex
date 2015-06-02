@@ -41,15 +41,15 @@ Desde el mes de \textbf{octubre hasta el final del curso}, los alumnos tuvieron 
 Los resultados de la experiencia fueron muy satisfactorios. A nivel técnico, \textbf{el sistema respondió correctamente}. La mayor prueba de estrés del sistema fue el día del examen final. Los 15 alumnos lo realizaron a la vez, lo que supuso aproximadamente 40 peticiones por minuto al servidor durante los 35 minutos que duró el examen. El sistema logró almacenar todas las respuestas correctamente, seleccionar todas las preguntas siguientes siguiendo el modelo y ningún alumno tuvo que esperar entre preguntas ni sufrió ningún corte del servicio. Tampoco se registró ningún problema en los 3 meses que los alumnos hicieron un uso más intensivo del mismo (de noviembre de 2013 a enero de 2014).
 
 % Hablar de qué se decidió cambiar
-Algunos alumnos mostraron malestar con el modelo del examen. Las molestias venían provocadas porque no se pudieran dejar preguntas en blanco ni que se pudiera revisar una respuesta anterior. Aunque la segunda es una imposición del modelo (al depender las nuevas preguntas de las respuestas anteriores, estas no pueden cambiar), la primera sí se tuvo en consideración añadiendo la opción al modelo de la respuesta con duda.
+Algunos alumnos mostraron malestar con el modelo del examen. Las molestias venían provocadas porque no se pudieran dejar preguntas en blanco ni que se pudiera revisar una respuesta anterior. Aunque la segunda es una imposición del modelo (al depender las nuevas preguntas de las respuestas anteriores, no pueden cambiar), la primera sí se tuvo en consideración añadiendo al modelo la ``respuesta con duda''.
 
-De cara a la creación del \textbf{ segundo prototipo}, además de añadir la respuesta con duda, se decidió crear el \textbf{apartado de gestión del profesor}, además de aumentar las capacidades de la aplicación para trabajar con \textbf{ficheros multimedia}. Así mismo, se hizo una \textbf{actualización de la interfaz} para adaptarla a todas las nuevas posibilidades multimedia que iban a incorporarse.
+La creación del \textbf{segundo prototipo}, además de añadir la ``respuesta con duda'', creó el \textbf{apartado de gestión del profesor}, aumentó las capacidades de la aplicación para trabajar con \textbf{ficheros multimedia}. e hizo una \textbf{actualización de la interfaz} para adaptarla a todas las nuevas posibilidades multimedia que iban a incorporarse.
 
 \section{2014/2015: Segundo prototipo}
 
-Durante el curso académico 2014/2015, \acrshort{e-valUAM} se utilizó en la asignatura de ``El Entorno como Instrumento Educativo'' del Grado en Educación Infantil, de dos formas. Por un lado se utilizó para un \textbf{test sobre el conocimiento informático} de los alumnos que sirvió para obtener información sobre los futuros usuarios y probar un nuevo modelo de adaptación. Por otro lado, se utilizó como \textbf{ parte de la asignatura}.
+Durante el curso académico 2014/2015, \acrshort{e-valUAM} se utilizó en la asignatura de ``El Entorno como Instrumento Educativo'' del Grado en Educación Infantil. Por un lado se utilizó para un \textbf{test sobre el conocimiento informático} de los alumnos que sirvió para obtener información sobre los futuros usuarios y probar un nuevo modelo de adaptación. Por otro lado, se utilizó como \textbf{ parte de la asignatura}.
 
-Las pruebas realizadas en este entorno fueron mucho \textbf{más extensas} que en el curso anterior, por varios motivos. Primero, había \textbf{más alumnos} y por lo tanto la aplicación se enfrentó a mayores picos de demanda. Segundo, se añadió \textbf{más funcionalidad} tanto para los profesores como para los alumnos.
+Las pruebas realizadas en este entorno fueron mucho \textbf{más extensas} que en el curso anterior por varios motivos. Primero, había \textbf{más alumnos} y por lo tanto la aplicación se enfrentó a mayores picos de demanda. Segundo, se añadió \textbf{más funcionalidad} tanto para los profesores como para los alumnos.
 
 En las siguientes secciones se detallan cómo fueron cada una de las experiencias.
 % Contar aquí que cambiamos el modelo
@@ -73,7 +73,7 @@ El objetivo de este test era triple. Buscábamos conocer cuál era el\textbf{ ni
 
 Cada pregunta tenía 4 opciones, siendo una de ellas siempre ``No lo sé''. Además, fue el primer examen donde se utilizó la opción de respuesta con duda. Por estas peculiaridades, el modelo descrito en \ref{sec:modelo adapatacion} se varió ligeramente. Todos los alumnos respondían primero a las 30 preguntas del primer nivel y después a las 30 del segundo nivel, sin importar las respuestas previas.
 
-Este cuestionario permitió \textbf{conocer mejor a los futuros usuarios}, además de probar el segundo prototipo del sistema antes de volver a utilizarlo en una asignatura real. Se hizo una prueba de estrés cuando los 25 alumnos de segundo curso de Ing. Informática realizaron a la vez el cuestionario. De nuevo, el sistema no mostró ningún problema. También sirvió para comprobar la \textbf{robustez del diseño} de la aplicación, ya que las modificaciones en el modelo de adaptación solo involucraron realizar cambios menores en uno de los ficheros, lo que parece indicar que la modularización se diseño correctamente.
+Este cuestionario permitió \textbf{conocer mejor a los futuros usuarios}, además de probar el segundo prototipo del sistema antes de volver a utilizarlo en una asignatura real. Se hizo una prueba de estrés cuando los 25 alumnos de segundo curso de Informática realizaron a la vez el cuestionario. De nuevo, el sistema no mostró ningún problema. También sirvió para comprobar la \textbf{robustez del diseño} de la aplicación, ya que las modificaciones en el modelo de adaptación solo involucraron realizar cambios menores en uno de los ficheros, lo que parece indicar que la modularización se diseño correctamente.
 
 \subsection{Alumnos del Grado en Educación Infantil}
 
@@ -123,13 +123,13 @@ Para resolver incidencias o dudas, se puso a disposición de los alumnos un corr
 
 \section{Comparativa con otras soluciones}
 
-Para comparar el sistema propuesto, de todas las herramientas disponibles, \textbf{se ha elegido SIETTE} (siglas de \textit{Sistema de Evaluación Inteligente mediante Tests para la Tele educación}), un sistema desarrollado principalmente por Ricardo Conejo Muñoz y Eduardo Guzmán De los Riscos, ambos del grupo $(IA)^2$, de la Universidad de Málaga. Se ha elegido SIETTE al ser un sistema con unos \textbf{objetivos muy similares} al nuestro con una \textbf{larga historia, completamente asentado y probado}. Se encuentra disponible en  \url{http://www.siette.org/siette/}
+Para comparar el sistema propuesto, de todas las herramientas disponibles, se ha elegido \textbf{SIETTE} (siglas de \textit{Sistema de Evaluación Inteligente mediante Tests para la Tele educación}), un sistema desarrollado principalmente por Ricardo Conejo Muñoz y Eduardo Guzmán De los Riscos, ambos del grupo $(IA)^2$, de la Universidad de Málaga. Se ha elegido SIETTE al ser un sistema con unos \textbf{objetivos muy similares} al nuestro con una \textbf{larga historia, completamente asentado y probado}\cite. Se encuentra disponible en \cite{SIETTE}.
 
 SIETTE se empezó a desarrollar en los 90 como el \textbf{componente de generación de exámenes adaptativos} de un sistema mayor cuyo objetivo era la clasificación e identifiación de distintas especies vegetales europeas, además de promover el conocimiento sobre ellas. El proyecto, conocido como TREE, se componía del sistema de generación de exámenes (SIETTE), un \textit{Intelligent Tutoring System} y un sistema experto encargado de la clasificación de las especies vegetales\cite{Rios98}. Desde entonces SIETTE ha evolucionado siendo utilizada en \textbf{nuevos dominios}, como la educación infantil\cite{Trella08} o evaluación colaborativa \cite{Conejo09}.
 
-Tanto SIETTE como e-valUAM se engloban dentro de los \acrshort{CAT}, aunque SIETTE se centra en técnicas de la \textit{Item Response Theory} (\acrshort{IRT}) y de la \textit{Classical Test Theory} (\acrshort{CTT}) mientras que e-valUAM se fija más en la \acrshort{AEH}.
+Tanto SIETTE como e-valUAM se engloban dentro de los \acrshort{CAT}, aunque SIETTE se centra en técnicas de la \textit{Item Response Theory} (\acrshort{IRT}) y de la \textit{Classical Test Theory} (\acrshort{CTT}) mientras que e-valUAM en la \acrshort{AEH}.
 
-Aún así, SIETTE y e-valUAM presentan muchas \textbf{similitudes}. La abstracción que SIETTE realiza del dominio de la evaluación es bastante similar al explorado en e-valUAM, como se puede ver en la figura \ref{fig:SIETTE workflow}, en la que se presenta el flujo de trabajo de SIETTE. 
+Aún así, SIETTE y e-valUAM presentan muchas \textbf{similitudes}. La abstracción que SIETTE realiza del dominio de la evaluación es bastante similar en e-valUAM, como se puede ver en la figura \ref{fig:SIETTE workflow}, en la que se presenta el flujo de trabajo de SIETTE. 
 
 \begin{figure}[htp!]
 	\centering
@@ -138,9 +138,9 @@ Aún así, SIETTE y e-valUAM presentan muchas \textbf{similitudes}. La abstracci
 	\label{fig:SIETTE workflow}
 \end{figure}
 
-Lo que en SIETTE son editors, subjects, items y tests, en e-valUAM son profesores, materias, preguntas y cuestionarios y el flujo de trabajo es prácticamente idéntico. En un pricipio SIETTE permitía que una pregunta perteneciera a uno o varios temas, y que los exámenes estuvieran compuestos de uno o varios temas, pudiendo estar un tema en varios exámenes\cite{Conejo04}. Sin embargo, las últimas versiones de SIETTE siguen una estructura jerárquica en la que cada pregunta corresponde a un tema, \textbf{idéntico al modelo de e-valUAM}. Así mismo, tanto SIETTE como e-valUAM poseen módulos de análisis de resultados. 
+Lo que en SIETTE son editors, subjects, items y tests, en e-valUAM son profesores, materias, preguntas y cuestionarios y el flujo de trabajo es prácticamente idéntico. SIETTE permitía que una pregunta perteneciera a uno o varios temas, y que los exámenes estuvieran compuestos de uno o varios, pudiendo estar un tema en varios exámenes\cite{Conejo04}. Sin embargo, las últimas versiones de SIETTE siguen una estructura jerárquica en la que cada pregunta corresponde a un tema, \textbf{idéntico al modelo de e-valUAM}. Así mismo, tanto SIETTE como e-valUAM poseen módulos de análisis de resultados. 
 
-SIETTE, sin embargo, también plantea importantes \textbf{diferencias} con e-valUAM. En general, podemos decir que SIETTE es un sistema \textbf{más maduro y completo} que e-valUAM. Mientras que en e-valUAM solo se permiten crear preguntas de opción múltiple y respuesta simpel, en SIETTE se implementan \textbf{varios tipos de preguntas} adicionales:
+SIETTE, sin embargo, también plantea importantes \textbf{diferencias} con e-valUAM. En general, podemos decir que SIETTE es un sistema \textbf{más maduro y completo} que e-valUAM. Mientras que en e-valUAM solo se permiten crear preguntas de opción múltiple y respuesta simple, en SIETTE se implementan \textbf{varios tipos de preguntas} adicionales:
 
 \begin{itemize}
 	\item Opción múltiple y respuestas múltiple.
@@ -150,5 +150,5 @@ SIETTE, sin embargo, también plantea importantes \textbf{diferencias} con e-val
 
 El \textbf{análisis de resultados} también es más extenso. SIETTE presenta una característica que permite a los profesores definir errores conceptuales que pueden tener los alumnos en una materia y definir unas reglas que caractericen las respuestas que comentan dichos errores. Una vez definida esta información, el sistema genera informes indicando qué alumnos han cometido qué errores conceptuales.
 
-Otra diferencia importante es que aunque en e-valUAM se han probado varios sistemas de adaptación distintos que han derivado en varias formas de clasificar distintos, aún no se le permite al profesor elegir qué sistema desea aplicar desde su interfaz de configuración. SIETTE tiene desarrollados tres \textbf{métodos de evaluación distintos} (por puntos, porcentual o por \acrshort{IRT}) que están disponibles para los docentes.
+Otra diferencia importante es que aunque en e-valUAM se han probado varios sistemas de adaptación distintos que han derivado en varias formas de clasificar distintas, aún no se le permite al profesor elegir qué sistema desea aplicar desde su interfaz de configuración. SIETTE tiene desarrollados tres \textbf{métodos de evaluación distintos} (por puntos, porcentual o por \acrshort{IRT}) que están disponibles para los docentes.
 
