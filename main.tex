@@ -50,12 +50,19 @@
 %
 \include{src/agradecimientos}  
 
+
 %
 % Tabla de contenidos
 %
+
+\begingroup
+\renewcommand{\cleardoublepage}{}
+\renewcommand{\clearpage}{}
 \tableofcontents
 \listoftables
 \listoffigures
+\endgroup
+
 \cleardoublepage
 
 %
@@ -105,6 +112,8 @@
 % Página en blanco
 %
 \cleardoublepage
+
+\addtocontents{toc}{\protect\newpage}
 
 %
 % Bibliografía
