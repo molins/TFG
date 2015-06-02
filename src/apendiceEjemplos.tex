@@ -12,17 +12,65 @@
 
 \dirtree{%
  .1 /.
- .2 multimedia.
- .3 1.
- .3 2.
- .3 \ldots.
- .2 profesor.
- .3 ayuda.php.
- .3 borrarPregunta.php.
- .3 estadisticas.php.
- .3 estadisticasRequest.php.
- .3 examenBorrar.php.
+ .2 index.php\DTcomment{Pantalla de login}.
+ .2 eleccionExamen.php\DTcomment{Presentación y listado de exámenes disponibles}.
+ .2 examen.php\DTcomment{Fichero con el motor de adaptación}.
+ .2 finExamen.php\DTcomment{Resultados del examen}.
  .2 cambiarContrasenya.php.
+ .2 estilo.css.
+ .2 favicon.png.
+ .2 funcionesAlumno.php\DTcomment{Fichero auxiliar con funciones PHP}.
+ .2 multimedia\DTcomment{Directorio para los ficheros multimedia}.
+ .3 0\DTcomment{Un directorio por cada materia, con sus ficheros dentro}.
+ .4 Amon.bmp.
+ .4 Anubis.bmp.
+ .4 Asedioramses.bmp.
+ .4 \ldots.
+ .3 1.
+ .4 Archivoebla.bmp.
+ .4 Codigodehammurabi.bmp.
+ .4 \ldots.
+ .3 \ldots.
+ .3 46\DTcomment{En total se han creado 46 materias distintas}.
+ .4 1.mp3.
+ .4 1a.jpg.
+ .4 1b.jpg.
+ .4 1c.jpg.
+ .4 2.mp3.
+ .4 \ldots.
+ .3 logos\DTcomment{Directorio con los logos corporativos}.
+ .4 ope.bmp.
+ .4 uam.jpg.
+ .2 profesor\DTcomment{Directorio con los ficheros de la sección de profesor}.
+ .3 index.php\DTcomment{Login}.
+ .3 salir.php\DTcomment{Logout}.
+ .3 ayuda.php\DTcomment{Introducción al sistema de gestión}.
+ .3 profesor.php\DTcomment{Comprueba que el usuario tenga permisos de profesor}.
+ .3 funcionesProfesor.php\DTcomment{Fichero auxiliar con funciones PHP}.
+ .3 materiasGestion.php\DTcomment{\texttt{*Gestion} es la interfaz de creación y listado}.
+ .3 materaiasRequest.php\DTcomment{\texttt{*Request} procesa peticiones AJAX de \texttt{*Gestion}}.
+ .3 preguntasGestion.php\DTcomment{Hay un \texttt{*Gestion} y un \texttt{*Request} para cada ente}.
+ .3 preguntasRequest.php.
+ .3 preguntasMostrar.php\DTcomment{Interfaz que lista todas las preguntas de una materia}.
+}
+
+\dirtree{%
+ .1 /.
+ .2 profesor.
+ .3 examenGestion.php.
+ .3 examenRequest.php.
+ .3 multimediaGestion.php.
+ .3 multimediaRequest.php.
+ .3 multimediaView.php\DTcomment{Interfaz que lista todos los ficheros de una materia}.
+ .3 estadisticas.php\DTcomment{Módulo de análisis de resultados}.
+ .3 estadisticasRequest.php.
+ .3 recuperarExamenesRequest.php\DTcomment{Módulo para revisar los cuestionarios respondidos}.
+ .3 recuperarExamenes.php.
+ .2 vendor\DTcomment{Directorio con las bibliotecas usadas en el proyecto}.
+ .3 bootstrap.min.css.
+ .3 bootstrap.min.js.
+ .3 boostrap-confirmation.js.
+ .3 jquery.min.js.
 }
 
 %\chapter{Código más relevante\label{apen:codigo}}
